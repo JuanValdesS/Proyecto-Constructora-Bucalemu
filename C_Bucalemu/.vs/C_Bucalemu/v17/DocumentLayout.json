@@ -1,0 +1,89 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\juan\\desktop\\proyecto constructora bucalemu\\proyecto-constructora-bucalemu\\c_bucalemu\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\juan\\desktop\\proyecto constructora bucalemu\\proyecto-constructora-bucalemu\\c_bucalemu\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\juan\\desktop\\proyecto constructora bucalemu\\proyecto-constructora-bucalemu\\c_bucalemu\\form2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:form2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\juan\\desktop\\proyecto constructora bucalemu\\proyecto-constructora-bucalemu\\c_bucalemu\\c_bucalemu.vbproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:c_bucalemu.vbproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "C_Bucalemu",
+              "DocumentMoniker": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\C_Bucalemu.vbproj",
+              "RelativeDocumentMoniker": "C_Bucalemu.vbproj",
+              "ToolTip": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\C_Bucalemu.vbproj",
+              "RelativeToolTip": "C_Bucalemu.vbproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003380|",
+              "WhenOpened": "2025-02-28T02:25:37.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form2.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Form2.vb",
+              "RelativeDocumentMoniker": "Form2.vb",
+              "ToolTip": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Form2.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Form2.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-02-28T02:14:41.525Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.vb",
+              "DocumentMoniker": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Form1.vb",
+              "RelativeDocumentMoniker": "Form1.vb",
+              "ToolTip": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Form1.vb",
+              "RelativeToolTip": "Form1.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-02-28T02:14:24.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Form1.vb",
+              "RelativeDocumentMoniker": "Form1.vb",
+              "ToolTip": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Form1.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Form1.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-02-28T02:06:26.889Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
