@@ -34,6 +34,7 @@ Partial Class Form1
         ' 
         ' btnLogin
         ' 
+        btnLogin.BackColor = Color.LightSteelBlue
         btnLogin.Cursor = Cursors.Hand
         btnLogin.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic)
         btnLogin.Location = New Point(306, 292)
@@ -41,10 +42,11 @@ Partial Class Form1
         btnLogin.Size = New Size(104, 69)
         btnLogin.TabIndex = 0
         btnLogin.Text = "Login"
-        btnLogin.UseVisualStyleBackColor = True
+        btnLogin.UseVisualStyleBackColor = False
         ' 
         ' btnResgistrar
         ' 
+        btnResgistrar.BackColor = Color.LightSteelBlue
         btnResgistrar.Cursor = Cursors.Hand
         btnResgistrar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic)
         btnResgistrar.Location = New Point(458, 292)
@@ -52,11 +54,12 @@ Partial Class Form1
         btnResgistrar.Size = New Size(104, 69)
         btnResgistrar.TabIndex = 1
         btnResgistrar.Text = "Registro"
-        btnResgistrar.UseVisualStyleBackColor = True
+        btnResgistrar.UseVisualStyleBackColor = False
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
+        Label1.BackColor = Color.LightSteelBlue
         Label1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(306, 72)
         Label1.Name = "Label1"
@@ -67,6 +70,7 @@ Partial Class Form1
         ' Label2
         ' 
         Label2.AutoSize = True
+        Label2.BackColor = Color.LightSteelBlue
         Label2.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         Label2.Location = New Point(306, 158)
         Label2.Name = "Label2"
@@ -76,6 +80,7 @@ Partial Class Form1
         ' 
         ' txtUsuario
         ' 
+        txtUsuario.BackColor = Color.AliceBlue
         txtUsuario.Cursor = Cursors.IBeam
         txtUsuario.Font = New Font("Segoe UI Symbol", 9F)
         txtUsuario.Location = New Point(306, 95)
@@ -86,6 +91,7 @@ Partial Class Form1
         ' 
         ' txtPassword
         ' 
+        txtPassword.BackColor = Color.AliceBlue
         txtPassword.Cursor = Cursors.IBeam
         txtPassword.Font = New Font("Segoe UI Symbol", 9F)
         txtPassword.Location = New Point(306, 181)
@@ -99,6 +105,7 @@ Partial Class Form1
         ' lblMensaje
         ' 
         lblMensaje.AutoSize = True
+        lblMensaje.BackColor = Color.LightSteelBlue
         lblMensaje.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic)
         lblMensaje.Location = New Point(306, 242)
         lblMensaje.Name = "lblMensaje"
@@ -110,6 +117,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(9F, 20F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.LightSteelBlue
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(900, 450)
