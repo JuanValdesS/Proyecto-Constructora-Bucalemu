@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class Login
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         btnLogin = New Button()
         btnResgistrar = New Button()
         Label1 = New Label()
@@ -61,6 +61,7 @@ Partial Class Form1
         Label1.AutoSize = True
         Label1.BackColor = Color.LightSteelBlue
         Label1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = SystemColors.Desktop
         Label1.Location = New Point(306, 72)
         Label1.Name = "Label1"
         Label1.Size = New Size(60, 20)
@@ -113,7 +114,7 @@ Partial Class Form1
         lblMensaje.TabIndex = 6
         lblMensaje.Text = "Mensaje"
         ' 
-        ' Form1
+        ' Login
         ' 
         AutoScaleDimensions = New SizeF(9F, 20F)
         AutoScaleMode = AutoScaleMode.Font
@@ -130,7 +131,7 @@ Partial Class Form1
         Controls.Add(btnLogin)
         Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Name = "Form1"
+        Name = "Login"
         Text = "Inicio de Sesión"
         ResumeLayout(False)
         PerformLayout()

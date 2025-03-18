@@ -3,9 +3,9 @@ Imports System.Text
 Imports System.IO
 Imports Newtonsoft.Json.Linq
 
-Public Class Form1
+Public Class Login
 
-    Dim sh As New Form2()
+    Dim sh As New Menú()
     Dim firebaseApiKey As String = "AIzaSyAGoZxK9tfLNIxHHsmiQQAIq_k2TnscOro"
     Private Function FirebaseRequest(ByVal url As String, ByVal jsonData As String) As String
         Try
@@ -30,24 +30,24 @@ Public Class Form1
     End Function
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        Dim email As String = txtUsuario.Text
-        Dim password As String = txtPassword.Text
+        Dim email = txtUsuario.Text
+        Dim password = txtPassword.Text
 
         If email = "" Or password = "" Then
             lblMensaje.Text = "Ingresa correo y contraseña"
             Return
         End If
 
-        Dim url As String = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" & firebaseApiKey
-        Dim json As String = "{""email"":""" & email & """, ""password"":""" & password & """, ""returnSecureToken"":true}"
+        Dim url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" & firebaseApiKey
+        Dim json = "{""email"":""" & email & """, ""password"":""" & password & """, ""returnSecureToken"":true}"
 
-        Dim response As String = FirebaseRequest(url, json)
+        Dim response = FirebaseRequest(url, json)
         If response.Contains("idToken") Then
             MessageBox.Show("¡¡Inicio de sesión exitoso!!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
             txtUsuario.Clear()
             txtPassword.Clear()
             sh.Show()
-            Me.Hide()
+            Hide()
 
         Else
             MessageBox.Show("Error en el inicio de sesión", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -79,5 +79,9 @@ Public Class Form1
             txtUsuario.Clear()
             txtPassword.Clear()
         End If
+    End Sub
+
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
