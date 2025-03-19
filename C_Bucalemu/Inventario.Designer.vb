@@ -28,70 +28,86 @@ Partial Class Inventario
         Label1 = New Label()
         Label2 = New Label()
         DataGridView1 = New DataGridView()
+        Button1 = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnAgregar
         ' 
-        btnAgregar.Location = New Point(54, 114)
+        btnAgregar.Location = New Point(47, 86)
+        btnAgregar.Margin = New Padding(3, 2, 3, 2)
         btnAgregar.Name = "btnAgregar"
-        btnAgregar.Size = New Size(161, 51)
+        btnAgregar.Size = New Size(141, 38)
         btnAgregar.TabIndex = 0
         btnAgregar.Text = "Agregar"
         btnAgregar.UseVisualStyleBackColor = True
         ' 
         ' txtMaterial
         ' 
-        txtMaterial.Location = New Point(54, 59)
+        txtMaterial.Location = New Point(47, 44)
+        txtMaterial.Margin = New Padding(3, 2, 3, 2)
         txtMaterial.Name = "txtMaterial"
-        txtMaterial.Size = New Size(166, 27)
+        txtMaterial.Size = New Size(146, 23)
         txtMaterial.TabIndex = 1
         ' 
         ' txtCantidad
         ' 
-        txtCantidad.Location = New Point(303, 59)
+        txtCantidad.Location = New Point(265, 44)
+        txtCantidad.Margin = New Padding(3, 2, 3, 2)
         txtCantidad.Name = "txtCantidad"
-        txtCantidad.Size = New Size(91, 27)
+        txtCantidad.Size = New Size(80, 23)
         txtCantidad.TabIndex = 2
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(54, 36)
+        Label1.Location = New Point(47, 27)
         Label1.Name = "Label1"
-        Label1.Size = New Size(64, 20)
+        Label1.Size = New Size(50, 15)
         Label1.TabIndex = 3
         Label1.Text = "Material"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(303, 36)
+        Label2.Location = New Point(265, 27)
         Label2.Name = "Label2"
-        Label2.Size = New Size(69, 20)
+        Label2.Size = New Size(55, 15)
         Label2.TabIndex = 4
         Label2.Text = "Cantidad"
         ' 
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(54, 195)
+        DataGridView1.Location = New Point(47, 146)
+        DataGridView1.Margin = New Padding(3, 2, 3, 2)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(573, 218)
+        DataGridView1.Size = New Size(501, 164)
         DataGridView1.TabIndex = 5
+        ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(613, 287)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(75, 23)
+        Button1.TabIndex = 6
+        Button1.Text = "Menu"
+        Button1.UseVisualStyleBackColor = True
         ' 
         ' Inventario
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
+        ClientSize = New Size(700, 338)
+        Controls.Add(Button1)
         Controls.Add(DataGridView1)
         Controls.Add(Label2)
         Controls.Add(Label1)
         Controls.Add(txtCantidad)
         Controls.Add(txtMaterial)
         Controls.Add(btnAgregar)
+        Margin = New Padding(3, 2, 3, 2)
         Name = "Inventario"
         Text = "Inventario"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
@@ -105,4 +121,5 @@ Partial Class Inventario
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Button1 As Button
 End Class
