@@ -28,6 +28,7 @@ Partial Class Menú
         btn_inventario = New Button()
         btn_reportes = New Button()
         Label1 = New Label()
+        btn_logout = New Button()
         SuspendLayout()
         ' 
         ' btn_Compras
@@ -90,6 +91,17 @@ Partial Class Menú
         Label1.TabIndex = 4
         Label1.Text = "Bienvenidos al menú principal C.Bucalemu"
         ' 
+        ' btn_logout
+        ' 
+        btn_logout.BackColor = Color.RosyBrown
+        btn_logout.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btn_logout.Location = New Point(240, 395)
+        btn_logout.Name = "btn_logout"
+        btn_logout.Size = New Size(109, 60)
+        btn_logout.TabIndex = 5
+        btn_logout.Text = "Cerrar Sesión"
+        btn_logout.UseVisualStyleBackColor = False
+        ' 
         ' Menú
         ' 
         AccessibleRole = AccessibleRole.None
@@ -97,7 +109,8 @@ Partial Class Menú
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
-        ClientSize = New Size(593, 450)
+        ClientSize = New Size(593, 467)
+        Controls.Add(btn_logout)
         Controls.Add(Label1)
         Controls.Add(btn_reportes)
         Controls.Add(btn_inventario)
@@ -115,4 +128,5 @@ Partial Class Menú
     Friend WithEvents btn_inventario As Button
     Friend WithEvents btn_reportes As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents btn_logout As Button
 End Class

@@ -23,4 +23,18 @@
     Private Sub Menú_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub btn_logout_Click(sender As Object, e As EventArgs) Handles btn_logout.Click
+        Dim sh As New Login()
+        ' Mostrar cuadro de mensaje con opciones Sí y No
+        Dim resultado As DialogResult = MessageBox.Show("¿Estás seguro de que deseas cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        ' Si el usuario selecciona "Sí", proceder a redirigir al login
+        If resultado = DialogResult.Yes Then
+            ' Aquí debes redirigir al formulario de login
+            ' Por ejemplo, si tu formulario de login se llama "FormLogin"
+            Me.Close() ' Oculta el formulario actual
+            sh.Show() ' Muestra el formulario de login
+        End If
+    End Sub
 End Class
