@@ -2,6 +2,7 @@
     Dim compras As New Compras()
     Dim inventario As New Inventario()
     Dim repo As New Reportes()
+    Dim VerInventario As New VerInventario()
     Private Sub btn_Compras_Click(sender As Object, e As EventArgs) Handles btn_Compras.Click
         compras.Show()
         Me.Close()
@@ -36,5 +37,11 @@
             Me.Close() ' Oculta el formulario actual
             sh.Show() ' Muestra el formulario de login
         End If
+    End Sub
+
+    Private Sub btnVerInventario_Click(sender As Object, e As EventArgs) Handles btnVerInventario.Click
+        VerInventario.Show()
+        Me.Close()
+
     End Sub
 End Class

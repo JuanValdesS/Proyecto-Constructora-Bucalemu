@@ -29,6 +29,7 @@ Partial Class Menú
         btn_reportes = New Button()
         Label1 = New Label()
         btn_logout = New Button()
+        btnVerInventario = New Button()
         SuspendLayout()
         ' 
         ' btn_Compras
@@ -36,9 +37,10 @@ Partial Class Menú
         btn_Compras.BackColor = Color.Moccasin
         btn_Compras.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_Compras.ForeColor = SystemColors.ActiveCaptionText
-        btn_Compras.Location = New Point(220, 77)
+        btn_Compras.Location = New Point(192, 58)
+        btn_Compras.Margin = New Padding(3, 2, 3, 2)
         btn_Compras.Name = "btn_Compras"
-        btn_Compras.Size = New Size(159, 46)
+        btn_Compras.Size = New Size(139, 34)
         btn_Compras.TabIndex = 0
         btn_Compras.Text = "Compras"
         btn_Compras.UseVisualStyleBackColor = False
@@ -48,9 +50,10 @@ Partial Class Menú
         btn_cubicacion.BackColor = Color.Moccasin
         btn_cubicacion.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_cubicacion.ForeColor = SystemColors.ActiveCaptionText
-        btn_cubicacion.Location = New Point(220, 223)
+        btn_cubicacion.Location = New Point(192, 167)
+        btn_cubicacion.Margin = New Padding(3, 2, 3, 2)
         btn_cubicacion.Name = "btn_cubicacion"
-        btn_cubicacion.Size = New Size(159, 46)
+        btn_cubicacion.Size = New Size(139, 34)
         btn_cubicacion.TabIndex = 1
         btn_cubicacion.Text = "Cubicacion"
         btn_cubicacion.UseVisualStyleBackColor = False
@@ -60,9 +63,10 @@ Partial Class Menú
         btn_inventario.BackColor = Color.Moccasin
         btn_inventario.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_inventario.ForeColor = SystemColors.ActiveCaptionText
-        btn_inventario.Location = New Point(220, 148)
+        btn_inventario.Location = New Point(192, 111)
+        btn_inventario.Margin = New Padding(3, 2, 3, 2)
         btn_inventario.Name = "btn_inventario"
-        btn_inventario.Size = New Size(159, 46)
+        btn_inventario.Size = New Size(139, 34)
         btn_inventario.TabIndex = 2
         btn_inventario.Text = "Inventario"
         btn_inventario.UseVisualStyleBackColor = False
@@ -72,9 +76,10 @@ Partial Class Menú
         btn_reportes.BackColor = Color.Moccasin
         btn_reportes.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_reportes.ForeColor = SystemColors.ActiveCaptionText
-        btn_reportes.Location = New Point(220, 343)
+        btn_reportes.Location = New Point(192, 257)
+        btn_reportes.Margin = New Padding(3, 2, 3, 2)
         btn_reportes.Name = "btn_reportes"
-        btn_reportes.Size = New Size(159, 46)
+        btn_reportes.Size = New Size(139, 34)
         btn_reportes.TabIndex = 3
         btn_reportes.Text = "Reportar"
         btn_reportes.UseVisualStyleBackColor = False
@@ -85,9 +90,9 @@ Partial Class Menú
         Label1.BackColor = Color.Moccasin
         Label1.Font = New Font("Segoe UI Symbol", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = SystemColors.Desktop
-        Label1.Location = New Point(95, 26)
+        Label1.Location = New Point(83, 20)
         Label1.Name = "Label1"
-        Label1.Size = New Size(417, 28)
+        Label1.Size = New Size(343, 21)
         Label1.TabIndex = 4
         Label1.Text = "Bienvenidos al menú principal C.Bucalemu"
         ' 
@@ -95,21 +100,36 @@ Partial Class Menú
         ' 
         btn_logout.BackColor = Color.RosyBrown
         btn_logout.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn_logout.Location = New Point(240, 395)
+        btn_logout.Location = New Point(210, 296)
+        btn_logout.Margin = New Padding(3, 2, 3, 2)
         btn_logout.Name = "btn_logout"
-        btn_logout.Size = New Size(109, 60)
+        btn_logout.Size = New Size(95, 45)
         btn_logout.TabIndex = 5
         btn_logout.Text = "Cerrar Sesión"
         btn_logout.UseVisualStyleBackColor = False
         ' 
+        ' btnVerInventario
+        ' 
+        btnVerInventario.BackColor = Color.Moccasin
+        btnVerInventario.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
+        btnVerInventario.ForeColor = SystemColors.ActiveCaptionText
+        btnVerInventario.Location = New Point(192, 219)
+        btnVerInventario.Margin = New Padding(3, 2, 3, 2)
+        btnVerInventario.Name = "btnVerInventario"
+        btnVerInventario.Size = New Size(139, 34)
+        btnVerInventario.TabIndex = 6
+        btnVerInventario.Text = "Ver Inventario"
+        btnVerInventario.UseVisualStyleBackColor = False
+        ' 
         ' Menú
         ' 
         AccessibleRole = AccessibleRole.None
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
-        ClientSize = New Size(593, 467)
+        ClientSize = New Size(519, 350)
+        Controls.Add(btnVerInventario)
         Controls.Add(btn_logout)
         Controls.Add(Label1)
         Controls.Add(btn_reportes)
@@ -117,6 +137,7 @@ Partial Class Menú
         Controls.Add(btn_cubicacion)
         Controls.Add(btn_Compras)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Margin = New Padding(3, 2, 3, 2)
         Name = "Menú"
         Text = "Menú"
         ResumeLayout(False)
@@ -129,4 +150,5 @@ Partial Class Menú
     Friend WithEvents btn_reportes As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents btn_logout As Button
+    Friend WithEvents btnVerInventario As Button
 End Class
