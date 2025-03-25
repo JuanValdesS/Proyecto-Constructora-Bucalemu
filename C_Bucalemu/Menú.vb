@@ -1,15 +1,15 @@
 ﻿Public Class Menú
-    Dim compras As New Compras()
-    Dim inventario As New Inventario()
+    Dim compra As New Compras()
+    Dim mod_material As New mod_material()
     Dim repo As New Reportes()
-    Dim VerInventario As New VerInventario()
+    Dim VerInventario As New Inventario()
     Private Sub btn_Compras_Click(sender As Object, e As EventArgs) Handles btn_Compras.Click
-        compras.Show()
+        compra.Show()
         Me.Close()
     End Sub
 
     Private Sub btn_inventario_Click(sender As Object, e As EventArgs) Handles btn_inventario.Click
-        inventario.Show()
+        mod_material.Show()
         Hide()
     End Sub
 

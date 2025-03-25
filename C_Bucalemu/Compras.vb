@@ -23,4 +23,9 @@
     Private Sub lstMaterial_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstMaterial.SelectedIndexChanged
 
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Menú.Show()
+        Me.Close()
+    End Sub
 End Class
