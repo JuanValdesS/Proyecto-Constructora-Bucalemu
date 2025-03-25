@@ -54,7 +54,7 @@ Partial Class mod_material
         txtMaterial.Location = New Point(47, 54)
         txtMaterial.Name = "txtMaterial"
         txtMaterial.PlaceholderText = "Nombre del material"
-        txtMaterial.Size = New Size(146, 25)
+        txtMaterial.Size = New Size(146, 21)
         txtMaterial.TabIndex = 1
         ' 
         ' txtCantidad
@@ -64,7 +64,7 @@ Partial Class mod_material
         txtCantidad.Location = New Point(265, 54)
         txtCantidad.Name = "txtCantidad"
         txtCantidad.PlaceholderText = "cantidad"
-        txtCantidad.Size = New Size(77, 25)
+        txtCantidad.Size = New Size(77, 21)
         txtCantidad.TabIndex = 2
         ' 
         ' Label1
@@ -75,7 +75,7 @@ Partial Class mod_material
         Label1.ForeColor = SystemColors.ActiveCaptionText
         Label1.Location = New Point(47, 31)
         Label1.Name = "Label1"
-        Label1.Size = New Size(72, 20)
+        Label1.Size = New Size(58, 15)
         Label1.TabIndex = 3
         Label1.Text = "Material"
         ' 
@@ -87,7 +87,7 @@ Partial Class mod_material
         Label2.ForeColor = SystemColors.ActiveCaptionText
         Label2.Location = New Point(265, 31)
         Label2.Name = "Label2"
-        Label2.Size = New Size(77, 20)
+        Label2.Size = New Size(63, 15)
         Label2.TabIndex = 4
         Label2.Text = "Cantidad"
         ' 
@@ -127,7 +127,7 @@ Partial Class mod_material
         Label3.ForeColor = SystemColors.ActiveCaptionText
         Label3.Location = New Point(368, 31)
         Label3.Name = "Label3"
-        Label3.Size = New Size(79, 20)
+        Label3.Size = New Size(64, 15)
         Label3.TabIndex = 7
         Label3.Text = "Unidades"
         ' 
@@ -139,12 +139,12 @@ Partial Class mod_material
         ComboBox1.Items.AddRange(New Object() {"Unidade(s)", "Kilogramo(s)", "Metros cuadrado(s)", "Metros Cúbico(s)", "Milímetro(s)"})
         ComboBox1.Location = New Point(368, 54)
         ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(79, 25)
+        ComboBox1.Size = New Size(79, 20)
         ComboBox1.TabIndex = 8
         ' 
         ' mod_material
         ' 
-        AutoScaleDimensions = New SizeF(7F, 17F)
+        AutoScaleDimensions = New SizeF(6F, 12F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)

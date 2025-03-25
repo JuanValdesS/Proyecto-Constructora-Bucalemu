@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Inventario
+Partial Class Autorizar
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,52 +22,64 @@ Partial Class Inventario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inventario))
-        Prueba = New Label()
+        btnAceptar = New Button()
+        btnRechazar = New Button()
+        btnMenu = New Button()
         DataGridView1 = New DataGridView()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' Prueba
+        ' btnAceptar
         ' 
-        Prueba.AutoSize = True
-        Prueba.BackColor = Color.LightSteelBlue
-        Prueba.FlatStyle = FlatStyle.Flat
-        Prueba.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Prueba.ForeColor = SystemColors.ControlText
-        Prueba.Location = New Point(78, 27)
-        Prueba.Name = "Prueba"
-        Prueba.Size = New Size(32, 15)
-        Prueba.TabIndex = 2
-        Prueba.Text = "Info"
+        btnAceptar.Location = New Point(648, 72)
+        btnAceptar.Name = "btnAceptar"
+        btnAceptar.Size = New Size(75, 23)
+        btnAceptar.TabIndex = 1
+        btnAceptar.Text = "Aceptar"
+        btnAceptar.UseVisualStyleBackColor = True
+        ' 
+        ' btnRechazar
+        ' 
+        btnRechazar.Location = New Point(648, 101)
+        btnRechazar.Name = "btnRechazar"
+        btnRechazar.Size = New Size(75, 23)
+        btnRechazar.TabIndex = 2
+        btnRechazar.Text = "Rechazar"
+        btnRechazar.UseVisualStyleBackColor = True
+        ' 
+        ' btnMenu
+        ' 
+        btnMenu.Location = New Point(648, 398)
+        btnMenu.Name = "btnMenu"
+        btnMenu.Size = New Size(75, 23)
+        btnMenu.TabIndex = 3
+        btnMenu.Text = "Menu"
+        btnMenu.UseVisualStyleBackColor = True
         ' 
         ' DataGridView1
         ' 
-        DataGridView1.BackgroundColor = Color.AliceBlue
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(78, 44)
-        DataGridView1.Margin = New Padding(3, 2, 3, 2)
+        DataGridView1.Location = New Point(59, 72)
         DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(568, 316)
-        DataGridView1.TabIndex = 3
+        DataGridView1.Size = New Size(528, 349)
+        DataGridView1.TabIndex = 4
         ' 
-        ' Inventario
+        ' Autorizar
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.LightSteelBlue
-        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
-        BackgroundImageLayout = ImageLayout.Stretch
-        ClientSize = New Size(720, 415)
+        ClientSize = New Size(800, 450)
         Controls.Add(DataGridView1)
-        Controls.Add(Prueba)
-        Name = "Inventario"
-        Text = "Inventario"
+        Controls.Add(btnMenu)
+        Controls.Add(btnRechazar)
+        Controls.Add(btnAceptar)
+        Name = "Autorizar"
+        Text = "Form1"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
-    Friend WithEvents Prueba As Label
+    Friend WithEvents btnAceptar As Button
+    Friend WithEvents btnRechazar As Button
+    Friend WithEvents btnMenu As Button
     Friend WithEvents DataGridView1 As DataGridView
 End Class

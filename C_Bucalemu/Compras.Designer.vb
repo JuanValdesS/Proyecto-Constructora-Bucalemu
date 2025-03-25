@@ -26,20 +26,23 @@ Partial Class Compras
         btnAgregar = New Button()
         btnEliminar = New Button()
         btnSolicitar = New Button()
-        lstMaterial = New ListBox()
         txtMaterial = New TextBox()
         nCantidad = New NumericUpDown()
         Label1 = New Label()
         Label2 = New Label()
         Button1 = New Button()
+        Label3 = New Label()
+        cbUnidad = New ComboBox()
+        dgCompras = New DataGridView()
         CType(nCantidad, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgCompras, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnAgregar
         ' 
         btnAgregar.BackColor = SystemColors.ActiveCaption
         btnAgregar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        btnAgregar.Location = New Point(619, 204)
+        btnAgregar.Location = New Point(789, 170)
         btnAgregar.Margin = New Padding(3, 4, 3, 4)
         btnAgregar.Name = "btnAgregar"
         btnAgregar.Size = New Size(97, 31)
@@ -51,7 +54,7 @@ Partial Class Compras
         ' 
         btnEliminar.BackColor = SystemColors.ActiveCaption
         btnEliminar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        btnEliminar.Location = New Point(619, 255)
+        btnEliminar.Location = New Point(789, 209)
         btnEliminar.Margin = New Padding(3, 4, 3, 4)
         btnEliminar.Name = "btnEliminar"
         btnEliminar.Size = New Size(97, 31)
@@ -63,24 +66,13 @@ Partial Class Compras
         ' 
         btnSolicitar.BackColor = SystemColors.ActiveCaption
         btnSolicitar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        btnSolicitar.Location = New Point(619, 307)
+        btnSolicitar.Location = New Point(791, 248)
         btnSolicitar.Margin = New Padding(3, 4, 3, 4)
         btnSolicitar.Name = "btnSolicitar"
         btnSolicitar.Size = New Size(97, 31)
         btnSolicitar.TabIndex = 2
         btnSolicitar.Text = "Solicitar"
         btnSolicitar.UseVisualStyleBackColor = False
-        ' 
-        ' lstMaterial
-        ' 
-        lstMaterial.BackColor = Color.AliceBlue
-        lstMaterial.Font = New Font("Arial Narrow", 9F, FontStyle.Bold)
-        lstMaterial.FormattingEnabled = True
-        lstMaterial.Location = New Point(156, 204)
-        lstMaterial.Margin = New Padding(3, 4, 3, 4)
-        lstMaterial.Name = "lstMaterial"
-        lstMaterial.Size = New Size(410, 124)
-        lstMaterial.TabIndex = 3
         ' 
         ' txtMaterial
         ' 
@@ -89,17 +81,17 @@ Partial Class Compras
         txtMaterial.Location = New Point(156, 109)
         txtMaterial.Margin = New Padding(3, 4, 3, 4)
         txtMaterial.Name = "txtMaterial"
-        txtMaterial.Size = New Size(154, 25)
+        txtMaterial.Size = New Size(154, 21)
         txtMaterial.TabIndex = 4
         ' 
         ' nCantidad
         ' 
         nCantidad.BackColor = Color.AliceBlue
         nCantidad.Font = New Font("Arial Narrow", 9F, FontStyle.Bold)
-        nCantidad.Location = New Point(630, 109)
+        nCantidad.Location = New Point(340, 109)
         nCantidad.Margin = New Padding(3, 4, 3, 4)
         nCantidad.Name = "nCantidad"
-        nCantidad.Size = New Size(173, 25)
+        nCantidad.Size = New Size(173, 21)
         nCantidad.TabIndex = 5
         ' 
         ' Label1
@@ -109,7 +101,7 @@ Partial Class Compras
         Label1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         Label1.Location = New Point(156, 85)
         Label1.Name = "Label1"
-        Label1.Size = New Size(132, 20)
+        Label1.Size = New Size(107, 15)
         Label1.TabIndex = 6
         Label1.Text = "Ingrese Material"
         ' 
@@ -118,9 +110,9 @@ Partial Class Compras
         Label2.AutoSize = True
         Label2.BackColor = Color.LightSteelBlue
         Label2.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        Label2.Location = New Point(560, 85)
+        Label2.Location = New Point(340, 85)
         Label2.Name = "Label2"
-        Label2.Size = New Size(143, 20)
+        Label2.Size = New Size(116, 15)
         Label2.TabIndex = 7
         Label2.Text = "Agregar Cantidad"
         ' 
@@ -136,20 +128,51 @@ Partial Class Compras
         Button1.Text = "Menu"
         Button1.UseVisualStyleBackColor = False
         ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(563, 85)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(51, 15)
+        Label3.TabIndex = 9
+        Label3.Text = "Unidad"
+        ' 
+        ' cbUnidad
+        ' 
+        cbUnidad.FormattingEnabled = True
+        cbUnidad.Items.AddRange(New Object() {"Unidade(s)", "Kilogramo(s)", "Metros cuadrado(s)", "Metros Cúbico(s)", "Milímetro(s)"})
+        cbUnidad.Location = New Point(563, 110)
+        cbUnidad.Name = "cbUnidad"
+        cbUnidad.Size = New Size(121, 23)
+        cbUnidad.TabIndex = 10
+        ' 
+        ' dgCompras
+        ' 
+        dgCompras.AllowUserToAddRows = False
+        dgCompras.AllowUserToDeleteRows = False
+        dgCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgCompras.Location = New Point(156, 170)
+        dgCompras.Name = "dgCompras"
+        dgCompras.ReadOnly = True
+        dgCompras.Size = New Size(528, 265)
+        dgCompras.TabIndex = 11
+        ' 
         ' Compras
         ' 
-        AutoScaleDimensions = New SizeF(9F, 20F)
+        AutoScaleDimensions = New SizeF(8F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ActiveCaption
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(900, 451)
+        Controls.Add(dgCompras)
+        Controls.Add(cbUnidad)
+        Controls.Add(Label3)
         Controls.Add(Button1)
         Controls.Add(Label2)
         Controls.Add(Label1)
         Controls.Add(nCantidad)
         Controls.Add(txtMaterial)
-        Controls.Add(lstMaterial)
         Controls.Add(btnSolicitar)
         Controls.Add(btnEliminar)
         Controls.Add(btnAgregar)
@@ -157,6 +180,7 @@ Partial Class Compras
         Name = "Compras"
         Text = "Compras"
         CType(nCantidad, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgCompras, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -164,10 +188,12 @@ Partial Class Compras
     Friend WithEvents btnAgregar As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnSolicitar As Button
-    Friend WithEvents lstMaterial As ListBox
     Friend WithEvents txtMaterial As TextBox
     Friend WithEvents nCantidad As NumericUpDown
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents cbUnidad As ComboBox
+    Friend WithEvents dgCompras As DataGridView
 End Class

@@ -3,6 +3,7 @@
     Dim mod_material As New mod_material()
     Dim repo As New Reportes()
     Dim VerInventario As New Inventario()
+    Dim Autorizar As New Autorizar()
     Private Sub btn_Compras_Click(sender As Object, e As EventArgs) Handles btn_Compras.Click
         compra.Show()
         Me.Close()
@@ -43,5 +44,10 @@
         VerInventario.Show()
         Me.Close()
 
+    End Sub
+
+    Private Sub btnAutorizar_Click(sender As Object, e As EventArgs) Handles btnAutorizar.Click
+        Autorizar.Show()
+        Me.Close()
     End Sub
 End Class
