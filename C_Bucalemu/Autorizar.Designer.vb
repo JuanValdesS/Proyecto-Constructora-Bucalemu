@@ -25,8 +25,8 @@ Partial Class Autorizar
         btnAceptar = New Button()
         btnRechazar = New Button()
         btnMenu = New Button()
-        DataGridView1 = New DataGridView()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        dgAutorizar = New DataGridView()
+        CType(dgAutorizar, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnAceptar
@@ -56,30 +56,30 @@ Partial Class Autorizar
         btnMenu.Text = "Menu"
         btnMenu.UseVisualStyleBackColor = True
         ' 
-        ' DataGridView1
+        ' dgAutorizar
         ' 
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(59, 72)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.Size = New Size(528, 349)
-        DataGridView1.TabIndex = 4
+        dgAutorizar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgAutorizar.Location = New Point(59, 72)
+        dgAutorizar.Name = "dgAutorizar"
+        dgAutorizar.Size = New Size(528, 349)
+        dgAutorizar.TabIndex = 4
         ' 
         ' Autorizar
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
-        Controls.Add(DataGridView1)
+        Controls.Add(dgAutorizar)
         Controls.Add(btnMenu)
         Controls.Add(btnRechazar)
         Controls.Add(btnAceptar)
         Name = "Autorizar"
         Text = "Form1"
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgAutorizar, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
     Friend WithEvents btnAceptar As Button
     Friend WithEvents btnRechazar As Button
     Friend WithEvents btnMenu As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgAutorizar As DataGridView
 End Class

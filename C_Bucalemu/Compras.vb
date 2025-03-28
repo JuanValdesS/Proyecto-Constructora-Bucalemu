@@ -107,6 +107,9 @@ Public Class Compras
 
     Private Sub Compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConfigurarEstiloDataGridView()
+        dgCompras.Rows.Clear()
+        dgCompras.Columns.Clear()
+
     End Sub
 
     Private Sub btnSolicitar_Click(sender As Object, e As EventArgs) Handles btnSolicitar.Click
@@ -147,6 +150,8 @@ Public Class Compras
             Dim response As String = client.UploadString(firebaseUrl, "POST", jsonData)
 
             MessageBox.Show("Datos enviados correctamente a Firebase.")
+            dgCompras.Rows.Clear()
+            dgCompras.Columns.Clear()
         Catch ex As Exception
             MessageBox.Show("Error al enviar datos: " & ex.Message)
         End Try
