@@ -5,83 +5,86 @@ Imports Newtonsoft.Json.Linq
 
 Public Class Login
 
-    Dim sh As New Menú()
-    Dim firebaseApiKey As String = "AIzaSyAGoZxK9tfLNIxHHsmiQQAIq_k2TnscOro"
-    Private Function FirebaseRequest(ByVal url As String, ByVal jsonData As String) As String
-        Try
-            Dim request As WebRequest = WebRequest.Create(url)
-            request.Method = "POST"
-            request.ContentType = "application/json"
+    Private fcon As New FireSharp.Config.FirebaseConfig With {
+    .AuthSecret = "N6kTJwGfYKq9AVH7i3yJ6aTk95ZXw8F3nY1aZFUy",
+    .BasePath = "https://db-cbucalemu-b8965-default-rtdb.firebaseio.com/"
+}
 
-            Dim data As Byte() = Encoding.UTF8.GetBytes(jsonData)
-            request.ContentLength = data.Length
-
-            Using stream As Stream = request.GetRequestStream()
-                stream.Write(data, 0, data.Length)
-            End Using
-
-            Dim response As WebResponse = request.GetResponse()
-            Using reader As New StreamReader(response.GetResponseStream())
-                Return reader.ReadToEnd()
-            End Using
-        Catch ex As WebException
-            Return "Error: " & ex.Message
-        End Try
-    End Function
+    Private client As FireSharp.Interfaces.IFirebaseClient
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        Dim email = txtUsuario.Text
-        Dim password = txtPassword.Text
 
-        If email = "" Or password = "" Then
-            lblMensaje.Text = "Ingresa correo y contraseña"
-            Return
-        End If
+        Try
+            ' Capturar datos ingresados por el usuario
+            Dim email = txtUsuario.Text
+            Dim password = txtPassword.Text
 
-        Dim url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" & firebaseApiKey
-        Dim json = "{""email"":""" & email & """, ""password"":""" & password & """, ""returnSecureToken"":true}"
+            ' Validar que los campos no estén vacíos
+            If String.IsNullOrWhiteSpace(email) OrElse String.IsNullOrWhiteSpace(password) Then
+                MsgBox("Por favor, ingrese su email y contraseña.", MsgBoxStyle.Exclamation)
+                Exit Sub
+            End If
 
-        Dim response = FirebaseRequest(url, json)
-        If response.Contains("idToken") Then
-            MessageBox.Show("¡¡Inicio de sesión exitoso!!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            txtUsuario.Clear()
-            txtPassword.Clear()
-            sh.Show()
-            Hide()
+            ' Obtener los usuarios registrados en Firebase
+            Dim response = client.Get("Usuarios")
 
-        Else
-            MessageBox.Show("Error en el inicio de sesión", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            txtUsuario.Clear()
-            txtPassword.Clear()
-            txtUsuario.Focus()
-        End If
+            ' Verificar si la base de datos está vacía
+            If response.Body = "null" OrElse response Is Nothing Then
+                MsgBox("No hay usuarios registrados.", MsgBoxStyle.Critical)
+                Exit Sub
+            End If
+
+            ' Convertir los datos de Firebase en un diccionario
+            Dim users As New Dictionary(Of String, Object)
+            Try
+                Dim jsonObject As Newtonsoft.Json.Linq.JObject = Newtonsoft.Json.Linq.JObject.Parse(response.Body)
+                users = jsonObject.ToObject(Of Dictionary(Of String, Object))()
+            Catch ex As Exception
+                MsgBox("Error al procesar los datos de usuarios: " & ex.Message, MsgBoxStyle.Critical)
+                Exit Sub
+            End Try
+
+            ' Buscar si el usuario existe
+            For Each user In users
+                Dim userData As Dictionary(Of String, Object) = CType(Newtonsoft.Json.JsonConvert.DeserializeObject(Of Dictionary(Of String, Object))(user.Value.ToString()), Dictionary(Of String, Object))
+
+                ' Comparar email
+                If userData("Email") = email Or userData("Usuario") = email Then
+                    ' Verificar la contraseña encriptada
+                    If BCrypt.Net.BCrypt.Verify(password, userData("Password").ToString()) Then
+                        MsgBox("Inicio de sesión exitoso. Bienvenido " & userData("Usuario"), MsgBoxStyle.Information)
+
+                        ' Guardar el rol en My.Settings
+                        My.Settings.RolUsuario = userData("Rol")
+                        My.Settings.Save()
+
+                        ' Ocultar login y abrir menú principal
+                        Me.Hide()
+                        Dim menu As New Menú()
+                        menu.Show()
+                        Exit Sub
+                    Else
+                        MsgBox("Contraseña incorrecta.", MsgBoxStyle.Critical)
+                        Exit Sub
+                    End If
+                End If
+            Next
+
+            ' Si no encuentra coincidencia, mostrar error
+            MsgBox("Usuario o contraseña incorrectos.", MsgBoxStyle.Critical)
+
+        Catch ex As Exception
+            MsgBox("Error al iniciar sesión: " & ex.Message, MsgBoxStyle.Critical)
+        End Try
     End Sub
-
-    Private Sub btnResgistrar_Click(sender As Object, e As EventArgs) Handles btnResgistrar.Click
-        Dim email As String = txtUsuario.Text
-        Dim password As String = txtPassword.Text
-
-        If email = "" Or password = "" Then
-            lblMensaje.Text = "Ingresa correo y contraseña"
-            Return
-        End If
-
-        Dim url As String = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" & firebaseApiKey
-        Dim json As String = "{""email"":""" & email & """, ""password"":""" & password & """, ""returnSecureToken"":true}"
-
-        Dim response As String = FirebaseRequest(url, json)
-        If response.Contains("idToken") Then
-            MessageBox.Show("¡¡Usuario registrado correctamente!!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            txtUsuario.Clear()
-            txtPassword.Clear()
-        Else
-            MessageBox.Show("Error en el registro", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            txtUsuario.Clear()
-            txtPassword.Clear()
-        End If
-    End Sub
-
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Try
+            client = New FireSharp.FirebaseClient(fcon)
+            If client Is Nothing Then
+                MsgBox("No se pudo conectar a la base de datos.", MsgBoxStyle.Critical, "Error")
+            End If
+        Catch ex As Exception
+            MsgBox("Error al conectar con Firebase: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 End Class
