@@ -114,4 +114,10 @@ Public Class Inventario
     Private Sub Prueba_Click(sender As Object, e As EventArgs) Handles Prueba.Click
 
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim menu As New Menú()
+        menu.Show()
+        Me.Close()
+    End Sub
 End Class

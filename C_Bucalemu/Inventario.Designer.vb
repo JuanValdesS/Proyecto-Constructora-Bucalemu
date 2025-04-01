@@ -25,6 +25,7 @@ Partial Class Inventario
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inventario))
         Prueba = New Label()
         DataGridView1 = New DataGridView()
+        Button1 = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -35,33 +36,45 @@ Partial Class Inventario
         Prueba.FlatStyle = FlatStyle.Flat
         Prueba.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Prueba.ForeColor = SystemColors.ControlText
-        Prueba.Location = New Point(78, 27)
+        Prueba.Location = New Point(54, 35)
         Prueba.Name = "Prueba"
-        Prueba.Size = New Size(32, 15)
+        Prueba.Size = New Size(39, 20)
         Prueba.TabIndex = 2
         Prueba.Text = "Info"
         ' 
         ' DataGridView1
         ' 
-        DataGridView1.BackgroundColor = Color.AliceBlue
+        DataGridView1.BackgroundColor = Color.LightSteelBlue
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(78, 44)
-        DataGridView1.Margin = New Padding(3, 2, 3, 2)
+        DataGridView1.Location = New Point(54, 58)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(568, 316)
+        DataGridView1.Size = New Size(649, 421)
         DataGridView1.TabIndex = 3
+        ' 
+        ' Button1
+        ' 
+        Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), Image)
+        Button1.BackgroundImageLayout = ImageLayout.Stretch
+        Button1.Location = New Point(737, 58)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(61, 50)
+        Button1.TabIndex = 4
+        Button1.UseVisualStyleBackColor = True
         ' 
         ' Inventario
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
-        ClientSize = New Size(720, 415)
+        ClientSize = New Size(823, 553)
+        Controls.Add(Button1)
         Controls.Add(DataGridView1)
         Controls.Add(Prueba)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Margin = New Padding(3, 4, 3, 4)
         Name = "Inventario"
         Text = "Inventario"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
@@ -70,4 +83,5 @@ Partial Class Inventario
     End Sub
     Friend WithEvents Prueba As Label
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Button1 As Button
 End Class

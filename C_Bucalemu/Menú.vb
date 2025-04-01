@@ -42,6 +42,7 @@
 
         ' Ocultar el botón por defecto
         btn_registro.Visible = False
+        btnAutorizar.Visible = False
 
         ' Obtener el rol del usuario autenticado
         Dim rolUsuario As String = My.Settings.RolUsuario
@@ -49,6 +50,10 @@
         ' Mostrar el botón solo si el usuario es Administrador
         If rolUsuario = "Administrador" Then
             btn_registro.Visible = True
+        End If
+
+        If rolUsuario = "Jefe" Then
+            btnAutorizar.Visible = True
         End If
 
     End Sub

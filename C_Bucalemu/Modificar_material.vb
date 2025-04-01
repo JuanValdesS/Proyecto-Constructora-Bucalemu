@@ -9,6 +9,8 @@ Public Class mod_material
 
     Private client As FireSharp.Interfaces.IFirebaseClient
     Private Sub Modificar_material_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        txtMaterial.Visible = False
         Try
             client = New FireSharp.FirebaseClient(fcon)
 
@@ -21,17 +23,59 @@ Public Class mod_material
         Catch ex As Exception
             MsgBox("Error de conexión: " & ex.Message, MsgBoxStyle.Critical)
         End Try
+
+        Try
+            Dim response = client.Get("Inventario")
+            If response.Body <> "null" Then
+                Dim inventario As Dictionary(Of String, Object) = response.ResultAs(Of Dictionary(Of String, Object))
+
+                ' Llenar el ComboBox con los materiales
+                txtbox1.Items.Clear()
+
+                ' Lista para almacenar materiales únicos
+                Dim materialesUnicos As New HashSet(Of String)
+
+                ' Recorrer cada material en el inventario y agregar su nombre al ComboBox
+                For Each item In inventario
+                    Dim datosMaterial As Dictionary(Of String, Object) = CType(Newtonsoft.Json.JsonConvert.DeserializeObject(Of Dictionary(Of String, Object))(item.Value.ToString()), Dictionary(Of String, Object))
+
+                    ' Agregar el nombre del material si existe en el registro
+                    If datosMaterial.ContainsKey("Material") Then
+                        materialesUnicos.Add(datosMaterial("Material").ToString())
+                    End If
+                Next
+
+                ' Agregar materiales únicos al ComboBox
+                For Each material In materialesUnicos
+                    txtbox1.Items.Add(material)
+                Next
+
+            End If
+
+        Catch ex As Exception
+            MsgBox("Error al cargar materiales: " & ex.Message)
+        End Try
+
+        ' Agregar "OTRO" al final
+        If Not txtbox1.Items.Contains("OTRO") Then
+            txtbox1.Items.Add("OTRO")
+        End If
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Try
-
+            Dim nombre = txtbox1.Text
             ' Capturar los datos del material
-            Dim nombre As String = txtMaterial.Text
-            Dim cantidad As String = txtCantidad.Text
+            Dim cantidad = txtCantidad.Text
             ' Obtener la fecha y hora actuales en formato adecuado
-            Dim fechaIngreso As String = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-            Dim unidades As String = ComboBox1.Text
+            Dim fechaIngreso = Date.Now.ToString("yyyy-MM-dd HH:mm:ss")
+            Dim unidades = ComboBox1.Text
+
+            ' Verificar si se seleccionó "Otro" en el ComboBox
+            If nombre = "OTRO" Then
+                nombre = txtMaterial.Text.Trim
+                txtbox1.Items.Add(nombre)
+            End If
 
             ' Verificar si client está inicializado
             If client Is Nothing Then
@@ -47,26 +91,27 @@ Public Class mod_material
 
             ' Crear el objeto con los datos
             Dim material As New Dictionary(Of String, Object) From {
-                {"Material", txtMaterial.Text},
-                {"cantidad", txtCantidad.Text},
-                {"unidad", ComboBox1.Text},
+                {"Material", nombre},
+                {"cantidad", cantidad},
+                {"unidad", unidades},
                 {"fecha", fechaIngreso}
             }
 
             ' Generar un ID único basado en la fecha/hora
-            Dim materialId As String = "mat_" & DateTime.Now.Ticks
+            Dim materialId = "mat_" & Date.Now.Ticks
 
             ' Guardar en Firebase con un ID personalizado
             Dim response = client.Set("Inventario/" & materialId, material)
 
             ' Mostrar mensaje de éxito
             MsgBox("Material agregado correctamente", MsgBoxStyle.Information)
+            txtbox1.Text = ""
             txtCantidad.Text = ""
             txtMaterial.Text = ""
             ComboBox1.Text = ""
 
             ' Recargar el inventario después de agregar un dato
-            CargarInventario()
+            CargarInventario
 
         Catch ex As Exception
             MsgBox("Error al agregar material: " & ex.Message, MsgBoxStyle.Critical)
@@ -168,7 +213,11 @@ Public Class mod_material
         sh.Show()
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
+    Private Sub txtbox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txtbox1.SelectedIndexChanged
+        If txtbox1.Text = "OTRO" Then
+            txtMaterial.Visible = True
+        Else
+            txtMaterial.Visible = False
+        End If
     End Sub
 End Class

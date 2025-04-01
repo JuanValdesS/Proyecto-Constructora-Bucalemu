@@ -156,4 +156,9 @@ Public Class Compras
             MessageBox.Show("Error al enviar datos: " & ex.Message)
         End Try
     End Sub
+
+    Private Sub txtMaterial_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMaterial.KeyPress
+        ' Convertir el carácter presionado a mayúscula
+        e.KeyChar = Char.ToUpper(e.KeyChar)
+    End Sub
 End Class

@@ -39,9 +39,9 @@ Partial Class Menú
         btn_Compras.BackColor = Color.Moccasin
         btn_Compras.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_Compras.ForeColor = SystemColors.ActiveCaptionText
-        btn_Compras.Location = New Point(278, 77)
+        btn_Compras.Location = New Point(252, 75)
         btn_Compras.Name = "btn_Compras"
-        btn_Compras.Size = New Size(170, 45)
+        btn_Compras.Size = New Size(181, 45)
         btn_Compras.TabIndex = 0
         btn_Compras.Text = "Compras"
         btn_Compras.UseVisualStyleBackColor = False
@@ -51,9 +51,9 @@ Partial Class Menú
         btn_cubicacion.BackColor = Color.Moccasin
         btn_cubicacion.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_cubicacion.ForeColor = SystemColors.ActiveCaptionText
-        btn_cubicacion.Location = New Point(278, 280)
+        btn_cubicacion.Location = New Point(252, 227)
         btn_cubicacion.Name = "btn_cubicacion"
-        btn_cubicacion.Size = New Size(170, 45)
+        btn_cubicacion.Size = New Size(181, 45)
         btn_cubicacion.TabIndex = 1
         btn_cubicacion.Text = "Cubicacion"
         btn_cubicacion.UseVisualStyleBackColor = False
@@ -63,11 +63,11 @@ Partial Class Menú
         btn_inventario.BackColor = Color.Moccasin
         btn_inventario.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_inventario.ForeColor = SystemColors.ActiveCaptionText
-        btn_inventario.Location = New Point(278, 179)
+        btn_inventario.Location = New Point(252, 126)
         btn_inventario.Name = "btn_inventario"
-        btn_inventario.Size = New Size(170, 45)
+        btn_inventario.Size = New Size(181, 45)
         btn_inventario.TabIndex = 2
-        btn_inventario.Text = "Modificar Material"
+        btn_inventario.Text = "Modificar inventario"
         btn_inventario.UseVisualStyleBackColor = False
         ' 
         ' btn_reportes
@@ -75,9 +75,9 @@ Partial Class Menú
         btn_reportes.BackColor = Color.Moccasin
         btn_reportes.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_reportes.ForeColor = SystemColors.ActiveCaptionText
-        btn_reportes.Location = New Point(278, 331)
+        btn_reportes.Location = New Point(252, 278)
         btn_reportes.Name = "btn_reportes"
-        btn_reportes.Size = New Size(170, 45)
+        btn_reportes.Size = New Size(181, 45)
         btn_reportes.TabIndex = 3
         btn_reportes.Text = "Reportar"
         btn_reportes.UseVisualStyleBackColor = False
@@ -88,7 +88,7 @@ Partial Class Menú
         Label1.BackColor = Color.Moccasin
         Label1.Font = New Font("Segoe UI Symbol", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = SystemColors.Desktop
-        Label1.Location = New Point(161, 35)
+        Label1.Location = New Point(144, 30)
         Label1.Name = "Label1"
         Label1.Size = New Size(417, 28)
         Label1.TabIndex = 4
@@ -98,7 +98,7 @@ Partial Class Menú
         ' 
         btn_logout.BackColor = Color.RosyBrown
         btn_logout.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn_logout.Location = New Point(309, 544)
+        btn_logout.Location = New Point(294, 486)
         btn_logout.Name = "btn_logout"
         btn_logout.Size = New Size(109, 60)
         btn_logout.TabIndex = 5
@@ -110,9 +110,9 @@ Partial Class Menú
         btnVerInventario.BackColor = Color.Moccasin
         btnVerInventario.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btnVerInventario.ForeColor = SystemColors.ActiveCaptionText
-        btnVerInventario.Location = New Point(278, 229)
+        btnVerInventario.Location = New Point(252, 176)
         btnVerInventario.Name = "btnVerInventario"
-        btnVerInventario.Size = New Size(170, 45)
+        btnVerInventario.Size = New Size(181, 45)
         btnVerInventario.TabIndex = 6
         btnVerInventario.Text = "Ver Inventario"
         btnVerInventario.UseVisualStyleBackColor = False
@@ -122,21 +122,24 @@ Partial Class Menú
         btnAutorizar.BackColor = Color.Moccasin
         btnAutorizar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btnAutorizar.ForeColor = SystemColors.ActiveCaptionText
-        btnAutorizar.Location = New Point(278, 128)
+        btnAutorizar.Location = New Point(252, 329)
         btnAutorizar.Name = "btnAutorizar"
-        btnAutorizar.Size = New Size(170, 45)
+        btnAutorizar.Size = New Size(181, 45)
         btnAutorizar.TabIndex = 7
         btnAutorizar.Text = "Autorizar"
         btnAutorizar.UseVisualStyleBackColor = False
         ' 
         ' btn_registro
         ' 
-        btn_registro.Location = New Point(590, 171)
+        btn_registro.BackColor = Color.RosyBrown
+        btn_registro.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btn_registro.ForeColor = SystemColors.ControlText
+        btn_registro.Location = New Point(294, 419)
         btn_registro.Name = "btn_registro"
-        btn_registro.Size = New Size(101, 61)
+        btn_registro.Size = New Size(109, 61)
         btn_registro.TabIndex = 8
-        btn_registro.Text = "admin register"
-        btn_registro.UseVisualStyleBackColor = True
+        btn_registro.Text = "Admin Register"
+        btn_registro.UseVisualStyleBackColor = False
         ' 
         ' Menú
         ' 
@@ -145,7 +148,7 @@ Partial Class Menú
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
-        ClientSize = New Size(731, 635)
+        ClientSize = New Size(674, 574)
         Controls.Add(btn_registro)
         Controls.Add(btnAutorizar)
         Controls.Add(btnVerInventario)
