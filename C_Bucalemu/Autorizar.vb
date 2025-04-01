@@ -14,8 +14,9 @@ Public Class Autorizar
             ' Dim compras As Dictionary(Of String, Object) = JsonConvert.DeserializeObject(Of Dictionary(Of String, Object))(response)
             comprasData = JsonConvert.DeserializeObject(Of Dictionary(Of String, JArray))(response)
 
-            ' Limpiar DataGridView
 
+            ' Limpiar DataGridView
+            ConfigurarEstiloDataGridView()
             dgAutorizar.Rows.Clear()
             dgAutorizar.Columns.Clear()
 
@@ -61,6 +62,70 @@ Public Class Autorizar
         Catch ex As Exception
             MessageBox.Show("Error al obtener los datos: " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub btnMenu_Cdjlick(sender As Object, e As EventArgs) Handles btnMenu.Click
+        Menú.Show()
+        Me.Close()
+
+    End Sub
+    Private Sub ConfigurarEstiloDataGridView()
+        ''Elementos que hacen que el datagrid se vea mas formal y con mas diseño
+        With dgAutorizar
+            ' Establecer el color de fondo y alternar filas en gris claro
+            .BackgroundColor = Color.White
+            .AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray
+
+            ' Cambiar el color de los encabezados de columna
+            .EnableHeadersVisualStyles = False
+            .ColumnHeadersDefaultCellStyle.BackColor = Color.DarkBlue
+            .ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+            .ColumnHeadersDefaultCellStyle.Font = New Font("Arial", 10, FontStyle.Bold)
+
+            ' Borde de celda y alineación
+            .CellBorderStyle = DataGridViewCellBorderStyle.Single
+            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+
+            ' Ajustar tamaño de columnas automáticamente
+            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+
+            ' Deshabilitar la edición de celdas
+            .ReadOnly = True
+            .AllowUserToAddRows = False
+            .AllowUserToDeleteRows = False
+            .AllowUserToResizeColumns = False
+            .AllowUserToResizeRows = False
+
+            ' Cambiar estilo del grid
+            .BorderStyle = BorderStyle.Fixed3D
+            .RowHeadersVisible = False
+            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        End With
+    End Sub
+
+    Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+        ' Verificar que haya datos en el DataGridView
+        If dgAutorizar.Rows.Count = 0 Then
+            MessageBox.Show("No hay datos para enviar.")
+            Exit Sub
+        End If
+
+        ' Obtener la solicitud seleccionada
+        Dim row As DataGridViewRow = dgAutorizar.SelectedRows(0)
+        Dim solicitudID As String = row.Cells("ID").Value.ToString()
+        ' Dim listaMateriales As JArray = comprasData(solicitudID)
+
+        Dim materiales As String = row.Cells("Materiales").Value.ToString()
+        Dim Texto() As String = materiales.Split(",")
+        For Each letra In Texto
+            MsgBox(letra)
+        Next
+
+
+
+
+
+
     End Sub
 
 

@@ -79,7 +79,7 @@ Partial Class Autorizar
         ' 
         ' Autorizar
         ' 
-        AutoScaleDimensions = New SizeF(9F, 20F)
+        AutoScaleDimensions = New SizeF(8F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.MediumSeaGreen
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
