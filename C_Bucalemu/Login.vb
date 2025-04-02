@@ -21,7 +21,7 @@ Public Class Login
 
             ' Validar que los campos no estén vacíos
             If String.IsNullOrWhiteSpace(email) OrElse String.IsNullOrWhiteSpace(password) Then
-                MsgBox("Por favor, ingrese su email y contraseña.", MsgBoxStyle.Exclamation)
+                MsgBox("Por favor, ingrese su email y contraseña.", MsgBoxStyle.Exclamation, "Adverterncia")
                 Exit Sub
             End If
 
@@ -30,7 +30,7 @@ Public Class Login
 
             ' Verificar si la base de datos está vacía
             If response.Body = "null" OrElse response Is Nothing Then
-                MsgBox("No hay usuarios registrados.", MsgBoxStyle.Critical)
+                MsgBox("No hay usuarios registrados.", MsgBoxStyle.Critical, "Error")
                 Exit Sub
             End If
 
@@ -40,7 +40,7 @@ Public Class Login
                 Dim jsonObject As Newtonsoft.Json.Linq.JObject = Newtonsoft.Json.Linq.JObject.Parse(response.Body)
                 users = jsonObject.ToObject(Of Dictionary(Of String, Object))()
             Catch ex As Exception
-                MsgBox("Error al procesar los datos de usuarios: " & ex.Message, MsgBoxStyle.Critical)
+                MsgBox("Error al procesar los datos de usuarios: " & ex.Message, MsgBoxStyle.Critical, "Error")
                 Exit Sub
             End Try
 
@@ -52,7 +52,7 @@ Public Class Login
                 If userData("Email") = email Or userData("Usuario") = email Then
                     ' Verificar la contraseña encriptada
                     If BCrypt.Net.BCrypt.Verify(password, userData("Password").ToString()) Then
-                        MsgBox("Inicio de sesión exitoso. Bienvenido " & userData("Usuario"), MsgBoxStyle.Information)
+                        MsgBox("Inicio de sesión exitoso. Bienvenido " & userData("Usuario"), MsgBoxStyle.Information, "Éxito")
 
                         ' Guardar el rol en My.Settings
                         My.Settings.RolUsuario = userData("Rol")
@@ -64,17 +64,17 @@ Public Class Login
                         menu.Show()
                         Exit Sub
                     Else
-                        MsgBox("Contraseña incorrecta.", MsgBoxStyle.Critical)
+                        MsgBox("Contraseña incorrecta.", MsgBoxStyle.Critical, "Error")
                         Exit Sub
                     End If
                 End If
             Next
 
             ' Si no encuentra coincidencia, mostrar error
-            MsgBox("Usuario o contraseña incorrectos.", MsgBoxStyle.Critical)
+            MsgBox("Usuario o contraseña incorrectos.", MsgBoxStyle.Critical, "Error")
 
         Catch ex As Exception
-            MsgBox("Error al iniciar sesión: " & ex.Message, MsgBoxStyle.Critical)
+            MsgBox("Error al iniciar sesión: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -86,5 +86,13 @@ Public Class Login
         Catch ex As Exception
             MsgBox("Error al conectar con Firebase: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked Then
+            txtPassword.PasswordChar = ControlChars.NullChar ' Muestra la contraseña
+        Else
+            txtPassword.PasswordChar = "*" ' Oculta la contraseña
+        End If
     End Sub
 End Class

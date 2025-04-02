@@ -107,17 +107,63 @@ Public Class Inventario
         End With
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
-
-    Private Sub Prueba_Click(sender As Object, e As EventArgs) Handles Prueba.Click
-
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim menu As New Menú()
         menu.Show()
         Me.Close()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim gestinven As New mod_material
+
+        gestinven.Show()
+        Close()
+    End Sub
+
+    Private Sub btn_total_Click(sender As Object, e As EventArgs) Handles btn_total.Click
+        ' Crear un diccionario para almacenar los totales de materiales por nombre y unidad
+        Dim totales As New Dictionary(Of String, Integer)
+
+        ' Recorrer las filas del DataGridView1
+        For Each fila As DataGridViewRow In DataGridView1.Rows
+            ' Verificar que la fila no esté vacía
+            If Not fila.IsNewRow Then
+                Dim nombre = fila.Cells("Nombre").Value.ToString
+                Dim unidad = fila.Cells("Unidad").Value.ToString
+                Dim cantidad = Convert.ToInt32(fila.Cells("Cantidad").Value)
+
+                ' Clave única basada en nombre + unidad
+                Dim clave = nombre & " - " & unidad
+
+                ' Sumar cantidades del mismo material y unidad
+                If totales.ContainsKey(clave) Then
+                    totales(clave) += cantidad
+                Else
+                    totales.Add(clave, cantidad)
+                End If
+            End If
+        Next
+
+        ' Limpiar DataGridView2 antes de cargar los datos
+        ConfigurarEstiloDataGridView()
+        DataGridView1.Rows.Clear()
+        DataGridView1.Columns.Clear()
+
+        ' Agregar columnas si no existen
+        If DataGridView1.Columns.Count = 0 Then
+            DataGridView1.Columns.Add("Material", "Material")
+            DataGridView1.Columns.Add("Unidad", "Unidad")
+            DataGridView1.Columns.Add("CantidadTotal", "Cantidad Total")
+        End If
+
+        ' Agregar los totales al DataGridView2
+        For Each kvp In totales
+            Dim partes = kvp.Key.Split(" - ")
+            DataGridView1.Rows.Add(partes(0), partes(1), kvp.Value)
+        Next
+    End Sub
+
+    Private Sub btn_reestablecer_Click(sender As Object, e As EventArgs) Handles btn_reestablecer.Click
+        CargarInventario()
     End Sub
 End Class

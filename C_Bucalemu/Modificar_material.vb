@@ -68,7 +68,7 @@ Public Class mod_material
             ' Capturar los datos del material
             Dim cantidad = txtCantidad.Text
             ' Obtener la fecha y hora actuales en formato adecuado
-            Dim fechaIngreso = Date.Now.ToString("yyyy-MM-dd HH:mm:ss")
+            Dim fechaIngreso = Date.Now.ToString("dd-MM-yyyy HH:mm:ss")
             Dim unidades = ComboBox1.Text
 
             ' Verificar si se seleccionó "Otro" en el ComboBox
@@ -85,9 +85,33 @@ Public Class mod_material
 
             ' Validar que los campos no estén vacíos
             If String.IsNullOrWhiteSpace(nombre) OrElse String.IsNullOrWhiteSpace(cantidad) OrElse String.IsNullOrWhiteSpace(unidades) Then
-                MsgBox("Por favor, ingrese nombre, cantidad del material y su unidad", MsgBoxStyle.Exclamation)
+                MsgBox("Por favor, ingrese nombre, cantidad del material y su unidad", MsgBoxStyle.Exclamation, "Advertencia")
                 Exit Sub
             End If
+
+            ' Generar prefijo con las dos primeras letras del material en mayúsculas
+            Dim prefijo As String = nombre.Substring(0, Math.Min(3, nombre.Length)).ToUpper()
+
+            ' Obtener la cantidad de materiales en Firebase para generar el número consecutivo
+            Dim response = client.Get("Inventario")
+            Dim inventario As Dictionary(Of String, Object) = If(response.Body <> "null", response.ResultAs(Of Dictionary(Of String, Object)), New Dictionary(Of String, Object)())
+
+            ' Contar cuántos materiales con el mismo nombre ya existen en Firebase
+            Dim contador As Integer = 0
+            For Each item In inventario
+                Dim datosMaterial As Dictionary(Of String, Object) = CType(Newtonsoft.Json.JsonConvert.DeserializeObject(Of Dictionary(Of String, Object))(item.Value.ToString()), Dictionary(Of String, Object))
+
+                ' Si el nombre coincide, aumentar el contador
+                If datosMaterial.ContainsKey("Material") AndAlso datosMaterial("Material").ToString() = nombre Then
+                    contador += 1
+                End If
+            Next
+
+            ' Formatear el número para que siempre tenga 6 dígitos
+            Dim nuevoNumero As String = (contador + 1).ToString("D6")
+
+            ' Generar ID único
+            Dim materialId = "mat_" & prefijo & nuevoNumero
 
             ' Crear el objeto con los datos
             Dim material As New Dictionary(Of String, Object) From {
@@ -97,14 +121,13 @@ Public Class mod_material
                 {"fecha", fechaIngreso}
             }
 
-            ' Generar un ID único basado en la fecha/hora
-            Dim materialId = "mat_" & Date.Now.Ticks
-
-            ' Guardar en Firebase con un ID personalizado
-            Dim response = client.Set("Inventario/" & materialId, material)
+            ' Guardar en Firebase con el nuevo ID
+            client.Set("Inventario/" & materialId, material)
 
             ' Mostrar mensaje de éxito
-            MsgBox("Material agregado correctamente", MsgBoxStyle.Information)
+            MsgBox("Material agregado correctamente", MsgBoxStyle.Information, "Éxito")
+
+            'Limpiamos los campos
             txtbox1.Text = ""
             txtCantidad.Text = ""
             txtMaterial.Text = ""
@@ -114,9 +137,131 @@ Public Class mod_material
             CargarInventario
 
         Catch ex As Exception
-            MsgBox("Error al agregar material: " & ex.Message, MsgBoxStyle.Critical)
+            MsgBox("Error al agregar material: " & ex.Message, MsgBoxStyle.Critical, "error")
         End Try
     End Sub
+
+    Private Sub btn_retirar_Click(sender As Object, e As EventArgs) Handles btn_retirar.Click
+        Try
+            Dim nombre = txtbox1.Text.Trim()
+            ' Capturar los datos del material
+            Dim cantidadSolicitada As Integer
+            Dim unidades As String = ComboBox1.Text.Trim()
+
+            ' Verificar si la cantidad ingresada es un número válido
+            If Not Integer.TryParse(txtCantidad.Text.Trim(), cantidadSolicitada) OrElse cantidadSolicitada <= 0 Then
+                MsgBox("Ingrese una cantidad válida para retirar.", MsgBoxStyle.Exclamation, "Advertencia")
+                Exit Sub
+            End If
+
+            ' Verificar que se haya ingresado un nombre y una unidad
+            If String.IsNullOrWhiteSpace(nombre) OrElse String.IsNullOrWhiteSpace(unidades) Then
+                MsgBox("Por favor, ingrese nombre del material y seleccione una unidad.", MsgBoxStyle.Exclamation, "Advertencia")
+                Exit Sub
+            End If
+
+            ' Verificar si se seleccionó "Otro" en el ComboBox
+            If nombre = "OTRO" Then
+                MsgBox("La selección 'OTRO' no es valida para esta opción, por favor, ingrese otra", MsgBoxStyle.Information, "Advertencia")
+                txtbox1.Text = ""
+                txtbox1.Focus()
+                Exit Sub
+            End If
+
+            ' Verificar si client está inicializado
+            If client Is Nothing Then
+                MsgBox("No hay conexión con la base de datos.", MsgBoxStyle.Critical, "error")
+                Exit Sub
+            End If
+
+            ' Obtener todos los materiales de Firebase
+            Dim response = client.Get("Inventario")
+            If response.Body = "null" Then
+                MsgBox("No hay materiales en el inventario.", MsgBoxStyle.Exclamation, "Advertencia")
+                Exit Sub
+            End If
+
+            Dim inventarioJson As JObject = JObject.Parse(response.Body)
+            Dim inventario As New Dictionary(Of String, Object)
+
+            For Each item As JProperty In inventarioJson.Properties()
+                Dim materialData As Dictionary(Of String, Object) = item.Value.ToObject(Of Dictionary(Of String, Object))()
+                inventario.Add(item.Name, materialData)
+            Next
+
+            Dim materialesFiltrados = New List(Of KeyValuePair(Of String, Dictionary(Of String, Object)))()
+
+            ' Filtrar materiales por nombre y unidad
+            For Each item In inventario
+                Dim materialData As Dictionary(Of String, Object) = CType(item.Value, Dictionary(Of String, Object))
+                If materialData("Material").ToString() = nombre AndAlso materialData("unidad").ToString() = unidades Then
+                    materialesFiltrados.Add(New KeyValuePair(Of String, Dictionary(Of String, Object))(item.Key, materialData))
+                End If
+            Next
+
+            ' Si no se encontró el material con la unidad específica
+            If materialesFiltrados.Count = 0 Then
+                MsgBox("No hay stock del material en la unidad seleccionada.", MsgBoxStyle.Exclamation, "Advertencia")
+                Exit Sub
+            End If
+
+            ' Ordenar los materiales por fecha de ingreso (el más antiguo primero)
+            materialesFiltrados.Sort(Function(a, b) DateTime.Parse(a.Value("fecha").ToString()).CompareTo(DateTime.Parse(b.Value("fecha").ToString())))
+
+            ' Calcular el total disponible
+            Dim cantidadDisponible As Integer = materialesFiltrados.Sum(Function(m) CInt(m.Value("cantidad")))
+
+            ' Si la cantidad solicitada es mayor a la disponible, preguntar al usuario
+            If cantidadSolicitada > cantidadDisponible Then
+                Dim respuesta As MsgBoxResult
+                respuesta = MsgBox("Solo hay " & cantidadDisponible & " disponibles. ¿Desea retirar lo disponible?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Stock insuficiente")
+
+                If respuesta = MsgBoxResult.Yes Then
+                    cantidadSolicitada = cantidadDisponible ' Asignar la cantidad disponible
+                Else
+                    Exit Sub ' No realiza la operación si el usuario elige "No"
+                End If
+            End If
+
+            ' Retirar la cantidad solicitada
+            Dim cantidadRestante = cantidadSolicitada
+            For Each material In materialesFiltrados
+                Dim id As String = material.Key
+                Dim materialData As Dictionary(Of String, Object) = material.Value
+                Dim stockDisponible As Integer = Convert.ToInt32(materialData("cantidad"))
+
+                If cantidadRestante <= 0 Then
+                    Exit For
+                End If
+
+                If stockDisponible <= cantidadRestante Then
+                    ' Si el stock disponible es menor o igual a lo que se quiere retirar, eliminarlo completamente
+                    client.Delete("Inventario/" & id)
+                    cantidadRestante -= stockDisponible
+                Else
+                    ' Si hay más stock del necesario, solo reducir la cantidad
+                    materialData("cantidad") = stockDisponible - cantidadRestante
+                    client.Update("Inventario/" & id, materialData)
+                    cantidadRestante = 0
+                End If
+            Next
+
+            ' Mensaje de éxito
+            MsgBox("Material retirado correctamente.", MsgBoxStyle.Information, "Éxito")
+
+            ' Limpiar campos
+            txtbox1.Text = ""
+            txtCantidad.Text = ""
+            ComboBox1.Text = ""
+
+            ' Recargar el inventario después de retirar material
+            CargarInventario()
+
+        Catch ex As Exception
+            MsgBox("Error al retirar material: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
     Private Sub CargarInventario()
         Try
             ' Obtener los datos desde Firebase
@@ -219,5 +364,13 @@ Public Class mod_material
         Else
             txtMaterial.Visible = False
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim inven As New Inventario()
+
+        inven.Show()
+        Me.Close()
+
     End Sub
 End Class

@@ -33,6 +33,7 @@ Partial Class mod_material
         Label3 = New Label()
         ComboBox1 = New ComboBox()
         txtbox1 = New ComboBox()
+        btn_retirar = New Button()
         Button1 = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -138,7 +139,7 @@ Partial Class mod_material
         ComboBox1.BackColor = Color.AliceBlue
         ComboBox1.Font = New Font("Segoe UI Symbol", 7.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"Unidade(s)", "Kilogramo(s)", "Metros", "Metros cuadrado(s)", "Metros Cúbico(s)", "Milímetro(s)"})
+        ComboBox1.Items.AddRange(New Object() {"Unidade(s)", "Kilogramo(s)", "Litro(s)", "Metros", "Metros cuadrado(s)", "Metros Cúbico(s)", "Milímetro(s)"})
         ComboBox1.Location = New Point(368, 54)
         ComboBox1.Name = "ComboBox1"
         ComboBox1.Size = New Size(79, 25)
@@ -153,16 +154,27 @@ Partial Class mod_material
         txtbox1.Size = New Size(146, 25)
         txtbox1.TabIndex = 9
         ' 
+        ' btn_retirar
+        ' 
+        btn_retirar.BackColor = Color.IndianRed
+        btn_retirar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
+        btn_retirar.ForeColor = SystemColors.ActiveCaptionText
+        btn_retirar.Location = New Point(213, 144)
+        btn_retirar.Name = "btn_retirar"
+        btn_retirar.Size = New Size(148, 43)
+        btn_retirar.TabIndex = 10
+        btn_retirar.Text = "Retirar Material"
+        btn_retirar.UseVisualStyleBackColor = False
+        ' 
         ' Button1
         ' 
-        Button1.BackColor = Color.IndianRed
-        Button1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        Button1.ForeColor = SystemColors.ActiveCaptionText
-        Button1.Location = New Point(213, 144)
+        Button1.BackColor = Color.LightSteelBlue
+        Button1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button1.Location = New Point(156, 490)
         Button1.Name = "Button1"
-        Button1.Size = New Size(148, 43)
-        Button1.TabIndex = 10
-        Button1.Text = "Retirar Material"
+        Button1.Size = New Size(291, 45)
+        Button1.TabIndex = 11
+        Button1.Text = "Visualizar el inventario completo"
         Button1.UseVisualStyleBackColor = False
         ' 
         ' mod_material
@@ -172,8 +184,9 @@ Partial Class mod_material
         BackColor = Color.LightSteelBlue
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
-        ClientSize = New Size(598, 513)
+        ClientSize = New Size(598, 579)
         Controls.Add(Button1)
+        Controls.Add(btn_retirar)
         Controls.Add(txtbox1)
         Controls.Add(ComboBox1)
         Controls.Add(Label3)
@@ -188,7 +201,7 @@ Partial Class mod_material
         ForeColor = SystemColors.ActiveCaptionText
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "mod_material"
-        Text = "Modificar Material"
+        Text = "Gestionar Inventario"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -204,5 +217,6 @@ Partial Class mod_material
     Friend WithEvents Label3 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents txtbox1 As ComboBox
+    Friend WithEvents btn_retirar As Button
     Friend WithEvents Button1 As Button
 End Class

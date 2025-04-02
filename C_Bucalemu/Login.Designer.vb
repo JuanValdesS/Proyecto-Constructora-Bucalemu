@@ -28,6 +28,7 @@ Partial Class Login
         Label2 = New Label()
         txtUsuario = New TextBox()
         txtPassword = New TextBox()
+        CheckBox1 = New CheckBox()
         SuspendLayout()
         ' 
         ' btnLogin
@@ -35,7 +36,7 @@ Partial Class Login
         btnLogin.BackColor = Color.LightSteelBlue
         btnLogin.Cursor = Cursors.Hand
         btnLogin.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic)
-        btnLogin.Location = New Point(189, 214)
+        btnLogin.Location = New Point(157, 212)
         btnLogin.Name = "btnLogin"
         btnLogin.Size = New Size(191, 58)
         btnLogin.TabIndex = 0
@@ -73,21 +74,34 @@ Partial Class Login
         txtUsuario.Location = New Point(157, 74)
         txtUsuario.Name = "txtUsuario"
         txtUsuario.PlaceholderText = "Usuario o Correo Electrónico"
-        txtUsuario.Size = New Size(255, 27)
+        txtUsuario.Size = New Size(203, 27)
         txtUsuario.TabIndex = 4
         ' 
         ' txtPassword
         ' 
         txtPassword.BackColor = Color.AliceBlue
         txtPassword.Cursor = Cursors.IBeam
-        txtPassword.Font = New Font("Segoe UI Symbol", 9F)
+        txtPassword.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtPassword.Location = New Point(157, 160)
         txtPassword.Name = "txtPassword"
         txtPassword.PasswordChar = "*"c
         txtPassword.PlaceholderText = "Contraseña"
-        txtPassword.Size = New Size(255, 27)
+        txtPassword.Size = New Size(203, 27)
         txtPassword.TabIndex = 5
-        txtPassword.UseSystemPasswordChar = True
+        ' 
+        ' CheckBox1
+        ' 
+        CheckBox1.AutoSize = True
+        CheckBox1.BackColor = Color.Transparent
+        CheckBox1.BackgroundImageLayout = ImageLayout.Stretch
+        CheckBox1.Font = New Font("Segoe UI Symbol", 7.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        CheckBox1.ForeColor = Color.White
+        CheckBox1.Location = New Point(366, 162)
+        CheckBox1.Name = "CheckBox1"
+        CheckBox1.Size = New Size(134, 21)
+        CheckBox1.TabIndex = 6
+        CheckBox1.Text = "Ver Contraseña"
+        CheckBox1.UseVisualStyleBackColor = False
         ' 
         ' Login
         ' 
@@ -97,6 +111,7 @@ Partial Class Login
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(555, 332)
+        Controls.Add(CheckBox1)
         Controls.Add(txtPassword)
         Controls.Add(txtUsuario)
         Controls.Add(Label2)
@@ -115,5 +130,6 @@ Partial Class Login
     Friend WithEvents Label2 As Label
     Friend WithEvents txtUsuario As TextBox
     Friend WithEvents txtPassword As TextBox
+    Friend WithEvents CheckBox1 As CheckBox
 
 End Class

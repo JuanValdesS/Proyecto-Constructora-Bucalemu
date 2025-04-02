@@ -128,7 +128,7 @@ Public Class Autorizar
 
     End Sub
 
+    Private Sub btnRechazar_Click(sender As Object, e As EventArgs) Handles btnRechazar.Click
 
-
-
+    End Sub
 End Class

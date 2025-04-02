@@ -67,7 +67,7 @@ Partial Class Menú
         btn_inventario.Name = "btn_inventario"
         btn_inventario.Size = New Size(181, 45)
         btn_inventario.TabIndex = 2
-        btn_inventario.Text = "Modificar inventario"
+        btn_inventario.Text = "Gestionar inventario"
         btn_inventario.UseVisualStyleBackColor = False
         ' 
         ' btn_reportes

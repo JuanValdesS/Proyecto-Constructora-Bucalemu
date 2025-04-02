@@ -140,7 +140,7 @@ Partial Class Compras
         ' cbUnidad
         ' 
         cbUnidad.FormattingEnabled = True
-        cbUnidad.Items.AddRange(New Object() {"Unidade(s)", "Kilogramo(s)", "Metros cuadrado(s)", "Metros Cúbico(s)", "Milímetro(s)"})
+        cbUnidad.Items.AddRange(New Object() {"Unidade(s)", "Kilogramo(s)", "Litro(s)", "Metros", "Metros cuadrado(s)", "Metros Cúbico(s)", "Milímetro(s)"})
         cbUnidad.Location = New Point(543, 78)
         cbUnidad.Name = "cbUnidad"
         cbUnidad.Size = New Size(121, 28)
