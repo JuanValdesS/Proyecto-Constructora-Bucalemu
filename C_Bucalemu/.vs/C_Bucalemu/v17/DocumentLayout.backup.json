@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\modificar_material.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:modificar_material.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\modificar_material.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:modificar_material.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\modificar_material.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:modificar_material.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\men\u00FA.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
@@ -68,14 +68,14 @@
               "RelativeDocumentMoniker": "Autorizar.vb",
               "ToolTip": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
               "RelativeToolTip": "Autorizar.vb",
-              "ViewState": "AgIAACgAAAAAAAAAAAAgwCoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-04-03T19:42:19.499Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Modificar_material.vb",
               "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Modificar_material.vb",
               "RelativeDocumentMoniker": "Modificar_material.vb",
@@ -100,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Autorizar.vb [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
               "RelativeDocumentMoniker": "Autorizar.vb",
@@ -120,8 +120,7 @@
               "RelativeToolTip": "Men\u00FA.vb",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-04-03T19:36:41.566Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T19:36:41.566Z"
             },
             {
               "$type": "Document",
@@ -169,12 +168,11 @@
               "RelativeToolTip": "Login.vb",
               "ViewState": "AgIAADEAAAAAAAAAAAAQwDsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-04-02T23:42:58.859Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T23:42:58.859Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Login.vb [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Login.vb",
               "RelativeDocumentMoniker": "Login.vb",

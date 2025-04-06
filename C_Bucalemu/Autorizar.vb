@@ -1,5 +1,6 @@
 ﻿Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
+Imports System.Diagnostics.Eventing.Reader
 Imports System.Net
 
 Public Class Autorizar
@@ -11,22 +12,28 @@ Public Class Autorizar
         Try
             Dim client As New WebClient()
             Dim response As String = client.DownloadString(firebaseUrl)
-            ' Dim compras As Dictionary(Of String, Object) = JsonConvert.DeserializeObject(Of Dictionary(Of String, Object))(response)
-            comprasData = JsonConvert.DeserializeObject(Of Dictionary(Of String, JArray))(response)
 
-            Dim comprasData2 As Dictionary(Of String, JObject) = JsonConvert.DeserializeObject(Of Dictionary(Of String, JObject))(response)
-
+            ' Validar si la respuesta está vacía o es "null"
             If String.IsNullOrEmpty(response) OrElse response = "null" Then
                 MessageBox.Show("No hay solicitudes pendientes.")
                 Exit Sub
             End If
+            Try
 
-            If comprasData2 Is Nothing OrElse comprasData2.Count = 0 Then
-                MessageBox.Show("No hay solicitudes pendientes.")
+                comprasData = JsonConvert.DeserializeObject(Of Dictionary(Of String, JArray))(response)
+
+
+                If comprasData Is Nothing OrElse comprasData.Count = 0 Then
+                    MessageBox.Show("No hay solicitudes pendientes.")
+                    Exit Sub
+
+                End If
+
+            Catch ex As Exception
+                MessageBox.Show("Error al deserializar los datos: " & ex.Message)
                 Exit Sub
-            End If
 
-
+            End Try
 
             ' Limpiar DataGridView
             ConfigurarEstiloDataGridView()
