@@ -3,17 +3,18 @@ Imports Newtonsoft.Json.Linq
 Imports System.Text
 Imports Newtonsoft.Json
 Imports System.Net
+Imports System.IO
 
 Public Class Compras
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim material As String = txtMaterial.Text
         Dim cantidad As Integer = nCantidad.Value
         Dim unidad As String = cbUnidad.Text
-        Dim fecha As String = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") ' Fecha actual
+        Dim fecha As String = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") ' Fecha actual
 
         ' Verificar que no haya campos vacíos
         If String.IsNullOrWhiteSpace(material) OrElse String.IsNullOrWhiteSpace(unidad) Then
-            MessageBox.Show("Por favor, ingrese todos los campos.")
+            MsgBox("Por favor, ingrese todos los campos.", MsgBoxStyle.Exclamation, "Advertencia")
             Return
         End If
 
@@ -52,7 +53,7 @@ Public Class Compras
             ' Llamar a la función para actualizar los IDs
             ReindexarIDs()
         Else
-            MessageBox.Show("Por favor, seleccione una fila para eliminar.")
+            MsgBox("Por favor, seleccione una fila para eliminar.", MsgBoxStyle.Exclamation, "Advertencia")
         End If
     End Sub
 
@@ -115,27 +116,42 @@ Public Class Compras
     Private Sub btnSolicitar_Click(sender As Object, e As EventArgs) Handles btnSolicitar.Click
         ' Verificar que haya datos en el DataGridView
         If dgCompras.Rows.Count = 0 Then
-            MessageBox.Show("No hay datos para enviar.")
+            MsgBox("No hay datos para enviar.", MsgBoxStyle.Exclamation, "Error")
             Exit Sub
         End If
 
         ' URL de la base de datos en Firebase (reemplaza con tu URL real)
-        Dim firebaseUrl As String = "https://db-cbucalemu-b8965-default-rtdb.firebaseio.com/Compras.json"
+        Dim firebaseUrl As String = "https://db-cbucalemu-b8965-default-rtdb.firebaseio.com/Compras"
+        Dim solicitudId As String = "1"
 
-        ' Crear una lista para almacenar los datos
+        ' Enviar los datos a Firebase
+        Try
+            Dim client As New WebClient()
+            Dim response As String = client.DownloadString(firebaseUrl & ".json") ' ← correctamente formateado
+
+            If Not String.IsNullOrWhiteSpace(response) AndAlso response.Trim() <> "null" Then
+                Dim solicitudesExistentes As Dictionary(Of String, Object) = JsonConvert.DeserializeObject(Of Dictionary(Of String, Object))(response)
+                Dim numerosExistentes = solicitudesExistentes.Keys.Where(Function(k) k.StartsWith("Solicitud_")).Select(Function(k) Integer.Parse(k.Replace("Solicitud_", ""))).ToList()
+                Dim maxNumero As Integer = If(numerosExistentes.Count > 0, numerosExistentes.Max(), 0)
+                solicitudId = (maxNumero + 1).ToString()
+            End If
+        Catch ex As WebException
+            Dim resp = New StreamReader(ex.Response.GetResponseStream()).ReadToEnd()
+            MsgBox("Error al contar solicitudes existentes: " & resp, MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End Try
+
+        ' Crear la lista con las compras
         Dim listaCompras As New List(Of Object)
-
-        ' Recorrer las filas del DataGridView y agregar los datos a la lista
         For Each row As DataGridViewRow In dgCompras.Rows
-            ' Verificar que la fila no esté vacía
             If Not row.IsNewRow Then
                 Dim compra As New Dictionary(Of String, Object) From {
-                    {"ID", row.Cells("ID").Value},
-                    {"Material", row.Cells("Nombre").Value},
-                    {"Cantidad", row.Cells("Cantidad").Value},
-                    {"Unidad", row.Cells("Unidad").Value},
-                    {"Fecha", row.Cells("Fecha").Value}
-                }
+                {"ID", row.Cells("ID").Value},
+                {"Material", row.Cells("Nombre").Value},
+                {"Cantidad", row.Cells("Cantidad").Value},
+                {"Unidad", row.Cells("Unidad").Value},
+                {"Fecha", row.Cells("Fecha").Value}
+            }
                 listaCompras.Add(compra)
             End If
         Next
@@ -143,17 +159,21 @@ Public Class Compras
         ' Convertir la lista a JSON
         Dim jsonData As String = JsonConvert.SerializeObject(listaCompras, Formatting.Indented)
 
-        ' Enviar los datos a Firebase
+        'Guarda la solicitud con un formato más formalizado
         Try
             Dim client As New WebClient()
             client.Headers(HttpRequestHeader.ContentType) = "application/json"
-            Dim response As String = client.UploadString(firebaseUrl, "POST", jsonData)
 
-            MessageBox.Show("Datos enviados correctamente a Firebase.")
+            ' Subir los datos a la solicitud numérica
+            Dim solicitudNombre As String = "Solicitud_" & solicitudId
+            Dim response As String = client.UploadString(firebaseUrl & "/" & solicitudNombre & ".json", "PUT", jsonData)
+
+
+            MsgBox("Solicitud enviada correctamente como N° " & solicitudId, MsgBoxStyle.Information, "Éxito")
             dgCompras.Rows.Clear()
             dgCompras.Columns.Clear()
         Catch ex As Exception
-            MessageBox.Show("Error al enviar datos: " & ex.Message)
+            MsgBox("Error al enviar datos: " & ex.Message, MsgBoxStyle.Exclamation, "Error")
         End Try
     End Sub
 

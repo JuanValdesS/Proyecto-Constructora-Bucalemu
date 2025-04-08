@@ -9,8 +9,11 @@ Public Class mod_material
 
     Private client As FireSharp.Interfaces.IFirebaseClient
     Private Sub Modificar_material_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        txtMedida.Visible = False
+        cbMedida.Visible = False
         txtMaterial.Visible = False
+        lbl_medida.Visible = False
+
         Try
             client = New FireSharp.FirebaseClient(fcon)
 
@@ -77,10 +80,21 @@ Public Class mod_material
                 txtbox1.Items.Add(nombre)
             End If
 
-            ' Verificar si client está inicializado
-            If client Is Nothing Then
-                MsgBox("No hay conexión con la base de datos.", MsgBoxStyle.Critical, "error")
-                Exit Sub
+            'Agrega la medida al nombre si es que este no esta vacío
+            If CheckBox1.Checked Then
+                nombre = nombre & " " & txtMedida.Text & cbMedida.Text
+                If String.IsNullOrWhiteSpace(txtMedida.Text) OrElse String.IsNullOrWhiteSpace(cbMedida.Text) Then
+                    MsgBox("Por favor, ingrese la medida del material", MsgBoxStyle.Exclamation, "Advertencia")
+                    Exit Sub
+                End If
+
+                Dim medidaFormateada As String = txtMedida.Text.Trim() & cbMedida.Text.Trim()
+
+                ' Verifica si ya contiene la medida para evitar duplicados
+                If Not nombre.ToUpper().Contains(medidaFormateada.ToUpper()) Then
+                    nombre &= " " & medidaFormateada
+                End If
+
             End If
 
             ' Validar que los campos no estén vacíos
@@ -89,8 +103,11 @@ Public Class mod_material
                 Exit Sub
             End If
 
-            ' Generar prefijo con las dos primeras letras del material en mayúsculas
-            Dim prefijo As String = nombre.Substring(0, Math.Min(3, nombre.Length)).ToUpper()
+            ' Verificar si client está inicializado
+            If client Is Nothing Then
+                MsgBox("No hay conexión con la base de datos.", MsgBoxStyle.Critical, "error")
+                Exit Sub
+            End If
 
             ' Obtener la cantidad de materiales en Firebase para generar el número consecutivo
             Dim response = client.Get("Inventario")
@@ -100,18 +117,18 @@ Public Class mod_material
             Dim contador As Integer = 0
             For Each item In inventario
                 Dim datosMaterial As Dictionary(Of String, Object) = CType(Newtonsoft.Json.JsonConvert.DeserializeObject(Of Dictionary(Of String, Object))(item.Value.ToString()), Dictionary(Of String, Object))
-
                 ' Si el nombre coincide, aumentar el contador
                 If datosMaterial.ContainsKey("Material") AndAlso datosMaterial("Material").ToString() = nombre Then
                     contador += 1
                 End If
             Next
 
-            ' Formatear el número para que siempre tenga 6 dígitos
-            Dim nuevoNumero As String = (contador + 1).ToString("D6")
-
-            ' Generar ID único
-            Dim materialId = "mat_" & prefijo & nuevoNumero
+            ' Normalizar el nombre quitando espacios
+            Dim nombreId As String = nombre.Replace(" ", "").ToUpper()
+            ' Obtener número consecutivo formateado
+            Dim nuevoNumero As String = (contador + 1).ToString("D4")
+            ' Crear ID final tipo: TORNILLO3MM_0001
+            Dim materialId = nombreId & "_" & nuevoNumero
 
             ' Crear el objeto con los datos
             Dim material As New Dictionary(Of String, Object) From {
@@ -132,9 +149,12 @@ Public Class mod_material
             txtCantidad.Text = ""
             txtMaterial.Text = ""
             ComboBox1.Text = ""
+            txtMedida.Text = ""
+            cbMedida.Text = ""
+            CheckBox1.Checked = False
 
             ' Recargar el inventario después de agregar un dato
-            CargarInventario
+            CargarInventario()
 
         Catch ex As Exception
             MsgBox("Error al agregar material: " & ex.Message, MsgBoxStyle.Critical, "error")
@@ -373,4 +393,17 @@ Public Class mod_material
         Me.Close()
 
     End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked Then
+            txtMedida.Visible = True
+            cbMedida.Visible = True
+            lbl_medida.Visible = True
+        Else
+            txtMedida.Visible = False
+            cbMedida.Visible = False
+            lbl_medida.Visible = False
+        End If
+    End Sub
+
 End Class

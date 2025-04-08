@@ -35,6 +35,10 @@ Partial Class mod_material
         txtbox1 = New ComboBox()
         btn_retirar = New Button()
         Button1 = New Button()
+        CheckBox1 = New CheckBox()
+        txtMedida = New TextBox()
+        cbMedida = New ComboBox()
+        lbl_medida = New Label()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -43,7 +47,7 @@ Partial Class mod_material
         btnAgregar.BackColor = Color.LightSteelBlue
         btnAgregar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btnAgregar.ForeColor = SystemColors.ActiveCaptionText
-        btnAgregar.Location = New Point(47, 144)
+        btnAgregar.Location = New Point(47, 174)
         btnAgregar.Name = "btnAgregar"
         btnAgregar.Size = New Size(141, 43)
         btnAgregar.TabIndex = 0
@@ -54,7 +58,7 @@ Partial Class mod_material
         ' 
         txtMaterial.BackColor = Color.AliceBlue
         txtMaterial.Font = New Font("Segoe UI Symbol", 7.8F)
-        txtMaterial.Location = New Point(47, 88)
+        txtMaterial.Location = New Point(47, 91)
         txtMaterial.Name = "txtMaterial"
         txtMaterial.PlaceholderText = "Nombre del material"
         txtMaterial.Size = New Size(146, 25)
@@ -101,7 +105,7 @@ Partial Class mod_material
         DataGridView1.AllowUserToResizeColumns = False
         DataGridView1.BackgroundColor = Color.AliceBlue
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(47, 213)
+        DataGridView1.Location = New Point(50, 233)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.ReadOnly = True
         DataGridView1.RowHeadersWidth = 51
@@ -114,7 +118,7 @@ Partial Class mod_material
         btn_regresar.BackgroundImage = CType(resources.GetObject("btn_regresar.BackgroundImage"), Image)
         btn_regresar.BackgroundImageLayout = ImageLayout.Stretch
         btn_regresar.ImageAlign = ContentAlignment.BottomCenter
-        btn_regresar.Location = New Point(515, 31)
+        btn_regresar.Location = New Point(510, 31)
         btn_regresar.Name = "btn_regresar"
         btn_regresar.Size = New Size(57, 48)
         btn_regresar.TabIndex = 6
@@ -159,7 +163,7 @@ Partial Class mod_material
         btn_retirar.BackColor = Color.IndianRed
         btn_retirar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_retirar.ForeColor = SystemColors.ActiveCaptionText
-        btn_retirar.Location = New Point(213, 144)
+        btn_retirar.Location = New Point(213, 174)
         btn_retirar.Name = "btn_retirar"
         btn_retirar.Size = New Size(148, 43)
         btn_retirar.TabIndex = 10
@@ -170,12 +174,57 @@ Partial Class mod_material
         ' 
         Button1.BackColor = Color.LightSteelBlue
         Button1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button1.Location = New Point(156, 490)
+        Button1.Location = New Point(159, 510)
         Button1.Name = "Button1"
         Button1.Size = New Size(291, 45)
         Button1.TabIndex = 11
         Button1.Text = "Visualizar el inventario completo"
         Button1.UseVisualStyleBackColor = False
+        ' 
+        ' CheckBox1
+        ' 
+        CheckBox1.AutoSize = True
+        CheckBox1.BackColor = Color.Transparent
+        CheckBox1.Font = New Font("Segoe UI Symbol", 7.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        CheckBox1.ForeColor = Color.Black
+        CheckBox1.Location = New Point(52, 121)
+        CheckBox1.Name = "CheckBox1"
+        CheckBox1.Size = New Size(141, 21)
+        CheckBox1.TabIndex = 12
+        CheckBox1.Text = "Agregar Medida"
+        CheckBox1.UseVisualStyleBackColor = False
+        ' 
+        ' txtMedida
+        ' 
+        txtMedida.BackColor = Color.AliceBlue
+        txtMedida.Font = New Font("Segoe UI Symbol", 7.8F)
+        txtMedida.Location = New Point(265, 117)
+        txtMedida.Name = "txtMedida"
+        txtMedida.PlaceholderText = "Medida del material"
+        txtMedida.Size = New Size(84, 25)
+        txtMedida.TabIndex = 13
+        ' 
+        ' cbMedida
+        ' 
+        cbMedida.BackColor = Color.AliceBlue
+        cbMedida.FormattingEnabled = True
+        cbMedida.Items.AddRange(New Object() {"cm", "mm", "m"})
+        cbMedida.Location = New Point(355, 117)
+        cbMedida.Name = "cbMedida"
+        cbMedida.Size = New Size(68, 25)
+        cbMedida.TabIndex = 14
+        ' 
+        ' lbl_medida
+        ' 
+        lbl_medida.AutoSize = True
+        lbl_medida.BackColor = Color.LightSteelBlue
+        lbl_medida.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
+        lbl_medida.ForeColor = SystemColors.ActiveCaptionText
+        lbl_medida.Location = New Point(265, 91)
+        lbl_medida.Name = "lbl_medida"
+        lbl_medida.Size = New Size(163, 20)
+        lbl_medida.TabIndex = 15
+        lbl_medida.Text = "Medida del material"
         ' 
         ' mod_material
         ' 
@@ -185,6 +234,10 @@ Partial Class mod_material
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(598, 579)
+        Controls.Add(lbl_medida)
+        Controls.Add(cbMedida)
+        Controls.Add(txtMedida)
+        Controls.Add(CheckBox1)
         Controls.Add(Button1)
         Controls.Add(btn_retirar)
         Controls.Add(txtbox1)
@@ -219,4 +272,8 @@ Partial Class mod_material
     Friend WithEvents txtbox1 As ComboBox
     Friend WithEvents btn_retirar As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents txtMedida As TextBox
+    Friend WithEvents cbMedida As ComboBox
+    Friend WithEvents lbl_medida As Label
 End Class

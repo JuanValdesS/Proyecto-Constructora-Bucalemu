@@ -54,7 +54,7 @@ Partial Class Compras
         ' 
         btnEliminar.BackColor = SystemColors.ActiveCaption
         btnEliminar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        btnEliminar.Location = New Point(769, 177)
+        btnEliminar.Location = New Point(769, 216)
         btnEliminar.Margin = New Padding(3, 4, 3, 4)
         btnEliminar.Name = "btnEliminar"
         btnEliminar.Size = New Size(97, 31)
@@ -66,7 +66,7 @@ Partial Class Compras
         ' 
         btnSolicitar.BackColor = SystemColors.ActiveCaption
         btnSolicitar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        btnSolicitar.Location = New Point(771, 216)
+        btnSolicitar.Location = New Point(769, 177)
         btnSolicitar.Margin = New Padding(3, 4, 3, 4)
         btnSolicitar.Name = "btnSolicitar"
         btnSolicitar.Size = New Size(97, 31)
@@ -81,17 +81,17 @@ Partial Class Compras
         txtMaterial.Location = New Point(136, 77)
         txtMaterial.Margin = New Padding(3, 4, 3, 4)
         txtMaterial.Name = "txtMaterial"
-        txtMaterial.Size = New Size(154, 25)
+        txtMaterial.Size = New Size(132, 25)
         txtMaterial.TabIndex = 4
         ' 
         ' nCantidad
         ' 
         nCantidad.BackColor = Color.AliceBlue
         nCantidad.Font = New Font("Arial Narrow", 9F, FontStyle.Bold)
-        nCantidad.Location = New Point(320, 77)
+        nCantidad.Location = New Point(338, 75)
         nCantidad.Margin = New Padding(3, 4, 3, 4)
         nCantidad.Name = "nCantidad"
-        nCantidad.Size = New Size(173, 25)
+        nCantidad.Size = New Size(143, 25)
         nCantidad.TabIndex = 5
         ' 
         ' Label1
@@ -110,7 +110,7 @@ Partial Class Compras
         Label2.AutoSize = True
         Label2.BackColor = Color.LightSteelBlue
         Label2.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        Label2.Location = New Point(320, 53)
+        Label2.Location = New Point(338, 51)
         Label2.Name = "Label2"
         Label2.Size = New Size(143, 20)
         Label2.TabIndex = 7
@@ -131,7 +131,7 @@ Partial Class Compras
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(543, 53)
+        Label3.Location = New Point(544, 51)
         Label3.Name = "Label3"
         Label3.Size = New Size(63, 20)
         Label3.TabIndex = 9
@@ -141,7 +141,7 @@ Partial Class Compras
         ' 
         cbUnidad.FormattingEnabled = True
         cbUnidad.Items.AddRange(New Object() {"Unidade(s)", "Kilogramo(s)", "Litro(s)", "Metros", "Metros cuadrado(s)", "Metros Cúbico(s)", "Milímetro(s)"})
-        cbUnidad.Location = New Point(543, 78)
+        cbUnidad.Location = New Point(544, 72)
         cbUnidad.Name = "cbUnidad"
         cbUnidad.Size = New Size(121, 28)
         cbUnidad.TabIndex = 10
