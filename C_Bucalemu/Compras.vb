@@ -4,17 +4,25 @@ Imports System.Text
 Imports Newtonsoft.Json
 Imports System.Net
 Imports System.IO
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Button
 
 Public Class Compras
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim material As String = txtMaterial.Text
         Dim cantidad As Integer = nCantidad.Value
         Dim unidad As String = cbUnidad.Text
+        Dim medida As String = txtMedidas.Text
+        Dim unidad2 = cmMedida.Text
         Dim fecha As String = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") ' Fecha actual
 
         ' Verificar que no haya campos vacíos
         If String.IsNullOrWhiteSpace(material) OrElse String.IsNullOrWhiteSpace(unidad) Then
             MsgBox("Por favor, ingrese todos los campos.", MsgBoxStyle.Exclamation, "Advertencia")
+            Return
+        End If
+
+        If cbMedidas.Checked AndAlso (String.IsNullOrWhiteSpace(medida) OrElse String.IsNullOrWhiteSpace(unidad2)) Then
+            MsgBox("Debe ingresar las medidas si está activado el campo.", MsgBoxStyle.Exclamation)
             Return
         End If
 
@@ -25,6 +33,8 @@ Public Class Compras
             dgCompras.Columns.Add("Cantidad", "Cantidad")
             dgCompras.Columns.Add("Unidad", "Unidad")
             dgCompras.Columns.Add("Fecha", "Fecha de Ingreso")
+            dgCompras.Columns.Add("Medida", "Medida")
+            dgCompras.Columns.Add("Unidad2", "Unidad de Medida")
         End If
 
         ' Agregar una nueva fila al DataGridView
@@ -37,11 +47,15 @@ Public Class Compras
         row.Cells("Cantidad").Value = cantidad
         row.Cells("Unidad").Value = unidad
         row.Cells("Fecha").Value = fecha
+        row.Cells("Medida").Value = medida
+        row.Cells("Unidad2").Value = unidad2
 
         ' Limpiar los controles de entrada después de agregar
         txtMaterial.Clear()
+        txtMedidas.Clear()
         nCantidad.Value = 0
         cbUnidad.SelectedIndex = -1
+        cmMedida.SelectedIndex = -1
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
@@ -110,6 +124,11 @@ Public Class Compras
         ConfigurarEstiloDataGridView()
         dgCompras.Rows.Clear()
         dgCompras.Columns.Clear()
+        cmMedida.Visible = False
+        txtMedidas.Visible = False
+        lbl_medida.Visible = False
+
+
 
     End Sub
 
@@ -150,7 +169,9 @@ Public Class Compras
                 {"Material", row.Cells("Nombre").Value},
                 {"Cantidad", row.Cells("Cantidad").Value},
                 {"Unidad", row.Cells("Unidad").Value},
-                {"Fecha", row.Cells("Fecha").Value}
+                {"Fecha", row.Cells("Fecha").Value},
+                {"Medida", row.Cells("Medida").Value},
+                {"Unidad2", row.Cells("Unidad2").Value}
             }
                 listaCompras.Add(compra)
             End If
@@ -180,5 +201,18 @@ Public Class Compras
     Private Sub txtMaterial_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMaterial.KeyPress
         ' Convertir el carácter presionado a mayúscula
         e.KeyChar = Char.ToUpper(e.KeyChar)
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles cbMedidas.CheckedChanged
+        If cbMedidas.Checked Then
+            txtMedidas.Visible = True
+            cmMedida.Visible = True
+            lbl_medida.Visible = True
+        Else
+            txtMedidas.Visible = False
+            cmMedida.Visible = False
+            lbl_medida.Visible = False
+        End If
+
     End Sub
 End Class
