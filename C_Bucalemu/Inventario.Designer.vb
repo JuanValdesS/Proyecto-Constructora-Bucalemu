@@ -59,6 +59,8 @@ Partial Class Inventario
         ' 
         Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), Image)
         Button1.BackgroundImageLayout = ImageLayout.Stretch
+        Button1.FlatAppearance.BorderColor = Color.White
+        Button1.FlatStyle = FlatStyle.Popup
         Button1.Location = New Point(687, 294)
         Button1.Name = "Button1"
         Button1.Size = New Size(61, 50)

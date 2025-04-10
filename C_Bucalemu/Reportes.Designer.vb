@@ -22,73 +22,92 @@ Partial Class Reportes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        btn_guardar = New Button()
-        txtNombre = New TextBox()
-        txtEmail = New TextBox()
-        Nombre = New Label()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Reportes))
+        btn_reporte = New Button()
+        txtObservacion = New TextBox()
+        data_repo = New DataGridView()
+        Button1 = New Button()
         Label1 = New Label()
+        CType(data_repo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' btn_guardar
+        ' btn_reporte
         ' 
-        btn_guardar.Location = New Point(341, 232)
-        btn_guardar.Name = "btn_guardar"
-        btn_guardar.Size = New Size(154, 60)
-        btn_guardar.TabIndex = 0
-        btn_guardar.Text = "Guardar"
-        btn_guardar.UseVisualStyleBackColor = True
+        btn_reporte.BackColor = Color.LightSteelBlue
+        btn_reporte.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btn_reporte.Location = New Point(110, 148)
+        btn_reporte.Name = "btn_reporte"
+        btn_reporte.Size = New Size(159, 47)
+        btn_reporte.TabIndex = 0
+        btn_reporte.Text = "Enviar Reporte"
+        btn_reporte.UseVisualStyleBackColor = False
         ' 
-        ' txtNombre
+        ' txtObservacion
         ' 
-        txtNombre.Location = New Point(283, 92)
-        txtNombre.Name = "txtNombre"
-        txtNombre.Size = New Size(277, 27)
-        txtNombre.TabIndex = 1
+        txtObservacion.BackColor = Color.AliceBlue
+        txtObservacion.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtObservacion.Location = New Point(110, 83)
+        txtObservacion.Name = "txtObservacion"
+        txtObservacion.PlaceholderText = "Ingrese Reporte"
+        txtObservacion.Size = New Size(159, 27)
+        txtObservacion.TabIndex = 1
         ' 
-        ' txtEmail
+        ' data_repo
         ' 
-        txtEmail.Location = New Point(283, 176)
-        txtEmail.Name = "txtEmail"
-        txtEmail.Size = New Size(277, 27)
-        txtEmail.TabIndex = 2
+        data_repo.BackgroundColor = Color.AliceBlue
+        data_repo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        data_repo.Location = New Point(375, 83)
+        data_repo.Name = "data_repo"
+        data_repo.RowHeadersWidth = 51
+        data_repo.Size = New Size(325, 251)
+        data_repo.TabIndex = 2
         ' 
-        ' Nombre
+        ' Button1
         ' 
-        Nombre.AutoSize = True
-        Nombre.Location = New Point(283, 69)
-        Nombre.Name = "Nombre"
-        Nombre.Size = New Size(64, 20)
-        Nombre.TabIndex = 3
-        Nombre.Text = "Nombre"
+        Button1.BackColor = Color.Transparent
+        Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), Image)
+        Button1.BackgroundImageLayout = ImageLayout.Stretch
+        Button1.FlatStyle = FlatStyle.Popup
+        Button1.Location = New Point(148, 212)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(74, 50)
+        Button1.TabIndex = 3
+        Button1.UseVisualStyleBackColor = False
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(283, 153)
+        Label1.BackColor = Color.LightSteelBlue
+        Label1.Font = New Font("Segoe UI Symbol", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(110, 28)
         Label1.Name = "Label1"
-        Label1.Size = New Size(46, 20)
+        Label1.Size = New Size(330, 23)
         Label1.TabIndex = 4
-        Label1.Text = "Email"
+        Label1.Text = "Ingrese breve descripción del reporte" & vbCrLf
         ' 
         ' Reportes
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
+        BackgroundImageLayout = ImageLayout.Stretch
+        ClientSize = New Size(744, 367)
         Controls.Add(Label1)
-        Controls.Add(Nombre)
-        Controls.Add(txtEmail)
-        Controls.Add(txtNombre)
-        Controls.Add(btn_guardar)
+        Controls.Add(Button1)
+        Controls.Add(data_repo)
+        Controls.Add(txtObservacion)
+        Controls.Add(btn_reporte)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Reportes"
         Text = "Reportes"
+        CType(data_repo, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
-    Friend WithEvents btn_guardar As Button
-    Friend WithEvents txtNombre As TextBox
-    Friend WithEvents txtEmail As TextBox
-    Friend WithEvents Nombre As Label
+    Friend WithEvents btn_reporte As Button
+    Friend WithEvents txtObservacion As TextBox
+    Friend WithEvents data_repo As DataGridView
+    Friend WithEvents Button1 As Button
     Friend WithEvents Label1 As Label
 End Class

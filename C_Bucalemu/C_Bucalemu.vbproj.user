@@ -22,5 +22,8 @@
     <Compile Update="Registro.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Reportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

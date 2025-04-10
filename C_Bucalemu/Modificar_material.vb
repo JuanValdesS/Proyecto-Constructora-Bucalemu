@@ -27,6 +27,7 @@ Public Class mod_material
             MsgBox("Error de conexión: " & ex.Message, MsgBoxStyle.Critical)
         End Try
 
+        'Agrega datos al combobox mediante try
         Try
             Dim response = client.Get("Inventario")
             If response.Body <> "null" Then
@@ -66,6 +67,7 @@ Public Class mod_material
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+
         Try
             Dim nombre = txtbox1.Text
             ' Capturar los datos del material

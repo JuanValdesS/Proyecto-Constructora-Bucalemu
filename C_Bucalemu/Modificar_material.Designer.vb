@@ -117,6 +117,7 @@ Partial Class mod_material
         btn_regresar.BackColor = Color.Transparent
         btn_regresar.BackgroundImage = CType(resources.GetObject("btn_regresar.BackgroundImage"), Image)
         btn_regresar.BackgroundImageLayout = ImageLayout.Stretch
+        btn_regresar.FlatStyle = FlatStyle.Popup
         btn_regresar.ImageAlign = ContentAlignment.BottomCenter
         btn_regresar.Location = New Point(510, 31)
         btn_regresar.Name = "btn_regresar"

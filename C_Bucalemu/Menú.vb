@@ -27,7 +27,8 @@
     End Sub
 
     Private Sub btn_reportes_Click(sender As Object, e As EventArgs) Handles btn_reportes.Click
-
+        repo.Show()
+        Hide()
     End Sub
 
     Private Sub Menú_Load(sender As Object, e As EventArgs) Handles MyBase.Load
