@@ -4,6 +4,9 @@
     <Compile Update="Autorizar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Compras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Modificar_material.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -11,9 +14,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Menú.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Compras.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Inventario.vb">

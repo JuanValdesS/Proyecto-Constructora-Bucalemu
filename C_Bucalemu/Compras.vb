@@ -12,7 +12,7 @@ Public Class Compras
         Dim cantidad As Integer = nCantidad.Value
         Dim unidad As String = cbUnidad.Text
         Dim medida As String = txtMedidas.Text
-        Dim unidad2 = cmMedida.Text
+        Dim unidadMedida = cmMedida.Text
         Dim fecha As String = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") ' Fecha actual
 
         ' Verificar que no haya campos vacíos
@@ -21,7 +21,7 @@ Public Class Compras
             Return
         End If
 
-        If cbMedidas.Checked AndAlso (String.IsNullOrWhiteSpace(medida) OrElse String.IsNullOrWhiteSpace(unidad2)) Then
+        If cbMedidas.Checked AndAlso (String.IsNullOrWhiteSpace(medida) OrElse String.IsNullOrWhiteSpace(unidadMedida)) Then
             MsgBox("Debe ingresar las medidas si está activado el campo.", MsgBoxStyle.Exclamation)
             Return
         End If
@@ -34,7 +34,7 @@ Public Class Compras
             dgCompras.Columns.Add("Unidad", "Unidad")
             dgCompras.Columns.Add("Fecha", "Fecha de Ingreso")
             dgCompras.Columns.Add("Medida", "Medida")
-            dgCompras.Columns.Add("Unidad2", "Unidad de Medida")
+            dgCompras.Columns.Add("Unidad de Medida", "Unidad de Medida")
         End If
 
         ' Agregar una nueva fila al DataGridView
@@ -48,7 +48,8 @@ Public Class Compras
         row.Cells("Unidad").Value = unidad
         row.Cells("Fecha").Value = fecha
         row.Cells("Medida").Value = medida
-        row.Cells("Unidad2").Value = unidad2
+        row.Cells("Unidad de Medida").Value = unidadMedida
+
 
         ' Limpiar los controles de entrada después de agregar
         txtMaterial.Clear()
@@ -171,7 +172,7 @@ Public Class Compras
                 {"Unidad", row.Cells("Unidad").Value},
                 {"Fecha", row.Cells("Fecha").Value},
                 {"Medida", row.Cells("Medida").Value},
-                {"Unidad2", row.Cells("Unidad2").Value}
+                {"Unidad de medida", row.Cells("Unidad de medida").Value}
             }
                 listaCompras.Add(compra)
             End If
