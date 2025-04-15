@@ -34,6 +34,10 @@ Partial Class Compras
         Label3 = New Label()
         cbUnidad = New ComboBox()
         dgCompras = New DataGridView()
+        cbMedidas = New CheckBox()
+        cmMedida = New ComboBox()
+        txtMedidas = New TextBox()
+        lbl_medida = New Label()
         CType(nCantidad, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgCompras, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -78,20 +82,20 @@ Partial Class Compras
         ' 
         txtMaterial.BackColor = Color.AliceBlue
         txtMaterial.Font = New Font("Arial Narrow", 9F, FontStyle.Bold)
-        txtMaterial.Location = New Point(136, 77)
+        txtMaterial.Location = New Point(136, 28)
         txtMaterial.Margin = New Padding(3, 4, 3, 4)
         txtMaterial.Name = "txtMaterial"
-        txtMaterial.Size = New Size(132, 25)
+        txtMaterial.Size = New Size(132, 21)
         txtMaterial.TabIndex = 4
         ' 
         ' nCantidad
         ' 
         nCantidad.BackColor = Color.AliceBlue
         nCantidad.Font = New Font("Arial Narrow", 9F, FontStyle.Bold)
-        nCantidad.Location = New Point(338, 75)
+        nCantidad.Location = New Point(136, 74)
         nCantidad.Margin = New Padding(3, 4, 3, 4)
         nCantidad.Name = "nCantidad"
-        nCantidad.Size = New Size(143, 25)
+        nCantidad.Size = New Size(143, 21)
         nCantidad.TabIndex = 5
         ' 
         ' Label1
@@ -99,9 +103,9 @@ Partial Class Compras
         Label1.AutoSize = True
         Label1.BackColor = Color.LightSteelBlue
         Label1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        Label1.Location = New Point(136, 53)
+        Label1.Location = New Point(136, 9)
         Label1.Name = "Label1"
-        Label1.Size = New Size(132, 20)
+        Label1.Size = New Size(107, 15)
         Label1.TabIndex = 6
         Label1.Text = "Ingrese Material"
         ' 
@@ -110,9 +114,9 @@ Partial Class Compras
         Label2.AutoSize = True
         Label2.BackColor = Color.LightSteelBlue
         Label2.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        Label2.Location = New Point(338, 51)
+        Label2.Location = New Point(136, 53)
         Label2.Name = "Label2"
-        Label2.Size = New Size(143, 20)
+        Label2.Size = New Size(116, 15)
         Label2.TabIndex = 7
         Label2.Text = "Agregar Cantidad"
         ' 
@@ -131,9 +135,9 @@ Partial Class Compras
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(544, 51)
+        Label3.Location = New Point(315, 9)
         Label3.Name = "Label3"
-        Label3.Size = New Size(63, 20)
+        Label3.Size = New Size(51, 15)
         Label3.TabIndex = 9
         Label3.Text = "Unidad"
         ' 
@@ -141,9 +145,9 @@ Partial Class Compras
         ' 
         cbUnidad.FormattingEnabled = True
         cbUnidad.Items.AddRange(New Object() {"Unidade(s)", "Kilogramo(s)", "Litro(s)", "Metros", "Metros cuadrado(s)", "Metros Cúbico(s)", "Milímetro(s)"})
-        cbUnidad.Location = New Point(544, 72)
+        cbUnidad.Location = New Point(315, 29)
         cbUnidad.Name = "cbUnidad"
-        cbUnidad.Size = New Size(121, 28)
+        cbUnidad.Size = New Size(121, 23)
         cbUnidad.TabIndex = 10
         ' 
         ' dgCompras
@@ -159,14 +163,56 @@ Partial Class Compras
         dgCompras.Size = New Size(528, 265)
         dgCompras.TabIndex = 11
         ' 
+        ' cbMedidas
+        ' 
+        cbMedidas.AutoSize = True
+        cbMedidas.Location = New Point(315, 76)
+        cbMedidas.Name = "cbMedidas"
+        cbMedidas.Size = New Size(131, 19)
+        cbMedidas.TabIndex = 12
+        cbMedidas.Text = "Agregar medidas"
+        cbMedidas.UseVisualStyleBackColor = True
+        ' 
+        ' cmMedida
+        ' 
+        cmMedida.FormattingEnabled = True
+        cmMedida.Items.AddRange(New Object() {"cm", "mm", "m"})
+        cmMedida.Location = New Point(595, 76)
+        cmMedida.Name = "cmMedida"
+        cmMedida.Size = New Size(69, 23)
+        cmMedida.TabIndex = 13
+        ' 
+        ' txtMedidas
+        ' 
+        txtMedidas.Location = New Point(463, 74)
+        txtMedidas.Name = "txtMedidas"
+        txtMedidas.Size = New Size(100, 23)
+        txtMedidas.TabIndex = 14
+        ' 
+        ' lbl_medida
+        ' 
+        lbl_medida.AutoSize = True
+        lbl_medida.BackColor = Color.LightSteelBlue
+        lbl_medida.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
+        lbl_medida.ForeColor = SystemColors.ActiveCaptionText
+        lbl_medida.Location = New Point(463, 53)
+        lbl_medida.Name = "lbl_medida"
+        lbl_medida.Size = New Size(131, 15)
+        lbl_medida.TabIndex = 16
+        lbl_medida.Text = "Medida del material"
+        ' 
         ' Compras
         ' 
-        AutoScaleDimensions = New SizeF(9F, 20F)
+        AutoScaleDimensions = New SizeF(8F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ActiveCaption
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(887, 451)
+        Controls.Add(lbl_medida)
+        Controls.Add(txtMedidas)
+        Controls.Add(cmMedida)
+        Controls.Add(cbMedidas)
         Controls.Add(dgCompras)
         Controls.Add(cbUnidad)
         Controls.Add(Label3)
@@ -199,4 +245,8 @@ Partial Class Compras
     Friend WithEvents Label3 As Label
     Friend WithEvents cbUnidad As ComboBox
     Friend WithEvents dgCompras As DataGridView
+    Friend WithEvents cbMedidas As CheckBox
+    Friend WithEvents cmMedida As ComboBox
+    Friend WithEvents txtMedidas As TextBox
+    Friend WithEvents lbl_medida As Label
 End Class

@@ -35,9 +35,10 @@ Partial Class Reportes
         ' 
         btn_reporte.BackColor = Color.LightSteelBlue
         btn_reporte.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn_reporte.Location = New Point(110, 148)
+        btn_reporte.Location = New Point(96, 111)
+        btn_reporte.Margin = New Padding(3, 2, 3, 2)
         btn_reporte.Name = "btn_reporte"
-        btn_reporte.Size = New Size(159, 47)
+        btn_reporte.Size = New Size(139, 35)
         btn_reporte.TabIndex = 0
         btn_reporte.Text = "Enviar Reporte"
         btn_reporte.UseVisualStyleBackColor = False
@@ -46,20 +47,22 @@ Partial Class Reportes
         ' 
         txtObservacion.BackColor = Color.AliceBlue
         txtObservacion.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtObservacion.Location = New Point(110, 83)
+        txtObservacion.Location = New Point(96, 62)
+        txtObservacion.Margin = New Padding(3, 2, 3, 2)
         txtObservacion.Name = "txtObservacion"
         txtObservacion.PlaceholderText = "Ingrese Reporte"
-        txtObservacion.Size = New Size(159, 27)
+        txtObservacion.Size = New Size(140, 23)
         txtObservacion.TabIndex = 1
         ' 
         ' data_repo
         ' 
         data_repo.BackgroundColor = Color.AliceBlue
         data_repo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        data_repo.Location = New Point(375, 83)
+        data_repo.Location = New Point(328, 62)
+        data_repo.Margin = New Padding(3, 2, 3, 2)
         data_repo.Name = "data_repo"
         data_repo.RowHeadersWidth = 51
-        data_repo.Size = New Size(325, 251)
+        data_repo.Size = New Size(284, 188)
         data_repo.TabIndex = 2
         ' 
         ' Button1
@@ -68,9 +71,10 @@ Partial Class Reportes
         Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), Image)
         Button1.BackgroundImageLayout = ImageLayout.Stretch
         Button1.FlatStyle = FlatStyle.Popup
-        Button1.Location = New Point(148, 212)
+        Button1.Location = New Point(130, 159)
+        Button1.Margin = New Padding(3, 2, 3, 2)
         Button1.Name = "Button1"
-        Button1.Size = New Size(74, 50)
+        Button1.Size = New Size(65, 38)
         Button1.TabIndex = 3
         Button1.UseVisualStyleBackColor = False
         ' 
@@ -79,25 +83,26 @@ Partial Class Reportes
         Label1.AutoSize = True
         Label1.BackColor = Color.LightSteelBlue
         Label1.Font = New Font("Segoe UI Symbol", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(110, 28)
+        Label1.Location = New Point(96, 21)
         Label1.Name = "Label1"
-        Label1.Size = New Size(330, 23)
+        Label1.Size = New Size(272, 19)
         Label1.TabIndex = 4
         Label1.Text = "Ingrese breve descripción del reporte" & vbCrLf
         ' 
         ' Reportes
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
-        ClientSize = New Size(744, 367)
+        ClientSize = New Size(633, 268)
         Controls.Add(Label1)
         Controls.Add(Button1)
         Controls.Add(data_repo)
         Controls.Add(txtObservacion)
         Controls.Add(btn_reporte)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Margin = New Padding(3, 2, 3, 2)
         Name = "Reportes"
         Text = "Reportes"
         CType(data_repo, ComponentModel.ISupportInitialize).EndInit()

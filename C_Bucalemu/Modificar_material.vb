@@ -84,7 +84,7 @@ Public Class mod_material
 
             'Agrega la medida al nombre si es que este no esta vacío
             If CheckBox1.Checked Then
-                nombre = nombre & " " & txtMedida.Text & cbMedida.Text
+                nombre = (nombre & " " & txtMedida.Text & cbMedida.Text).ToUpper()
                 If String.IsNullOrWhiteSpace(txtMedida.Text) OrElse String.IsNullOrWhiteSpace(cbMedida.Text) Then
                     MsgBox("Por favor, ingrese la medida del material", MsgBoxStyle.Exclamation, "Advertencia")
                     Exit Sub

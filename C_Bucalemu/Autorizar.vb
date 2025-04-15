@@ -54,6 +54,8 @@ Public Class Autorizar
                 Dim solicitud As String = "Solicitud " + contador.ToString()
                 Dim solicitudID As String = compra.Key
 
+
+
                 Dim fecha As String = ""
 
                 ' Convertir la sublista de materiales en un JArray
@@ -63,10 +65,13 @@ Public Class Autorizar
                 ' Recorrer cada material en la lista
                 For Each material In listaMateriales
                     Dim datosMaterial As JObject = JObject.Parse(material.ToString())
-                    Dim nombreMaterial As String = datosMaterial("Material").ToString()
+                    Dim nombreMaterial As String = datosMaterial("Material").ToString().Trim()
                     Dim cantidad As String = datosMaterial("Cantidad").ToString()
                     Dim unidad As String = datosMaterial("Unidad").ToString()
-                    materialesTexto.Add($"{nombreMaterial} {cantidad} {unidad}")
+                    Dim medida As String = datosMaterial("Medida").ToString()
+                    Dim unidadMedida As String = datosMaterial("Unidad de medida").ToString()
+                    materialesTexto.Add($"{nombreMaterial} {medida}{unidadMedida} {cantidad} {unidad}")
+
                     fecha = datosMaterial("Fecha").ToString()
                 Next
                 Dim materialesTextoTexto As String = String.Join(", ", materialesTexto)
@@ -154,17 +159,27 @@ Public Class Autorizar
 
             Dim materiales As String = row.Cells("Materiales").Value.ToString()
             Dim Texto() As String = materiales.Split(",")
+
             For Each palabra In Texto
+
                 Dim Material() As String = palabra.Trim().Split(" ")
                 Dim Nombre As String = Material(0).ToUpper()
-                Dim Cantidad As String = Material(1)
-                Dim unidad As String = Material(2)
+
+                Dim medida As String = Material(1).ToUpper()
+
+                Dim nombreMedida As String = (Nombre + " " + medida).Trim()
+
+                Dim Cantidad As String = Material(2)
+                Dim unidad As String = Material(3)
 
                 ' Verificar si el material ya existe en el inventario
                 Dim materialEncontrado As Boolean = False
                 For Each item In inventarioData
+
                     Dim datosMaterial As JObject = item.Value
-                    If datosMaterial("Material").ToString() = Nombre AndAlso datosMaterial("unidad").ToString() = unidad Then
+                    MsgBox(datosMaterial("Material").ToString())
+
+                    If datosMaterial("Material").ToString() = nombreMedida AndAlso datosMaterial("unidad").ToString() = unidad Then
                         ' Actualizar la cantidad
                         datosMaterial("cantidad") = (Integer.Parse(datosMaterial("cantidad").ToString()) + Cantidad).ToString()
                         materialEncontrado = True
@@ -174,13 +189,13 @@ Public Class Autorizar
                 ' Si no se encontró, agregar nuevo material
                 If Not materialEncontrado Then
                     Dim nuevoMaterial As New JObject()
-                    nuevoMaterial("Material") = Nombre
+                    nuevoMaterial("Material") = nombreMedida
                     nuevoMaterial("cantidad") = Cantidad.ToString()
                     nuevoMaterial("unidad") = unidad
                     nuevoMaterial("fecha") = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss")
 
 
-                    inventarioData($"mat_{Nombre.Substring(0, 3).ToUpper()}000001") = nuevoMaterial
+                    inventarioData($"{Nombre.ToUpper()}{medida}_0001") = nuevoMaterial
                 End If
             Next
             ' Actualizar Firebase con los nuevos datos
@@ -189,6 +204,11 @@ Public Class Autorizar
             ' Eliminar la solicitud aceptada de Compras
             client.UploadString(firebaseComprasUrl, "DELETE", String.Empty)
             ' Recargar los datos del DataGridView para reflejar los cambios
+            ' Limpiar DataGridView
+            ConfigurarEstiloDataGridView()
+            dgAutorizar.Rows.Clear()
+            dgAutorizar.Columns.Clear()
+
             Autorizar_Load(Me, EventArgs.Empty)
 
 
@@ -231,5 +251,6 @@ Public Class Autorizar
         End Try
 
         ' Recargar los datos del DataGridView para reflejar los cambios
+
     End Sub
 End Class
