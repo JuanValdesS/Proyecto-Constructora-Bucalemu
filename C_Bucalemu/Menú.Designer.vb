@@ -37,6 +37,7 @@ Partial Class Menú
         ' btn_Compras
         ' 
         btn_Compras.BackColor = Color.Moccasin
+        btn_Compras.Cursor = Cursors.Hand
         btn_Compras.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_Compras.ForeColor = SystemColors.ActiveCaptionText
         btn_Compras.Location = New Point(252, 75)
@@ -49,6 +50,7 @@ Partial Class Menú
         ' btn_cubicacion
         ' 
         btn_cubicacion.BackColor = Color.Moccasin
+        btn_cubicacion.Cursor = Cursors.Hand
         btn_cubicacion.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_cubicacion.ForeColor = SystemColors.ActiveCaptionText
         btn_cubicacion.Location = New Point(252, 227)
@@ -61,6 +63,7 @@ Partial Class Menú
         ' btn_inventario
         ' 
         btn_inventario.BackColor = Color.Moccasin
+        btn_inventario.Cursor = Cursors.Hand
         btn_inventario.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_inventario.ForeColor = SystemColors.ActiveCaptionText
         btn_inventario.Location = New Point(252, 126)
@@ -73,6 +76,7 @@ Partial Class Menú
         ' btn_reportes
         ' 
         btn_reportes.BackColor = Color.Moccasin
+        btn_reportes.Cursor = Cursors.Hand
         btn_reportes.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_reportes.ForeColor = SystemColors.ActiveCaptionText
         btn_reportes.Location = New Point(252, 278)
@@ -97,6 +101,7 @@ Partial Class Menú
         ' btn_logout
         ' 
         btn_logout.BackColor = Color.RosyBrown
+        btn_logout.Cursor = Cursors.Hand
         btn_logout.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btn_logout.Location = New Point(294, 486)
         btn_logout.Name = "btn_logout"
@@ -108,6 +113,7 @@ Partial Class Menú
         ' btnVerInventario
         ' 
         btnVerInventario.BackColor = Color.Moccasin
+        btnVerInventario.Cursor = Cursors.Hand
         btnVerInventario.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btnVerInventario.ForeColor = SystemColors.ActiveCaptionText
         btnVerInventario.Location = New Point(252, 176)
@@ -120,6 +126,7 @@ Partial Class Menú
         ' btnAutorizar
         ' 
         btnAutorizar.BackColor = Color.Moccasin
+        btnAutorizar.Cursor = Cursors.Hand
         btnAutorizar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btnAutorizar.ForeColor = SystemColors.ActiveCaptionText
         btnAutorizar.Location = New Point(252, 329)
@@ -132,6 +139,7 @@ Partial Class Menú
         ' btn_registro
         ' 
         btn_registro.BackColor = Color.RosyBrown
+        btn_registro.Cursor = Cursors.Hand
         btn_registro.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btn_registro.ForeColor = SystemColors.ControlText
         btn_registro.Location = New Point(294, 419)

@@ -251,6 +251,7 @@ Partial Class mod_material
         Controls.Add(txtCantidad)
         Controls.Add(txtMaterial)
         Controls.Add(btnAgregar)
+        Cursor = Cursors.Hand
         Font = New Font("Segoe UI Symbol", 7.8F)
         ForeColor = SystemColors.ActiveCaptionText
         Icon = CType(resources.GetObject("$this.Icon"), Icon)

@@ -5,6 +5,7 @@
     Dim VerInventario As New Inventario()
     Dim Autorizar As New Autorizar()
     Dim registro As New Registro()
+    Dim cubi As New Cubicacion()
 
     Private fcon As New FireSharp.Config.FirebaseConfig With {
     .AuthSecret = "N6kTJwGfYKq9AVH7i3yJ6aTk95ZXw8F3nY1aZFUy",
@@ -23,7 +24,8 @@
     End Sub
 
     Private Sub btn_cubicacion_Click(sender As Object, e As EventArgs) Handles btn_cubicacion.Click
-        ''Lo agregaremos después
+        cubi.Show()
+        Hide()
     End Sub
 
     Private Sub btn_reportes_Click(sender As Object, e As EventArgs) Handles btn_reportes.Click

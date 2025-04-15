@@ -4,6 +4,9 @@
     <Compile Update="Autorizar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Cubicacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Modificar_material.vb">
       <SubType>Form</SubType>
     </Compile>
