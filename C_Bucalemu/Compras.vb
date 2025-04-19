@@ -11,7 +11,7 @@ Public Class Compras
         Dim material As String = txtMaterial.Text
         Dim cantidad As Integer = nCantidad.Value
         Dim unidad As String = cbUnidad.Text
-        Dim medida As String = txtMedidas.Text
+        Dim medida As String = nMedidas.Value
         Dim unidadMedida = cmMedida.Text
         Dim fecha As String = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") ' Fecha actual
 
@@ -53,7 +53,7 @@ Public Class Compras
 
         ' Limpiar los controles de entrada después de agregar
         txtMaterial.Clear()
-        txtMedidas.Clear()
+        nMedidas.Value = 0
         nCantidad.Value = 0
         cbUnidad.SelectedIndex = -1
         cmMedida.SelectedIndex = -1
@@ -126,7 +126,7 @@ Public Class Compras
         dgCompras.Rows.Clear()
         dgCompras.Columns.Clear()
         cmMedida.Visible = False
-        txtMedidas.Visible = False
+        nMedidas.Visible = False
         lbl_medida.Visible = False
 
 
@@ -206,14 +206,15 @@ Public Class Compras
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles cbMedidas.CheckedChanged
         If cbMedidas.Checked Then
-            txtMedidas.Visible = True
+            nMedidas.Visible = True
             cmMedida.Visible = True
             lbl_medida.Visible = True
         Else
-            txtMedidas.Visible = False
+            nMedidas.Visible = False
             cmMedida.Visible = False
             lbl_medida.Visible = False
         End If
 
     End Sub
+
 End Class

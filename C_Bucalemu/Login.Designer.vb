@@ -35,10 +35,11 @@ Partial Class Login
         ' 
         btnLogin.BackColor = Color.LightSteelBlue
         btnLogin.Cursor = Cursors.Hand
-        btnLogin.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic)
+        btnLogin.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnLogin.Location = New Point(157, 212)
+        btnLogin.Margin = New Padding(3, 2, 3, 2)
         btnLogin.Name = "btnLogin"
-        btnLogin.Size = New Size(191, 58)
+        btnLogin.Size = New Size(192, 58)
         btnLogin.TabIndex = 0
         btnLogin.Text = "Login"
         btnLogin.UseVisualStyleBackColor = False
@@ -47,7 +48,7 @@ Partial Class Login
         ' 
         Label1.AutoSize = True
         Label1.BackColor = Color.LightSteelBlue
-        Label1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         Label1.ForeColor = SystemColors.Desktop
         Label1.Location = New Point(157, 51)
         Label1.Name = "Label1"
@@ -59,8 +60,8 @@ Partial Class Login
         ' 
         Label2.AutoSize = True
         Label2.BackColor = Color.LightSteelBlue
-        Label2.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(157, 137)
+        Label2.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
+        Label2.Location = New Point(157, 138)
         Label2.Name = "Label2"
         Label2.Size = New Size(93, 20)
         Label2.TabIndex = 3
@@ -70,23 +71,25 @@ Partial Class Login
         ' 
         txtUsuario.BackColor = Color.AliceBlue
         txtUsuario.Cursor = Cursors.IBeam
-        txtUsuario.Font = New Font("Segoe UI Symbol", 9F)
+        txtUsuario.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtUsuario.Location = New Point(157, 74)
+        txtUsuario.Margin = New Padding(3, 2, 3, 2)
         txtUsuario.Name = "txtUsuario"
         txtUsuario.PlaceholderText = "Usuario o Correo Electrónico"
-        txtUsuario.Size = New Size(203, 27)
+        txtUsuario.Size = New Size(203, 25)
         txtUsuario.TabIndex = 4
         ' 
         ' txtPassword
         ' 
         txtPassword.BackColor = Color.AliceBlue
         txtPassword.Cursor = Cursors.IBeam
-        txtPassword.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtPassword.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtPassword.Location = New Point(157, 160)
+        txtPassword.Margin = New Padding(3, 2, 3, 2)
         txtPassword.Name = "txtPassword"
         txtPassword.PasswordChar = "*"c
         txtPassword.PlaceholderText = "Contraseña"
-        txtPassword.Size = New Size(203, 27)
+        txtPassword.Size = New Size(203, 25)
         txtPassword.TabIndex = 5
         ' 
         ' CheckBox1
@@ -97,6 +100,7 @@ Partial Class Login
         CheckBox1.Font = New Font("Segoe UI Symbol", 7.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         CheckBox1.ForeColor = Color.White
         CheckBox1.Location = New Point(366, 162)
+        CheckBox1.Margin = New Padding(3, 2, 3, 2)
         CheckBox1.Name = "CheckBox1"
         CheckBox1.Size = New Size(134, 21)
         CheckBox1.TabIndex = 6
@@ -119,6 +123,7 @@ Partial Class Login
         Controls.Add(btnLogin)
         Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Margin = New Padding(3, 2, 3, 2)
         Name = "Login"
         Text = "Inicio de Sesión"
         ResumeLayout(False)

@@ -22,6 +22,7 @@ Partial Class Compras
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Compras))
         btnAgregar = New Button()
         btnEliminar = New Button()
@@ -36,76 +37,85 @@ Partial Class Compras
         dgCompras = New DataGridView()
         cbMedidas = New CheckBox()
         cmMedida = New ComboBox()
-        txtMedidas = New TextBox()
         lbl_medida = New Label()
+        ToolTip1 = New ToolTip(components)
+        nMedidas = New NumericUpDown()
         CType(nCantidad, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgCompras, ComponentModel.ISupportInitialize).BeginInit()
+        CType(nMedidas, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnAgregar
         ' 
         btnAgregar.BackColor = SystemColors.ActiveCaption
         btnAgregar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        btnAgregar.Location = New Point(769, 138)
+        btnAgregar.Location = New Point(755, 158)
         btnAgregar.Margin = New Padding(3, 4, 3, 4)
         btnAgregar.Name = "btnAgregar"
-        btnAgregar.Size = New Size(97, 31)
+        btnAgregar.Size = New Size(96, 31)
         btnAgregar.TabIndex = 0
         btnAgregar.Text = "Agregar"
+        ToolTip1.SetToolTip(btnAgregar, "Seleccione para agregar sus datos antes de enviar")
         btnAgregar.UseVisualStyleBackColor = False
         ' 
         ' btnEliminar
         ' 
         btnEliminar.BackColor = SystemColors.ActiveCaption
         btnEliminar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        btnEliminar.Location = New Point(769, 216)
+        btnEliminar.Location = New Point(755, 235)
         btnEliminar.Margin = New Padding(3, 4, 3, 4)
         btnEliminar.Name = "btnEliminar"
-        btnEliminar.Size = New Size(97, 31)
+        btnEliminar.Size = New Size(96, 31)
         btnEliminar.TabIndex = 1
         btnEliminar.Text = "Eliminar"
+        ToolTip1.SetToolTip(btnEliminar, "Seleccione para eliminar la Solicitud")
         btnEliminar.UseVisualStyleBackColor = False
         ' 
         ' btnSolicitar
         ' 
         btnSolicitar.BackColor = SystemColors.ActiveCaption
         btnSolicitar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        btnSolicitar.Location = New Point(769, 177)
+        btnSolicitar.Location = New Point(755, 196)
         btnSolicitar.Margin = New Padding(3, 4, 3, 4)
         btnSolicitar.Name = "btnSolicitar"
-        btnSolicitar.Size = New Size(97, 31)
+        btnSolicitar.Size = New Size(96, 31)
         btnSolicitar.TabIndex = 2
         btnSolicitar.Text = "Solicitar"
+        ToolTip1.SetToolTip(btnSolicitar, "Seleccione para enviar la solicitud de compra al administrador")
         btnSolicitar.UseVisualStyleBackColor = False
         ' 
         ' txtMaterial
         ' 
         txtMaterial.BackColor = Color.AliceBlue
-        txtMaterial.Font = New Font("Arial Narrow", 9F, FontStyle.Bold)
-        txtMaterial.Location = New Point(136, 28)
+        txtMaterial.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtMaterial.Location = New Point(136, 48)
         txtMaterial.Margin = New Padding(3, 4, 3, 4)
         txtMaterial.Name = "txtMaterial"
-        txtMaterial.Size = New Size(132, 21)
+        txtMaterial.PlaceholderText = "Nombre del material"
+        txtMaterial.Size = New Size(133, 25)
         txtMaterial.TabIndex = 4
+        ToolTip1.SetToolTip(txtMaterial, "Ingrese nombre del material a solicitar.")
+        txtMaterial.UseSystemPasswordChar = True
         ' 
         ' nCantidad
         ' 
         nCantidad.BackColor = Color.AliceBlue
-        nCantidad.Font = New Font("Arial Narrow", 9F, FontStyle.Bold)
-        nCantidad.Location = New Point(136, 74)
-        nCantidad.Margin = New Padding(3, 4, 3, 4)
+        nCantidad.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        nCantidad.Location = New Point(136, 115)
+        nCantidad.Margin = New Padding(4, 5, 4, 5)
         nCantidad.Name = "nCantidad"
-        nCantidad.Size = New Size(143, 21)
+        nCantidad.Size = New Size(133, 25)
         nCantidad.TabIndex = 5
+        ToolTip1.SetToolTip(nCantidad, "Ingrese cantidad del material a solicitar")
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.BackColor = Color.LightSteelBlue
         Label1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        Label1.Location = New Point(136, 9)
+        Label1.Location = New Point(136, 22)
         Label1.Name = "Label1"
-        Label1.Size = New Size(107, 15)
+        Label1.Size = New Size(132, 20)
         Label1.TabIndex = 6
         Label1.Text = "Ingrese Material"
         ' 
@@ -114,9 +124,9 @@ Partial Class Compras
         Label2.AutoSize = True
         Label2.BackColor = Color.LightSteelBlue
         Label2.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        Label2.Location = New Point(136, 53)
+        Label2.Location = New Point(136, 89)
         Label2.Name = "Label2"
-        Label2.Size = New Size(116, 15)
+        Label2.Size = New Size(143, 20)
         Label2.TabIndex = 7
         Label2.Text = "Agregar Cantidad"
         ' 
@@ -124,10 +134,10 @@ Partial Class Compras
         ' 
         Button1.BackColor = SystemColors.ActiveCaption
         Button1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
-        Button1.Location = New Point(769, 372)
+        Button1.Location = New Point(755, 391)
         Button1.Margin = New Padding(3, 4, 3, 4)
         Button1.Name = "Button1"
-        Button1.Size = New Size(97, 31)
+        Button1.Size = New Size(96, 31)
         Button1.TabIndex = 8
         Button1.Text = "Menu"
         Button1.UseVisualStyleBackColor = False
@@ -135,20 +145,24 @@ Partial Class Compras
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(315, 9)
+        Label3.Location = New Point(315, 22)
         Label3.Name = "Label3"
-        Label3.Size = New Size(51, 15)
+        Label3.Size = New Size(63, 20)
         Label3.TabIndex = 9
         Label3.Text = "Unidad"
         ' 
         ' cbUnidad
         ' 
+        cbUnidad.BackColor = Color.AliceBlue
+        cbUnidad.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         cbUnidad.FormattingEnabled = True
         cbUnidad.Items.AddRange(New Object() {"Unidade(s)", "Kilogramo(s)", "Litro(s)", "Metros", "Metros cuadrado(s)", "Metros Cúbico(s)", "Milímetro(s)"})
-        cbUnidad.Location = New Point(315, 29)
+        cbUnidad.Location = New Point(315, 48)
+        cbUnidad.Margin = New Padding(3, 2, 3, 2)
         cbUnidad.Name = "cbUnidad"
-        cbUnidad.Size = New Size(121, 23)
+        cbUnidad.Size = New Size(89, 25)
         cbUnidad.TabIndex = 10
+        ToolTip1.SetToolTip(cbUnidad, "Seleccione unidad del material a solicitar")
         ' 
         ' dgCompras
         ' 
@@ -156,7 +170,8 @@ Partial Class Compras
         dgCompras.AllowUserToDeleteRows = False
         dgCompras.BackgroundColor = Color.LightSteelBlue
         dgCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgCompras.Location = New Point(136, 138)
+        dgCompras.Location = New Point(136, 158)
+        dgCompras.Margin = New Padding(3, 2, 3, 2)
         dgCompras.Name = "dgCompras"
         dgCompras.ReadOnly = True
         dgCompras.RowHeadersWidth = 51
@@ -166,28 +181,28 @@ Partial Class Compras
         ' cbMedidas
         ' 
         cbMedidas.AutoSize = True
-        cbMedidas.Location = New Point(315, 76)
+        cbMedidas.BackColor = Color.Transparent
+        cbMedidas.Location = New Point(275, 114)
+        cbMedidas.Margin = New Padding(3, 2, 3, 2)
         cbMedidas.Name = "cbMedidas"
-        cbMedidas.Size = New Size(131, 19)
+        cbMedidas.Size = New Size(161, 24)
         cbMedidas.TabIndex = 12
         cbMedidas.Text = "Agregar medidas"
-        cbMedidas.UseVisualStyleBackColor = True
+        ToolTip1.SetToolTip(cbMedidas, "Tache la opción si desea agregar medidas especificas para el material.")
+        cbMedidas.UseVisualStyleBackColor = False
         ' 
         ' cmMedida
         ' 
+        cmMedida.BackColor = Color.AliceBlue
+        cmMedida.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         cmMedida.FormattingEnabled = True
         cmMedida.Items.AddRange(New Object() {"cm", "mm", "m"})
-        cmMedida.Location = New Point(595, 76)
+        cmMedida.Location = New Point(557, 112)
+        cmMedida.Margin = New Padding(3, 2, 3, 2)
         cmMedida.Name = "cmMedida"
-        cmMedida.Size = New Size(69, 23)
+        cmMedida.Size = New Size(70, 25)
         cmMedida.TabIndex = 13
-        ' 
-        ' txtMedidas
-        ' 
-        txtMedidas.Location = New Point(463, 74)
-        txtMedidas.Name = "txtMedidas"
-        txtMedidas.Size = New Size(100, 23)
-        txtMedidas.TabIndex = 14
+        ToolTip1.SetToolTip(cmMedida, "Seleccione medida del material. Ej: cm")
         ' 
         ' lbl_medida
         ' 
@@ -195,22 +210,37 @@ Partial Class Compras
         lbl_medida.BackColor = Color.LightSteelBlue
         lbl_medida.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         lbl_medida.ForeColor = SystemColors.ActiveCaptionText
-        lbl_medida.Location = New Point(463, 53)
+        lbl_medida.Location = New Point(463, 89)
         lbl_medida.Name = "lbl_medida"
-        lbl_medida.Size = New Size(131, 15)
+        lbl_medida.Size = New Size(163, 20)
         lbl_medida.TabIndex = 16
         lbl_medida.Text = "Medida del material"
         ' 
+        ' ToolTip1
+        ' 
+        ToolTip1.BackColor = Color.Azure
+        ' 
+        ' nMedidas
+        ' 
+        nMedidas.BackColor = Color.AliceBlue
+        nMedidas.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        nMedidas.Location = New Point(463, 112)
+        nMedidas.Margin = New Padding(6, 8, 6, 8)
+        nMedidas.Name = "nMedidas"
+        nMedidas.Size = New Size(85, 25)
+        nMedidas.TabIndex = 17
+        ToolTip1.SetToolTip(nMedidas, "Ingrese cantidad del material a solicitar")
+        ' 
         ' Compras
         ' 
-        AutoScaleDimensions = New SizeF(8F, 15F)
+        AutoScaleDimensions = New SizeF(9F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ActiveCaption
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(887, 451)
+        Controls.Add(nMedidas)
         Controls.Add(lbl_medida)
-        Controls.Add(txtMedidas)
         Controls.Add(cmMedida)
         Controls.Add(cbMedidas)
         Controls.Add(dgCompras)
@@ -226,10 +256,12 @@ Partial Class Compras
         Controls.Add(btnAgregar)
         Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Margin = New Padding(3, 2, 3, 2)
         Name = "Compras"
         Text = "Compras"
         CType(nCantidad, ComponentModel.ISupportInitialize).EndInit()
         CType(dgCompras, ComponentModel.ISupportInitialize).EndInit()
+        CType(nMedidas, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -247,6 +279,7 @@ Partial Class Compras
     Friend WithEvents dgCompras As DataGridView
     Friend WithEvents cbMedidas As CheckBox
     Friend WithEvents cmMedida As ComboBox
-    Friend WithEvents txtMedidas As TextBox
     Friend WithEvents lbl_medida As Label
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents nMedidas As NumericUpDown
 End Class

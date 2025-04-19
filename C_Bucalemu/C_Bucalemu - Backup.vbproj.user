@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
   <ItemGroup>
     <Compile Update="Autorizar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Compras.vb">
-      <SubType>Form</SubType>
-    </Compile>
+<<<<<<< HEAD
     <Compile Update="Cubicacion.vb">
+=======
+    <Compile Update="Compras.vb">
+>>>>>>> ccede55793c634139e0ac549860aaad8efd07577
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Inventario.vb">
+    <Compile Update="Modificar_material.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Login.vb">
@@ -20,7 +20,7 @@
     <Compile Update="Menú.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Modificar_material.vb">
+    <Compile Update="Inventario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Registro.vb">

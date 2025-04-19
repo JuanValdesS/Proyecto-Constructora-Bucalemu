@@ -22,10 +22,10 @@ Partial Class mod_material
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(mod_material))
         btnAgregar = New Button()
         txtMaterial = New TextBox()
-        txtCantidad = New TextBox()
         Label1 = New Label()
         Label2 = New Label()
         DataGridView1 = New DataGridView()
@@ -36,10 +36,14 @@ Partial Class mod_material
         btn_retirar = New Button()
         Button1 = New Button()
         CheckBox1 = New CheckBox()
-        txtMedida = New TextBox()
         cbMedida = New ComboBox()
         lbl_medida = New Label()
+        ToolTip1 = New ToolTip(components)
+        nMedidas = New NumericUpDown()
+        nCantidad = New NumericUpDown()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(nMedidas, ComponentModel.ISupportInitialize).BeginInit()
+        CType(nCantidad, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnAgregar
@@ -49,30 +53,22 @@ Partial Class mod_material
         btnAgregar.ForeColor = SystemColors.ActiveCaptionText
         btnAgregar.Location = New Point(125, 189)
         btnAgregar.Name = "btnAgregar"
-        btnAgregar.Size = New Size(141, 43)
+        btnAgregar.Size = New Size(141, 42)
         btnAgregar.TabIndex = 0
         btnAgregar.Text = "Agregar"
+        ToolTip1.SetToolTip(btnAgregar, "Para agregar material asegurese de llenar todos los campos")
         btnAgregar.UseVisualStyleBackColor = False
         ' 
         ' txtMaterial
         ' 
         txtMaterial.BackColor = Color.AliceBlue
-        txtMaterial.Font = New Font("Segoe UI Symbol", 7.8F)
-        txtMaterial.Location = New Point(125, 80)
+        txtMaterial.Font = New Font("Arial", 7.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtMaterial.Location = New Point(130, 76)
         txtMaterial.Name = "txtMaterial"
         txtMaterial.PlaceholderText = "Nombre del material"
-        txtMaterial.Size = New Size(146, 21)
+        txtMaterial.Size = New Size(146, 22)
         txtMaterial.TabIndex = 1
-        ' 
-        ' txtCantidad
-        ' 
-        txtCantidad.BackColor = Color.AliceBlue
-        txtCantidad.Font = New Font("Segoe UI Symbol", 7.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtCantidad.Location = New Point(125, 144)
-        txtCantidad.Name = "txtCantidad"
-        txtCantidad.PlaceholderText = "cantidad"
-        txtCantidad.Size = New Size(77, 21)
-        txtCantidad.TabIndex = 2
+        ToolTip1.SetToolTip(txtMaterial, "Ingrese nombre del material. Ej: Cemento")
         ' 
         ' Label1
         ' 
@@ -80,9 +76,9 @@ Partial Class mod_material
         Label1.BackColor = Color.LightSteelBlue
         Label1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         Label1.ForeColor = SystemColors.ActiveCaptionText
-        Label1.Location = New Point(125, 9)
+        Label1.Location = New Point(130, 19)
         Label1.Name = "Label1"
-        Label1.Size = New Size(58, 15)
+        Label1.Size = New Size(72, 20)
         Label1.TabIndex = 3
         Label1.Text = "Material"
         ' 
@@ -94,7 +90,7 @@ Partial Class mod_material
         Label2.ForeColor = SystemColors.ActiveCaptionText
         Label2.Location = New Point(125, 118)
         Label2.Name = "Label2"
-        Label2.Size = New Size(63, 15)
+        Label2.Size = New Size(77, 20)
         Label2.TabIndex = 4
         Label2.Text = "Cantidad"
         ' 
@@ -125,6 +121,7 @@ Partial Class mod_material
         btn_regresar.TabIndex = 6
         btn_regresar.TabStop = False
         btn_regresar.Tag = "Regresar al menú"
+        ToolTip1.SetToolTip(btn_regresar, "Volver al menú")
         btn_regresar.UseVisualStyleBackColor = False
         ' 
         ' Label3
@@ -133,31 +130,34 @@ Partial Class mod_material
         Label3.BackColor = Color.LightSteelBlue
         Label3.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         Label3.ForeColor = SystemColors.ActiveCaptionText
-        Label3.Location = New Point(235, 118)
+        Label3.Location = New Point(225, 118)
         Label3.Name = "Label3"
-        Label3.Size = New Size(64, 15)
+        Label3.Size = New Size(79, 20)
         Label3.TabIndex = 7
         Label3.Text = "Unidades"
         ' 
         ' ComboBox1
         ' 
         ComboBox1.BackColor = Color.AliceBlue
-        ComboBox1.Font = New Font("Segoe UI Symbol", 7.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        ComboBox1.Font = New Font("Arial", 7.8F)
         ComboBox1.FormattingEnabled = True
         ComboBox1.Items.AddRange(New Object() {"Unidade(s)", "Kilogramo(s)", "Litro(s)", "Metros", "Metros cuadrado(s)", "Metros Cúbico(s)", "Milímetro(s)"})
-        ComboBox1.Location = New Point(235, 144)
+        ComboBox1.Location = New Point(225, 144)
         ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(79, 20)
+        ComboBox1.Size = New Size(79, 24)
         ComboBox1.TabIndex = 8
+        ToolTip1.SetToolTip(ComboBox1, "Seleccione la unidad del material. Ej: Kilogramos")
         ' 
         ' txtbox1
         ' 
         txtbox1.BackColor = Color.AliceBlue
+        txtbox1.Font = New Font("Arial", 7.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtbox1.FormattingEnabled = True
-        txtbox1.Location = New Point(125, 46)
+        txtbox1.Location = New Point(130, 42)
         txtbox1.Name = "txtbox1"
-        txtbox1.Size = New Size(146, 20)
+        txtbox1.Size = New Size(146, 24)
         txtbox1.TabIndex = 9
+        ToolTip1.SetToolTip(txtbox1, "Seleccione un material para añadir")
         ' 
         ' btn_retirar
         ' 
@@ -166,16 +166,17 @@ Partial Class mod_material
         btn_retirar.ForeColor = SystemColors.ActiveCaptionText
         btn_retirar.Location = New Point(429, 189)
         btn_retirar.Name = "btn_retirar"
-        btn_retirar.Size = New Size(148, 43)
+        btn_retirar.Size = New Size(148, 42)
         btn_retirar.TabIndex = 10
         btn_retirar.Text = "Retirar Material"
+        ToolTip1.SetToolTip(btn_retirar, "Para retirar material, asegurese de llenar todos los campos.")
         btn_retirar.UseVisualStyleBackColor = False
         ' 
         ' Button1
         ' 
         Button1.BackColor = Color.LightSteelBlue
         Button1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button1.Location = New Point(196, 534)
+        Button1.Location = New Point(235, 521)
         Button1.Name = "Button1"
         Button1.Size = New Size(291, 45)
         Button1.TabIndex = 11
@@ -190,54 +191,78 @@ Partial Class mod_material
         CheckBox1.ForeColor = Color.Black
         CheckBox1.Location = New Point(429, 80)
         CheckBox1.Name = "CheckBox1"
-        CheckBox1.Size = New Size(123, 17)
+        CheckBox1.Size = New Size(141, 21)
         CheckBox1.TabIndex = 12
         CheckBox1.Text = "Agregar Medida"
+        ToolTip1.SetToolTip(CheckBox1, "Tache esta opción si desea añadir una medida al material. Ej: 2 mm")
         CheckBox1.UseVisualStyleBackColor = False
-        ' 
-        ' txtMedida
-        ' 
-        txtMedida.BackColor = Color.AliceBlue
-        txtMedida.Font = New Font("Segoe UI Symbol", 7.8F)
-        txtMedida.Location = New Point(429, 143)
-        txtMedida.Name = "txtMedida"
-        txtMedida.PlaceholderText = "Medida del material"
-        txtMedida.Size = New Size(84, 21)
-        txtMedida.TabIndex = 13
         ' 
         ' cbMedida
         ' 
         cbMedida.BackColor = Color.AliceBlue
+        cbMedida.Font = New Font("Arial", 7.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         cbMedida.FormattingEnabled = True
         cbMedida.Items.AddRange(New Object() {"cm", "mm", "m"})
-        cbMedida.Location = New Point(532, 143)
+        cbMedida.Location = New Point(524, 144)
         cbMedida.Name = "cbMedida"
-        cbMedida.Size = New Size(68, 20)
+        cbMedida.Size = New Size(68, 24)
         cbMedida.TabIndex = 14
+        ToolTip1.SetToolTip(cbMedida, "Seleccione medida del material. Ej: cm")
         ' 
         ' lbl_medida
         ' 
         lbl_medida.AutoSize = True
         lbl_medida.BackColor = Color.LightSteelBlue
-        lbl_medida.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
+        lbl_medida.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lbl_medida.ForeColor = SystemColors.ActiveCaptionText
-        lbl_medida.Location = New Point(429, 109)
+        lbl_medida.Location = New Point(429, 118)
         lbl_medida.Name = "lbl_medida"
-        lbl_medida.Size = New Size(131, 15)
+        lbl_medida.Size = New Size(163, 20)
         lbl_medida.TabIndex = 15
         lbl_medida.Text = "Medida del material"
         ' 
+        ' ToolTip1
+        ' 
+        ToolTip1.AutoPopDelay = 5000
+        ToolTip1.BackColor = Color.Azure
+        ToolTip1.InitialDelay = 500
+        ToolTip1.IsBalloon = True
+        ToolTip1.ReshowDelay = 100
+        ' 
+        ' nMedidas
+        ' 
+        nMedidas.BackColor = Color.AliceBlue
+        nMedidas.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        nMedidas.Location = New Point(429, 143)
+        nMedidas.Margin = New Padding(3, 4, 3, 4)
+        nMedidas.Name = "nMedidas"
+        nMedidas.Size = New Size(89, 25)
+        nMedidas.TabIndex = 18
+        ToolTip1.SetToolTip(nMedidas, "Ingrese medida del material. Ej: 3")
+        ' 
+        ' nCantidad
+        ' 
+        nCantidad.BackColor = Color.AliceBlue
+        nCantidad.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        nCantidad.Location = New Point(125, 144)
+        nCantidad.Margin = New Padding(3, 4, 3, 4)
+        nCantidad.Name = "nCantidad"
+        nCantidad.Size = New Size(77, 25)
+        nCantidad.TabIndex = 19
+        ToolTip1.SetToolTip(nCantidad, "Ingrese Cantidad del material. Ej: 20")
+        ' 
         ' mod_material
         ' 
-        AutoScaleDimensions = New SizeF(6F, 12F)
+        AutoScaleDimensions = New SizeF(7F, 17F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightSteelBlue
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(774, 578)
+        Controls.Add(nCantidad)
+        Controls.Add(nMedidas)
         Controls.Add(lbl_medida)
         Controls.Add(cbMedida)
-        Controls.Add(txtMedida)
         Controls.Add(CheckBox1)
         Controls.Add(Button1)
         Controls.Add(btn_retirar)
@@ -248,7 +273,6 @@ Partial Class mod_material
         Controls.Add(DataGridView1)
         Controls.Add(Label2)
         Controls.Add(Label1)
-        Controls.Add(txtCantidad)
         Controls.Add(txtMaterial)
         Controls.Add(btnAgregar)
         Cursor = Cursors.Hand
@@ -258,13 +282,14 @@ Partial Class mod_material
         Name = "mod_material"
         Text = "Gestionar Inventario"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(nMedidas, ComponentModel.ISupportInitialize).EndInit()
+        CType(nCantidad, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents btnAgregar As Button
     Friend WithEvents txtMaterial As TextBox
-    Friend WithEvents txtCantidad As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents DataGridView1 As DataGridView
@@ -275,7 +300,9 @@ Partial Class mod_material
     Friend WithEvents btn_retirar As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents txtMedida As TextBox
     Friend WithEvents cbMedida As ComboBox
     Friend WithEvents lbl_medida As Label
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents nMedidas As NumericUpDown
+    Friend WithEvents nCantidad As NumericUpDown
 End Class
