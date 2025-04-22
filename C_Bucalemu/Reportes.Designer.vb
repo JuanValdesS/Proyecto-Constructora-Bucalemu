@@ -79,7 +79,7 @@ Partial Class Reportes
         Label1.AutoSize = True
         Label1.BackColor = Color.LightSteelBlue
         Label1.Font = New Font("Segoe UI Symbol", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(110, 28)
+        Label1.Location = New Point(110, 34)
         Label1.Name = "Label1"
         Label1.Size = New Size(330, 23)
         Label1.TabIndex = 4

@@ -53,6 +53,7 @@
         ' Mostrar el botón solo si el usuario es Administrador
         If rolUsuario = "Administrador" Then
             btn_registro.Visible = True
+            btnAutorizar.Visible = True
         End If
 
         If rolUsuario = "Jefe" Then

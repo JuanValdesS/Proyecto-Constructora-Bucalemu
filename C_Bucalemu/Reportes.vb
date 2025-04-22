@@ -45,7 +45,7 @@ Public Class Reportes
     Private Sub btn_reporte_Click(sender As Object, e As EventArgs) Handles btn_reporte.Click
 
         Try
-            Dim fechareporte = Date.Now.ToString("yyyyMMddHHmmss")
+            Dim fechareporte = Date.Now.ToString(" dd/MM/yyyy-HH:mm")
             Dim observacion = txtObservacion.Text
             Dim reporteid = "Reporte" & fechareporte
 

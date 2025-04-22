@@ -168,7 +168,7 @@ Partial Class Compras
         ' 
         dgCompras.AllowUserToAddRows = False
         dgCompras.AllowUserToDeleteRows = False
-        dgCompras.BackgroundColor = Color.LightSteelBlue
+        dgCompras.BackgroundColor = Color.AliceBlue
         dgCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgCompras.Location = New Point(136, 158)
         dgCompras.Margin = New Padding(3, 2, 3, 2)

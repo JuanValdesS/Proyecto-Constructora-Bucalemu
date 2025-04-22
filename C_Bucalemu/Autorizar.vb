@@ -5,6 +5,7 @@ Imports System.Net
 
 Public Class Autorizar
     Private comprasData As Dictionary(Of String, JArray) ' Guardar datos globalmente
+
     Private Sub Autorizar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' URL de Firebase (ajústala según la estructura de tu base de datos)
         Dim firebaseUrl As String = "https://db-cbucalemu-b8965-default-rtdb.firebaseio.com/Compras.json"
@@ -15,7 +16,7 @@ Public Class Autorizar
 
             ' Validar si la respuesta está vacía o es "null"
             If String.IsNullOrEmpty(response) OrElse response = "null" Then
-                MessageBox.Show("No hay solicitudes pendientes.")
+                MsgBox("No hay solicitudes pendientes.", MsgBoxStyle.Exclamation, "Advertencia")
                 Exit Sub
             End If
             Try
@@ -24,13 +25,13 @@ Public Class Autorizar
 
 
                 If comprasData Is Nothing OrElse comprasData.Count = 0 Then
-                    MessageBox.Show("No hay solicitudes pendientes.")
+                    MsgBox("No hay solicitudes pendientes.", MsgBoxStyle.Exclamation, "Advertencia")
                     Exit Sub
 
                 End If
 
             Catch ex As Exception
-                MessageBox.Show("Error al deserializar los datos: " & ex.Message)
+                MsgBox("Error al deserializar los datos: ", MsgBoxStyle.Critical, "Error")
                 Exit Sub
 
             End Try
@@ -85,7 +86,7 @@ Public Class Autorizar
 
 
         Catch ex As Exception
-            MessageBox.Show("Error al obtener los datos: " & ex.Message)
+            MsgBox("Error al obtener los datos: ", MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
@@ -131,12 +132,12 @@ Public Class Autorizar
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
         ' Verificar que haya datos en el DataGridView
         If dgAutorizar.Rows.Count = 0 Then
-            MessageBox.Show("No hay datos para enviar.")
+            MsgBox("No hay datos para enviar.", MsgBoxStyle.Exclamation, "Advertencia")
             Exit Sub
         End If
         ' Verificar que se haya seleccionado una fila   
         If dgAutorizar.SelectedRows.Count = 0 Then
-            MessageBox.Show("Por favor seleccione una solicitud.")
+            MsgBox("Por favor seleccione una solicitud.", MsgBoxStyle.Information, "Información")
             Exit Sub
         End If
 
@@ -211,11 +212,10 @@ Public Class Autorizar
 
             Autorizar_Load(Me, EventArgs.Empty)
 
-
-            MessageBox.Show("Inventario actualizado correctamente.")
+            MsgBox("Inventario actualizado correctamente.", MsgBoxStyle.Information, "Mensaje de confirmación")
 
         Catch ex As Exception
-            MessageBox.Show("Error al actualizar el inventario: " & ex.Message)
+            MsgBox("Error al actualizar el inventario: ", MsgBoxStyle.Critical, "Error")
         End Try
 
 
@@ -225,12 +225,12 @@ Public Class Autorizar
     Private Sub btnRechazar_Click(sender As Object, e As EventArgs) Handles btnRechazar.Click
         ' Verificar que haya datos en el DataGridView
         If dgAutorizar.Rows.Count = 0 Then
-            MessageBox.Show("No hay datos para eliminar.")
+            MsgBox("No hay datos para eliminar.", MsgBoxStyle.Exclamation, "Advertencia")
             Exit Sub
         End If
         ' Verificar que se haya seleccionado una fila   
         If dgAutorizar.SelectedRows.Count = 0 Then
-            MessageBox.Show("Por favor seleccione una solicitud.")
+            MsgBox("Por favor seleccione una solicitud.", MsgBoxStyle.Information, "Información")
             Exit Sub
         End If
 
@@ -244,10 +244,10 @@ Public Class Autorizar
             ' Eliminar la fila del DataGridView y recargar la lista actualizada
             dgAutorizar.Rows.Remove(row)
             ' Mensaje de confirmación
-            MessageBox.Show($"La solicitud con ID {solicitudID} fue rechazada correctamente.")
+            MsgBox($"La solicitud con ID {solicitudID} fue rechazada correctamente.", MsgBoxStyle.Information, "información")
 
         Catch ex As Exception
-            MessageBox.Show("Error al eliminar la solicitud: " & ex.Message)
+            MsgBox("Error al eliminar la solicitud: ", MsgBoxStyle.Critical, "Error")
         End Try
 
         ' Recargar los datos del DataGridView para reflejar los cambios
