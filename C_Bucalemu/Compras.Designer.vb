@@ -92,10 +92,9 @@ Partial Class Compras
         txtMaterial.Margin = New Padding(3, 4, 3, 4)
         txtMaterial.Name = "txtMaterial"
         txtMaterial.PlaceholderText = "Nombre del material"
-        txtMaterial.Size = New Size(133, 25)
+        txtMaterial.Size = New Size(133, 21)
         txtMaterial.TabIndex = 4
         ToolTip1.SetToolTip(txtMaterial, "Ingrese nombre del material a solicitar.")
-        txtMaterial.UseSystemPasswordChar = True
         ' 
         ' nCantidad
         ' 
@@ -104,7 +103,7 @@ Partial Class Compras
         nCantidad.Location = New Point(136, 115)
         nCantidad.Margin = New Padding(4, 5, 4, 5)
         nCantidad.Name = "nCantidad"
-        nCantidad.Size = New Size(133, 25)
+        nCantidad.Size = New Size(133, 21)
         nCantidad.TabIndex = 5
         ToolTip1.SetToolTip(nCantidad, "Ingrese cantidad del material a solicitar")
         ' 
@@ -115,7 +114,7 @@ Partial Class Compras
         Label1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         Label1.Location = New Point(136, 22)
         Label1.Name = "Label1"
-        Label1.Size = New Size(132, 20)
+        Label1.Size = New Size(107, 15)
         Label1.TabIndex = 6
         Label1.Text = "Ingrese Material"
         ' 
@@ -126,7 +125,7 @@ Partial Class Compras
         Label2.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         Label2.Location = New Point(136, 89)
         Label2.Name = "Label2"
-        Label2.Size = New Size(143, 20)
+        Label2.Size = New Size(116, 15)
         Label2.TabIndex = 7
         Label2.Text = "Agregar Cantidad"
         ' 
@@ -147,7 +146,7 @@ Partial Class Compras
         Label3.AutoSize = True
         Label3.Location = New Point(315, 22)
         Label3.Name = "Label3"
-        Label3.Size = New Size(63, 20)
+        Label3.Size = New Size(51, 15)
         Label3.TabIndex = 9
         Label3.Text = "Unidad"
         ' 
@@ -160,7 +159,7 @@ Partial Class Compras
         cbUnidad.Location = New Point(315, 48)
         cbUnidad.Margin = New Padding(3, 2, 3, 2)
         cbUnidad.Name = "cbUnidad"
-        cbUnidad.Size = New Size(89, 25)
+        cbUnidad.Size = New Size(89, 23)
         cbUnidad.TabIndex = 10
         ToolTip1.SetToolTip(cbUnidad, "Seleccione unidad del material a solicitar")
         ' 
@@ -185,7 +184,7 @@ Partial Class Compras
         cbMedidas.Location = New Point(275, 114)
         cbMedidas.Margin = New Padding(3, 2, 3, 2)
         cbMedidas.Name = "cbMedidas"
-        cbMedidas.Size = New Size(161, 24)
+        cbMedidas.Size = New Size(131, 19)
         cbMedidas.TabIndex = 12
         cbMedidas.Text = "Agregar medidas"
         ToolTip1.SetToolTip(cbMedidas, "Tache la opción si desea agregar medidas especificas para el material.")
@@ -200,7 +199,7 @@ Partial Class Compras
         cmMedida.Location = New Point(557, 112)
         cmMedida.Margin = New Padding(3, 2, 3, 2)
         cmMedida.Name = "cmMedida"
-        cmMedida.Size = New Size(70, 25)
+        cmMedida.Size = New Size(70, 23)
         cmMedida.TabIndex = 13
         ToolTip1.SetToolTip(cmMedida, "Seleccione medida del material. Ej: cm")
         ' 
@@ -212,7 +211,7 @@ Partial Class Compras
         lbl_medida.ForeColor = SystemColors.ActiveCaptionText
         lbl_medida.Location = New Point(463, 89)
         lbl_medida.Name = "lbl_medida"
-        lbl_medida.Size = New Size(163, 20)
+        lbl_medida.Size = New Size(131, 15)
         lbl_medida.TabIndex = 16
         lbl_medida.Text = "Medida del material"
         ' 
@@ -227,13 +226,13 @@ Partial Class Compras
         nMedidas.Location = New Point(463, 112)
         nMedidas.Margin = New Padding(6, 8, 6, 8)
         nMedidas.Name = "nMedidas"
-        nMedidas.Size = New Size(85, 25)
+        nMedidas.Size = New Size(85, 21)
         nMedidas.TabIndex = 17
         ToolTip1.SetToolTip(nMedidas, "Ingrese cantidad del material a solicitar")
         ' 
         ' Compras
         ' 
-        AutoScaleDimensions = New SizeF(9F, 20F)
+        AutoScaleDimensions = New SizeF(8F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ActiveCaption
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
