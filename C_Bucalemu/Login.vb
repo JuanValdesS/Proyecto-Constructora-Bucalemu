@@ -78,6 +78,7 @@ Public Class Login
         End Try
     End Sub
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtUsuario.Focus()
         Try
             client = New FireSharp.FirebaseClient(fcon)
             If client Is Nothing Then

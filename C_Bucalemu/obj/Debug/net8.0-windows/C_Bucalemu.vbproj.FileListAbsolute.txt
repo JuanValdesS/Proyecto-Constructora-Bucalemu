@@ -79,3 +79,4 @@ C:\Users\diego\OneDrive\Documents\Proyecto-Constructora-Bucalemu\C_Bucalemu\bin\
 C:\Users\diego\OneDrive\Documents\Proyecto-Constructora-Bucalemu\C_Bucalemu\obj\Debug\net8.0-windows\C_Bucalemu.Registro.resources
 C:\Users\Juan\Desktop\Proyecto Constructora Bucalemu\Proyecto-Constructora-Bucalemu\C_Bucalemu\obj\Debug\net8.0-windows\C_Bucalemu.Cubicacion.resources
 C:\Users\diego\OneDrive\Documents\Proyecto-Constructora-Bucalemu\C_Bucalemu\obj\Debug\net8.0-windows\C_Bucalemu.Cubicacion.resources
+C:\Users\Juan\Desktop\Proyecto Constructora Bucalemu\Proyecto-Constructora-Bucalemu\C_Bucalemu\obj\Debug\net8.0-windows\C_Bucalemu.GestionarReportes.resources

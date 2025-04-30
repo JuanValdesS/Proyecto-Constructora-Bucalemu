@@ -11,6 +11,9 @@
     <Compile Update="Cubicacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GestionarReportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Inventario.vb">
       <SubType>Form</SubType>
     </Compile>

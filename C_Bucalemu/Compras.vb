@@ -11,7 +11,7 @@ Public Class Compras
         Dim material As String = txtMaterial.Text
         Dim cantidad As Integer = nCantidad.Value
         Dim unidad As String = cbUnidad.Text
-        Dim medida As String = nMedidas.Value
+        Dim medida As String = nMedidas.Text
         Dim unidadMedida = cmMedida.Text
         Dim fecha As String = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") ' Fecha actual
 
@@ -53,7 +53,7 @@ Public Class Compras
 
         ' Limpiar los controles de entrada después de agregar
         txtMaterial.Clear()
-        nMedidas.Value = 0
+        nMedidas.Clear()
         nCantidad.Value = 0
         cbUnidad.SelectedIndex = -1
         cmMedida.SelectedIndex = -1
@@ -216,6 +216,5 @@ Public Class Compras
         End If
 
     End Sub
-
 
 End Class

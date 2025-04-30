@@ -25,21 +25,19 @@ Partial Class Reportes
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Reportes))
         btn_reporte = New Button()
         txtObservacion = New TextBox()
-        data_repo = New DataGridView()
         Button1 = New Button()
         Label1 = New Label()
-        TxtEmail = New TextBox()
-        CType(data_repo, ComponentModel.ISupportInitialize).BeginInit()
+        btn_greportes = New Button()
+        txtTitulo = New TextBox()
         SuspendLayout()
         ' 
         ' btn_reporte
         ' 
         btn_reporte.BackColor = Color.LightSteelBlue
         btn_reporte.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn_reporte.Location = New Point(96, 160)
-        btn_reporte.Margin = New Padding(3, 2, 3, 2)
+        btn_reporte.Location = New Point(121, 324)
         btn_reporte.Name = "btn_reporte"
-        btn_reporte.Size = New Size(139, 35)
+        btn_reporte.Size = New Size(159, 47)
         btn_reporte.TabIndex = 0
         btn_reporte.Text = "Enviar Reporte"
         btn_reporte.UseVisualStyleBackColor = False
@@ -48,23 +46,13 @@ Partial Class Reportes
         ' 
         txtObservacion.BackColor = Color.AliceBlue
         txtObservacion.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtObservacion.Location = New Point(96, 62)
-        txtObservacion.Margin = New Padding(3, 2, 3, 2)
+        txtObservacion.Location = New Point(46, 113)
+        txtObservacion.Multiline = True
         txtObservacion.Name = "txtObservacion"
-        txtObservacion.PlaceholderText = "Ingrese Reporte"
-        txtObservacion.Size = New Size(140, 21)
+        txtObservacion.PlaceholderText = "Descripción"
+        txtObservacion.ScrollBars = ScrollBars.Vertical
+        txtObservacion.Size = New Size(330, 130)
         txtObservacion.TabIndex = 1
-        ' 
-        ' data_repo
-        ' 
-        data_repo.BackgroundColor = Color.AliceBlue
-        data_repo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        data_repo.Location = New Point(328, 62)
-        data_repo.Margin = New Padding(3, 2, 3, 2)
-        data_repo.Name = "data_repo"
-        data_repo.RowHeadersWidth = 51
-        data_repo.Size = New Size(284, 188)
-        data_repo.TabIndex = 2
         ' 
         ' Button1
         ' 
@@ -72,10 +60,9 @@ Partial Class Reportes
         Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), Image)
         Button1.BackgroundImageLayout = ImageLayout.Stretch
         Button1.FlatStyle = FlatStyle.Popup
-        Button1.Location = New Point(96, 212)
-        Button1.Margin = New Padding(3, 2, 3, 2)
+        Button1.Location = New Point(166, 394)
         Button1.Name = "Button1"
-        Button1.Size = New Size(65, 38)
+        Button1.Size = New Size(74, 51)
         Button1.TabIndex = 3
         Button1.UseVisualStyleBackColor = False
         ' 
@@ -84,45 +71,57 @@ Partial Class Reportes
         Label1.AutoSize = True
         Label1.BackColor = Color.LightSteelBlue
         Label1.Font = New Font("Segoe UI Symbol", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(96, 26)
+        Label1.Location = New Point(46, 20)
         Label1.Name = "Label1"
-        Label1.Size = New Size(272, 19)
+        Label1.Size = New Size(330, 23)
         Label1.TabIndex = 4
         Label1.Text = "Ingrese breve descripción del reporte" & vbCrLf
         ' 
-        ' TxtEmail
+        ' btn_greportes
         ' 
-        TxtEmail.Location = New Point(96, 104)
-        TxtEmail.Name = "TxtEmail"
-        TxtEmail.Size = New Size(139, 23)
-        TxtEmail.TabIndex = 5
+        btn_greportes.BackColor = Color.LightSteelBlue
+        btn_greportes.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btn_greportes.Location = New Point(121, 261)
+        btn_greportes.Name = "btn_greportes"
+        btn_greportes.Size = New Size(159, 57)
+        btn_greportes.TabIndex = 5
+        btn_greportes.Text = "Gestionar Reportes"
+        btn_greportes.UseVisualStyleBackColor = False
+        ' 
+        ' txtTitulo
+        ' 
+        txtTitulo.BackColor = Color.AliceBlue
+        txtTitulo.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtTitulo.Location = New Point(46, 67)
+        txtTitulo.Name = "txtTitulo"
+        txtTitulo.PlaceholderText = "Ingrese un título para su reporte"
+        txtTitulo.Size = New Size(330, 25)
+        txtTitulo.TabIndex = 6
         ' 
         ' Reportes
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
-        ClientSize = New Size(633, 268)
-        Controls.Add(TxtEmail)
+        ClientSize = New Size(423, 459)
+        Controls.Add(txtTitulo)
+        Controls.Add(btn_greportes)
         Controls.Add(Label1)
         Controls.Add(Button1)
-        Controls.Add(data_repo)
         Controls.Add(txtObservacion)
         Controls.Add(btn_reporte)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Margin = New Padding(3, 2, 3, 2)
         Name = "Reportes"
         Text = "Reportes"
-        CType(data_repo, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents btn_reporte As Button
     Friend WithEvents txtObservacion As TextBox
-    Friend WithEvents data_repo As DataGridView
     Friend WithEvents Button1 As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents TxtEmail As TextBox
+    Friend WithEvents btn_greportes As Button
+    Friend WithEvents txtTitulo As TextBox
 End Class
