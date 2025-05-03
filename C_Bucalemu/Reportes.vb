@@ -65,6 +65,7 @@ Public Class Reportes
         ' guardar el reporte en firebase
         Try
             Dim reporte As New Dictionary(Of String, Object) From {
+                {"Estado", "No visualizado"},
                 {"Titulo del correo", titulo},
                 {"Descripcion", descripcion},
                 {"Fecha", Date.Now.ToString("dd-MM-yyyy HH:mm:ss")}

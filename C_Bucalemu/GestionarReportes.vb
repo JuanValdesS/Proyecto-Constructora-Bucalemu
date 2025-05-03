@@ -14,7 +14,7 @@ Public Class GestionarReportes
             client = New FireSharp.FirebaseClient(fcon)
 
             If client IsNot Nothing Then
-                CargarInventario()
+                CargarReportes()
             Else
                 MsgBox("Error al conectar con la base de datos", MsgBoxStyle.Critical, "Error")
             End If
@@ -24,7 +24,7 @@ Public Class GestionarReportes
         End Try
 
     End Sub
-    Private Sub CargarInventario()
+    Private Sub CargarReportes()
         Try
             Dim respuesta = client.Get("Reportes")
 
@@ -33,10 +33,16 @@ Public Class GestionarReportes
                 data_repo.Columns.Clear()
 
                 If data_repo.Columns.Count = 0 Then
-                    data_repo.Columns.Add("ID", "N°")
+                    data_repo.Columns.Add("ID", "N°") ' ← este es solo el contador
+                    data_repo.Columns.Add("FirebaseID", "ID Firebase") ' ← oculto
                     data_repo.Columns.Add("Titulo del reporte", "Titulo")
                     data_repo.Columns.Add("Reporte", "Descripción del reporte")
+                    data_repo.Columns.Add("Estado", "Estado")
+
+                    ' Ocultar la columna del ID real
+                    data_repo.Columns("FirebaseID").Visible = False
                 End If
+
 
                 MsgBox("No hay reportes disponibles.", MsgBoxStyle.Information, "Aviso")
                 Return
@@ -49,9 +55,14 @@ Public Class GestionarReportes
             data_repo.Columns.Clear()
 
             If data_repo.Columns.Count = 0 Then
-                data_repo.Columns.Add("ID", "N°")
+                data_repo.Columns.Add("ID", "N°") ' ← este es solo el contador
+                data_repo.Columns.Add("FirebaseID", "ID Firebase") ' ← oculto
                 data_repo.Columns.Add("Titulo del reporte", "Titulo")
                 data_repo.Columns.Add("Reporte", "Descripción del reporte")
+                data_repo.Columns.Add("Estado", "Estado")
+
+                ' Ocultar la columna del ID real
+                data_repo.Columns("FirebaseID").Visible = False
             End If
 
             Dim contador As Integer = 1
@@ -59,7 +70,8 @@ Public Class GestionarReportes
                 Dim titulo As String = If(item.Value("Titulo del correo") IsNot Nothing, item.Value("Titulo del correo").ToString(), "Sin título")
                 Dim descripcion As String = If(item.Value("Descripcion") IsNot Nothing, item.Value("Descripcion").ToString(), "No registrada")
 
-                data_repo.Rows.Add(contador, titulo, descripcion)
+                Dim estado As String = If(item.Value("Estado") IsNot Nothing, item.Value("Estado").ToString(), "No visualizado")
+                data_repo.Rows.Add(contador, item.Key, titulo, descripcion, estado)
                 contador += 1
             Next
 
@@ -106,7 +118,39 @@ Public Class GestionarReportes
         sh.Show()
     End Sub
 
-    Private Sub data_repo_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles data_repo.CellContentClick
+    Private Sub btn_reporte_Click(sender As Object, e As EventArgs) Handles btn_reporte.Click
+        ' Verifica que haya una fila seleccionada
+        If data_repo.SelectedRows.Count = 0 Then
+            MsgBox("Por favor seleccione un reporte para aceptar.", MsgBoxStyle.Exclamation, "Atención")
+            Return
+        End If
 
+        ' Obtener el ID del reporte seleccionado
+        Dim reporteId As String = data_repo.SelectedRows(0).Cells("FirebaseID").Value.ToString()
+
+
+        Try
+            ' Crea una conexión a Firebase
+            Dim fcon As New FireSharp.Config.FirebaseConfig With {
+                .AuthSecret = "N6kTJwGfYKq9AVH7i3yJ6aTk95ZXw8F3nY1aZFUy",
+                .BasePath = "https://db-cbucalemu-b8965-default-rtdb.firebaseio.com/"
+            }
+
+            Dim client As New FireSharp.FirebaseClient(fcon)
+
+            ' Crea el campo a actualizar
+            Dim datos As New Dictionary(Of String, Object) From {
+                {"Estado", "Atendido"} ' o "Visualizado"
+            }
+
+            ' Actualiza el nodo en Firebase
+            client.Update("Reportes/" & reporteId, datos)
+
+            MsgBox("Reporte marcado como atendido.", MsgBoxStyle.Information, "Éxito")
+            CargarReportes()
+
+        Catch ex As Exception
+            MsgBox("Error al actualizar el reporte: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 End Class

@@ -8,6 +8,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Button
 
 Public Class Compras
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Dim estado As String = "En proceso"
         Dim material As String = txtMaterial.Text
         Dim cantidad As Integer = nCantidad.Value
         Dim unidad As String = cbUnidad.Text
@@ -161,39 +162,39 @@ Public Class Compras
             Exit Sub
         End Try
 
-        ' Crear la lista con las compras
-        Dim listaCompras As New List(Of Object)
-        For Each row As DataGridViewRow In dgCompras.Rows
-            If Not row.IsNewRow Then
-                Dim compra As New Dictionary(Of String, Object) From {
-                {"ID", row.Cells("ID").Value},
-                {"Material", row.Cells("Nombre").Value},
-                {"Cantidad", row.Cells("Cantidad").Value},
-                {"Unidad", row.Cells("Unidad").Value},
-                {"Fecha", row.Cells("Fecha").Value},
-                {"Medida", row.Cells("Medida").Value},
-                {"Unidad de medida", row.Cells("Unidad de medida").Value}
-            }
-                listaCompras.Add(compra)
-            End If
-        Next
-
-        ' Convertir la lista a JSON
-        Dim jsonData As String = JsonConvert.SerializeObject(listaCompras, Formatting.Indented)
-
-        'Guarda la solicitud con un formato más formalizado
+        ' Guardar cada producto como subíndice numérico
         Try
             Dim client As New WebClient()
             client.Headers(HttpRequestHeader.ContentType) = "application/json"
-
-            ' Subir los datos a la solicitud numérica
             Dim solicitudNombre As String = "Solicitud_" & solicitudId
-            Dim response As String = client.UploadString(firebaseUrl & "/" & solicitudNombre & ".json", "PUT", jsonData)
 
+            Dim index As Integer = 0
+            For Each row As DataGridViewRow In dgCompras.Rows
+                If Not row.IsNewRow Then
+                    Dim compra As New Dictionary(Of String, Object) From {
+                    {"ID", row.Cells("ID").Value},
+                    {"Material", row.Cells("Nombre").Value},
+                    {"Cantidad", row.Cells("Cantidad").Value},
+                    {"Unidad", row.Cells("Unidad").Value},
+                    {"Fecha", row.Cells("Fecha").Value},
+                    {"Medida", row.Cells("Medida").Value},
+                    {"Unidad de medida", row.Cells("Unidad de medida").Value}
+                }
+
+                    Dim jsonProducto As String = JsonConvert.SerializeObject(compra)
+                    client.UploadString(firebaseUrl & "/" & solicitudNombre & "/" & index & ".json", "PUT", jsonProducto)
+                    index += 1
+                End If
+            Next
+
+            ' Agregar estado general de la solicitud
+            Dim estadoGeneral As String = """En Proceso"""
+            client.UploadString(firebaseUrl & "/" & solicitudNombre & "/Estado.json", "PUT", estadoGeneral)
 
             MsgBox("Solicitud enviada correctamente como N° " & solicitudId, MsgBoxStyle.Information, "Éxito")
             dgCompras.Rows.Clear()
             dgCompras.Columns.Clear()
+
         Catch ex As Exception
             MsgBox("Error al enviar datos: " & ex.Message, MsgBoxStyle.Exclamation, "Error")
         End Try
