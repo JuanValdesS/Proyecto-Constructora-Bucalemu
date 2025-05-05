@@ -4,7 +4,6 @@ Imports System.Diagnostics.Eventing.Reader
 Imports System.Net
 
 Public Class Autorizar
-    Private comprasData As Dictionary(Of String, JArray) ' Guardar datos globalmente
 
     Private Sub Autorizar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' URL de Firebase (ajústala según la estructura de tu base de datos)
@@ -14,79 +13,66 @@ Public Class Autorizar
             Dim client As New WebClient()
             Dim response As String = client.DownloadString(firebaseUrl)
 
-            ' Validar si la respuesta está vacía o es "null"
             If String.IsNullOrEmpty(response) OrElse response = "null" Then
                 MsgBox("No hay solicitudes pendientes.", MsgBoxStyle.Exclamation, "Advertencia")
                 Exit Sub
             End If
-            Try
 
-                comprasData = JsonConvert.DeserializeObject(Of Dictionary(Of String, JArray))(response)
+            ' Deserializar a Dictionary de JObject
+            Dim comprasRaw As Dictionary(Of String, JObject) = JsonConvert.DeserializeObject(Of Dictionary(Of String, JObject))(response)
 
-
-                If comprasData Is Nothing OrElse comprasData.Count = 0 Then
-                    MsgBox("No hay solicitudes pendientes.", MsgBoxStyle.Exclamation, "Advertencia")
-                    Exit Sub
-
-                End If
-
-            Catch ex As Exception
-                MsgBox("Error al deserializar los datos: ", MsgBoxStyle.Critical, "Error")
+            If comprasRaw Is Nothing OrElse comprasRaw.Count = 0 Then
+                MsgBox("No hay solicitudes pendientes.", MsgBoxStyle.Exclamation, "Advertencia")
                 Exit Sub
+            End If
 
-            End Try
+            ' Mostrar la cantidad de solicitudes como validación
+            MsgBox("Cantidad de solicitudes: " & comprasRaw.Count)
 
-            ' Limpiar DataGridView
+            ' Limpiar y configurar el DataGridView
             ConfigurarEstiloDataGridView()
             dgAutorizar.Rows.Clear()
             dgAutorizar.Columns.Clear()
 
-            ' Agregar columnas (ajustarlas según la estructura)
             dgAutorizar.Columns.Add("RealID", "ID Real")
-            dgAutorizar.Columns("RealID").Visible = False ' Ocultar la columna en la interfaz
+            dgAutorizar.Columns("RealID").Visible = False
             dgAutorizar.Columns.Add("ID", "ID de Solicitud")
             dgAutorizar.Columns.Add("Materiales", "Materiales")
             dgAutorizar.Columns.Add("Fecha", "Fecha de Ingreso")
+
             Dim contador As Integer = 1
 
-
-            For Each compra In comprasData
-
-                Dim solicitud As String = "Solicitud " + contador.ToString()
-                Dim solicitudID As String = compra.Key
-
-
-
-                Dim fecha As String = ""
-
-                ' Convertir la sublista de materiales en un JArray
-                Dim listaMateriales As JArray = compra.Value
+            For Each solicitud In comprasRaw
+                Dim solicitudID As String = solicitud.Key
+                Dim solicitudDatos As JObject = solicitud.Value
 
                 Dim materialesTexto As New List(Of String)
-                ' Recorrer cada material en la lista
-                For Each material In listaMateriales
-                    Dim datosMaterial As JObject = JObject.Parse(material.ToString())
-                    Dim nombreMaterial As String = datosMaterial("Material").ToString().Trim()
-                    Dim cantidad As String = datosMaterial("Cantidad").ToString()
-                    Dim unidad As String = datosMaterial("Unidad").ToString()
-                    Dim medida As String = datosMaterial("Medida").ToString()
-                    Dim unidadMedida As String = datosMaterial("Unidad de medida").ToString()
-                    materialesTexto.Add($"{nombreMaterial} {medida}{unidadMedida} {cantidad} {unidad}")
+                Dim fecha As String = ""
 
-                    fecha = datosMaterial("Fecha").ToString()
+                For Each propiedad In solicitudDatos.Properties()
+                    If IsNumeric(propiedad.Name) Then
+                        Dim datosMaterial As JObject = JObject.Parse(propiedad.Value.ToString())
+                        Dim nombreMaterial As String = datosMaterial("Material").ToString().Trim()
+                        Dim cantidad As String = datosMaterial("Cantidad").ToString()
+                        Dim unidad As String = datosMaterial("Unidad").ToString()
+                        Dim medida As String = datosMaterial("Medida").ToString()
+                        Dim unidadMedida As String = datosMaterial("Unidad de medida").ToString()
+
+                        materialesTexto.Add($"{nombreMaterial} {medida}{unidadMedida} {cantidad} {unidad}")
+                        fecha = datosMaterial("Fecha").ToString()
+                    End If
                 Next
-                Dim materialesTextoTexto As String = String.Join(", ", materialesTexto)
 
-
-                contador += 1
-                ' Agregar la solicitud con todos sus materiales en una sola fila
-                dgAutorizar.Rows.Add(solicitudID, solicitud, materialesTextoTexto, fecha)
+                If materialesTexto.Count > 0 Then
+                    Dim materialesTextoTexto As String = String.Join(", ", materialesTexto)
+                    Dim solicitudNombre As String = "Solicitud " + contador.ToString()
+                    dgAutorizar.Rows.Add(solicitudID, solicitudNombre, materialesTextoTexto, fecha)
+                    contador += 1
+                End If
             Next
 
-
-
         Catch ex As Exception
-            MsgBox("Error al obtener los datos: ", MsgBoxStyle.Critical, "Error")
+            MsgBox("Error al obtener los datos: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
