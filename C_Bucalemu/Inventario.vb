@@ -25,6 +25,23 @@ Public Class Inventario
         Catch ex As Exception
             MsgBox("Error de conexión: " & ex.Message, MsgBoxStyle.Critical)
         End Try
+
+        ' Ocultar el botón por defecto
+        Button2.Visible = False
+
+        ' Obtener el rol del usuario autenticado
+        Dim rolUsuario As String = My.Settings.RolUsuario
+
+        ' Mostrar el botón solo si el usuario es Administrador
+        If rolUsuario = "Administrador" Then
+            Button2.Visible = True
+
+        End If
+
+        If rolUsuario = "Jefe" Then
+            Button2.Visible = True
+        End If
+
     End Sub
 
     Private Sub CargarInventario()

@@ -44,6 +44,7 @@
         End Try
 
         ' Ocultar el botón por defecto
+        btn_inventario.Visible = False
         btn_registro.Visible = False
         btnAutorizar.Visible = False
 
@@ -54,10 +55,12 @@
         If rolUsuario = "Administrador" Then
             btn_registro.Visible = True
             btnAutorizar.Visible = True
+            btn_inventario.Visible = True
         End If
 
         If rolUsuario = "Jefe" Then
             btnAutorizar.Visible = True
+            btn_inventario.Visible = True
         End If
 
     End Sub

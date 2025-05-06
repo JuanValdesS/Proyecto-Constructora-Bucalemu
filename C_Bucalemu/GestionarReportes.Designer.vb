@@ -26,7 +26,7 @@ Partial Class GestionarReportes
         data_repo = New DataGridView()
         Label1 = New Label()
         btn_reporte = New Button()
-        Button1 = New Button()
+        btn_eliminar = New Button()
         Button2 = New Button()
         CType(data_repo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -63,16 +63,16 @@ Partial Class GestionarReportes
         btn_reporte.Text = "Aceptar Reporte"
         btn_reporte.UseVisualStyleBackColor = False
         ' 
-        ' Button1
+        ' btn_eliminar
         ' 
-        Button1.BackColor = Color.LightSteelBlue
-        Button1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button1.Location = New Point(601, 145)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(159, 47)
-        Button1.TabIndex = 7
-        Button1.Text = "Eliminar Reporte"
-        Button1.UseVisualStyleBackColor = False
+        btn_eliminar.BackColor = Color.IndianRed
+        btn_eliminar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btn_eliminar.Location = New Point(601, 132)
+        btn_eliminar.Name = "btn_eliminar"
+        btn_eliminar.Size = New Size(159, 47)
+        btn_eliminar.TabIndex = 7
+        btn_eliminar.Text = "Eliminar Reporte"
+        btn_eliminar.UseVisualStyleBackColor = False
         ' 
         ' Button2
         ' 
@@ -80,7 +80,7 @@ Partial Class GestionarReportes
         Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), Image)
         Button2.BackgroundImageLayout = ImageLayout.Stretch
         Button2.FlatStyle = FlatStyle.Popup
-        Button2.Location = New Point(631, 211)
+        Button2.Location = New Point(638, 185)
         Button2.Name = "Button2"
         Button2.Size = New Size(74, 51)
         Button2.TabIndex = 8
@@ -94,7 +94,7 @@ Partial Class GestionarReportes
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
         Controls.Add(Button2)
-        Controls.Add(Button1)
+        Controls.Add(btn_eliminar)
         Controls.Add(btn_reporte)
         Controls.Add(Label1)
         Controls.Add(data_repo)
@@ -109,6 +109,6 @@ Partial Class GestionarReportes
     Friend WithEvents data_repo As DataGridView
     Friend WithEvents Label1 As Label
     Friend WithEvents btn_reporte As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btn_eliminar As Button
     Friend WithEvents Button2 As Button
 End Class
