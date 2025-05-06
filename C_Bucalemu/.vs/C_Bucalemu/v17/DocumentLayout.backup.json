@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\compras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:compras.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
@@ -21,6 +22,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+=======
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+>>>>>>> main
     }
   ],
   "DocumentGroupContainers": [
@@ -43,6 +52,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< HEAD
               "Title": "Compras.vb",
               "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Compras.vb",
               "RelativeDocumentMoniker": "Compras.vb",
@@ -51,10 +61,21 @@
               "ViewState": "AgIAABMAAAAAAAAAAAAQwCgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-03-19T03:53:28.251Z",
+=======
+              "Title": "Autorizar.vb",
+              "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
+              "RelativeDocumentMoniker": "Autorizar.vb",
+              "ToolTip": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
+              "RelativeToolTip": "Autorizar.vb",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAwwM4AAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-05T06:39:29.772Z",
+>>>>>>> main
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 4,
               "Title": "Login.vb [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Login.vb",
@@ -75,6 +96,16 @@
               "RelativeToolTip": "Men\u00FA.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-03-18T20:19:14.609Z",
+=======
+              "DocumentIndex": 1,
+              "Title": "Autorizar.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
+              "RelativeDocumentMoniker": "Autorizar.vb",
+              "ToolTip": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Autorizar.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-05T06:39:25.281Z",
+>>>>>>> main
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
