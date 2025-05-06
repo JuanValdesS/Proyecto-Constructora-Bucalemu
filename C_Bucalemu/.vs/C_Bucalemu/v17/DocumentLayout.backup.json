@@ -1,13 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\",
+  "WorkspaceRootPath": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\juan\\desktop\\proyecto constructora bucalemu\\proyecto-constructora-bucalemu\\c_bucalemu\\modificar_material.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:modificar_material.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\juan\\desktop\\proyecto constructora bucalemu\\proyecto-constructora-bucalemu\\c_bucalemu\\modificar_material.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:modificar_material.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\juan\\desktop\\proyecto constructora bucalemu\\proyecto-constructora-bucalemu\\c_bucalemu\\autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\juan\\desktop\\proyecto constructora bucalemu\\proyecto-constructora-bucalemu\\c_bucalemu\\autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
@@ -22,32 +30,53 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Modificar_material.vb",
+              "DocumentMoniker": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Modificar_material.vb",
+              "RelativeDocumentMoniker": "Modificar_material.vb",
+              "ToolTip": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Modificar_material.vb",
+              "RelativeToolTip": "Modificar_material.vb",
+              "ViewState": "AgIAADQAAAAAAAAAAAAQwAIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-06T20:45:13.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Modificar_material.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Modificar_material.vb",
+              "RelativeDocumentMoniker": "Modificar_material.vb",
+              "ToolTip": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Modificar_material.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Modificar_material.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-06T20:43:59.583Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Autorizar.vb",
-              "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
+              "DocumentMoniker": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
               "RelativeDocumentMoniker": "Autorizar.vb",
-              "ToolTip": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
+              "ToolTip": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
               "RelativeToolTip": "Autorizar.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEsAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwEsAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-05T06:39:29.772Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Autorizar.vb [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
+              "DocumentMoniker": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
               "RelativeDocumentMoniker": "Autorizar.vb",
-              "ToolTip": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb [Dise\u00F1o]",
               "RelativeToolTip": "Autorizar.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-05T06:39:25.281Z",

@@ -53,7 +53,7 @@ Partial Class Menú
         btn_cubicacion.Cursor = Cursors.Hand
         btn_cubicacion.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_cubicacion.ForeColor = SystemColors.ActiveCaptionText
-        btn_cubicacion.Location = New Point(252, 227)
+        btn_cubicacion.Location = New Point(252, 177)
         btn_cubicacion.Name = "btn_cubicacion"
         btn_cubicacion.Size = New Size(181, 45)
         btn_cubicacion.TabIndex = 1
@@ -66,7 +66,7 @@ Partial Class Menú
         btn_inventario.Cursor = Cursors.Hand
         btn_inventario.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_inventario.ForeColor = SystemColors.ActiveCaptionText
-        btn_inventario.Location = New Point(252, 126)
+        btn_inventario.Location = New Point(252, 279)
         btn_inventario.Name = "btn_inventario"
         btn_inventario.Size = New Size(181, 45)
         btn_inventario.TabIndex = 2
@@ -79,7 +79,7 @@ Partial Class Menú
         btn_reportes.Cursor = Cursors.Hand
         btn_reportes.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btn_reportes.ForeColor = SystemColors.ActiveCaptionText
-        btn_reportes.Location = New Point(252, 278)
+        btn_reportes.Location = New Point(252, 228)
         btn_reportes.Name = "btn_reportes"
         btn_reportes.Size = New Size(181, 45)
         btn_reportes.TabIndex = 3
@@ -116,7 +116,7 @@ Partial Class Menú
         btnVerInventario.Cursor = Cursors.Hand
         btnVerInventario.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         btnVerInventario.ForeColor = SystemColors.ActiveCaptionText
-        btnVerInventario.Location = New Point(252, 176)
+        btnVerInventario.Location = New Point(252, 126)
         btnVerInventario.Name = "btnVerInventario"
         btnVerInventario.Size = New Size(181, 45)
         btnVerInventario.TabIndex = 6

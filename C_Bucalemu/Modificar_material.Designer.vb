@@ -63,7 +63,7 @@ Partial Class mod_material
         ' 
         txtMaterial.BackColor = Color.AliceBlue
         txtMaterial.Font = New Font("Arial", 7.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtMaterial.Location = New Point(130, 76)
+        txtMaterial.Location = New Point(125, 72)
         txtMaterial.Name = "txtMaterial"
         txtMaterial.PlaceholderText = "Nombre del material"
         txtMaterial.Size = New Size(146, 22)
@@ -76,7 +76,7 @@ Partial Class mod_material
         Label1.BackColor = Color.LightSteelBlue
         Label1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         Label1.ForeColor = SystemColors.ActiveCaptionText
-        Label1.Location = New Point(130, 19)
+        Label1.Location = New Point(125, 19)
         Label1.Name = "Label1"
         Label1.Size = New Size(72, 20)
         Label1.TabIndex = 3
@@ -153,7 +153,7 @@ Partial Class mod_material
         txtbox1.BackColor = Color.AliceBlue
         txtbox1.Font = New Font("Arial", 7.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtbox1.FormattingEnabled = True
-        txtbox1.Location = New Point(130, 42)
+        txtbox1.Location = New Point(125, 42)
         txtbox1.Name = "txtbox1"
         txtbox1.Size = New Size(146, 24)
         txtbox1.TabIndex = 9
