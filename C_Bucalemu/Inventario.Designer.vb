@@ -36,7 +36,7 @@ Partial Class Inventario
         ' Prueba
         ' 
         Prueba.AutoSize = True
-        Prueba.BackColor = Color.LightSteelBlue
+        Prueba.BackColor = Color.CornflowerBlue
         Prueba.FlatStyle = FlatStyle.Flat
         Prueba.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Prueba.ForeColor = SystemColors.ControlText
@@ -48,7 +48,7 @@ Partial Class Inventario
         ' 
         ' DataGridView1
         ' 
-        DataGridView1.BackgroundColor = Color.LightSteelBlue
+        DataGridView1.BackgroundColor = Color.AliceBlue
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Location = New Point(54, 89)
         DataGridView1.Name = "DataGridView1"
@@ -58,19 +58,22 @@ Partial Class Inventario
         ' 
         ' Button1
         ' 
+        Button1.BackColor = Color.Transparent
         Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), Image)
         Button1.BackgroundImageLayout = ImageLayout.Stretch
+        Button1.Cursor = Cursors.Hand
         Button1.FlatAppearance.BorderColor = Color.White
         Button1.FlatStyle = FlatStyle.Popup
         Button1.Location = New Point(687, 311)
         Button1.Name = "Button1"
         Button1.Size = New Size(61, 50)
         Button1.TabIndex = 4
-        Button1.UseVisualStyleBackColor = True
+        Button1.UseVisualStyleBackColor = False
         ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.LightSteelBlue
+        Button2.BackColor = Color.CornflowerBlue
+        Button2.Cursor = Cursors.Hand
         Button2.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button2.Location = New Point(630, 89)
         Button2.Name = "Button2"
@@ -81,8 +84,10 @@ Partial Class Inventario
         ' 
         ' btn_total
         ' 
-        btn_total.BackColor = Color.LightSteelBlue
+        btn_total.BackColor = Color.CornflowerBlue
+        btn_total.Cursor = Cursors.Hand
         btn_total.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btn_total.ForeColor = SystemColors.ControlText
         btn_total.Location = New Point(630, 158)
         btn_total.Name = "btn_total"
         btn_total.Size = New Size(169, 63)
@@ -93,6 +98,7 @@ Partial Class Inventario
         ' btn_reestablecer
         ' 
         btn_reestablecer.BackColor = Color.IndianRed
+        btn_reestablecer.Cursor = Cursors.Hand
         btn_reestablecer.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btn_reestablecer.Location = New Point(630, 227)
         btn_reestablecer.Name = "btn_reestablecer"
@@ -104,17 +110,19 @@ Partial Class Inventario
         ' txt_buscar
         ' 
         txt_buscar.BackColor = Color.AliceBlue
+        txt_buscar.Cursor = Cursors.IBeam
+        txt_buscar.Font = New Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txt_buscar.Location = New Point(54, 42)
         txt_buscar.Name = "txt_buscar"
         txt_buscar.PlaceholderText = "Ingrese material a buscar"
-        txt_buscar.Size = New Size(317, 27)
+        txt_buscar.Size = New Size(317, 25)
         txt_buscar.TabIndex = 8
         ' 
         ' Inventario
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.LightSteelBlue
+        BackColor = Color.CornflowerBlue
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(857, 553)
@@ -125,6 +133,7 @@ Partial Class Inventario
         Controls.Add(Button1)
         Controls.Add(DataGridView1)
         Controls.Add(Prueba)
+        Cursor = Cursors.Default
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Margin = New Padding(3, 4, 3, 4)
         Name = "Inventario"

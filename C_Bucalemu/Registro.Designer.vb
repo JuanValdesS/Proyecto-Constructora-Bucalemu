@@ -75,6 +75,7 @@ Partial Class Registro
         ' 
         ' txtUsuario
         ' 
+        txtUsuario.Cursor = Cursors.IBeam
         txtUsuario.Font = New Font("Arial Narrow", 9F)
         txtUsuario.Location = New Point(205, 51)
         txtUsuario.Name = "txtUsuario"
@@ -131,6 +132,7 @@ Partial Class Registro
         Controls.Add(txtPassword)
         Controls.Add(txtEmail)
         Controls.Add(btn_registro)
+        Cursor = Cursors.Default
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Registro"
         Text = "Registro"

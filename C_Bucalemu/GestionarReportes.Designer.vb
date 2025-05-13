@@ -35,6 +35,7 @@ Partial Class GestionarReportes
         ' 
         data_repo.BackgroundColor = Color.AliceBlue
         data_repo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        data_repo.Cursor = Cursors.Default
         data_repo.Location = New Point(55, 79)
         data_repo.Name = "data_repo"
         data_repo.RowHeadersWidth = 51
@@ -44,7 +45,7 @@ Partial Class GestionarReportes
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.BackColor = Color.LightSteelBlue
+        Label1.BackColor = Color.CornflowerBlue
         Label1.Font = New Font("Segoe UI Symbol", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(55, 27)
         Label1.Name = "Label1"
@@ -54,7 +55,8 @@ Partial Class GestionarReportes
         ' 
         ' btn_reporte
         ' 
-        btn_reporte.BackColor = Color.LightSteelBlue
+        btn_reporte.BackColor = Color.CornflowerBlue
+        btn_reporte.Cursor = Cursors.Hand
         btn_reporte.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btn_reporte.Location = New Point(601, 79)
         btn_reporte.Name = "btn_reporte"
@@ -66,6 +68,7 @@ Partial Class GestionarReportes
         ' btn_eliminar
         ' 
         btn_eliminar.BackColor = Color.IndianRed
+        btn_eliminar.Cursor = Cursors.Hand
         btn_eliminar.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btn_eliminar.Location = New Point(601, 132)
         btn_eliminar.Name = "btn_eliminar"
@@ -79,10 +82,11 @@ Partial Class GestionarReportes
         Button2.BackColor = Color.Transparent
         Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), Image)
         Button2.BackgroundImageLayout = ImageLayout.Stretch
+        Button2.Cursor = Cursors.Hand
         Button2.FlatStyle = FlatStyle.Popup
-        Button2.Location = New Point(638, 185)
+        Button2.Location = New Point(644, 185)
         Button2.Name = "Button2"
-        Button2.Size = New Size(74, 51)
+        Button2.Size = New Size(66, 45)
         Button2.TabIndex = 8
         Button2.UseVisualStyleBackColor = False
         ' 
@@ -98,6 +102,7 @@ Partial Class GestionarReportes
         Controls.Add(btn_reporte)
         Controls.Add(Label1)
         Controls.Add(data_repo)
+        Cursor = Cursors.Default
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "GestionarReportes"
         Text = "GestionarReportes"
