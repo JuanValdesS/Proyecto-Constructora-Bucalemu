@@ -1,14 +1,18 @@
-﻿Imports Newtonsoft.Json.Linq
+﻿Imports Newtonsoft.Json
+Imports Newtonsoft.Json.Linq
+Imports System.Net
 
 Public Class Inventario
 
     Private fcon As New FireSharp.Config.FirebaseConfig With {
     .AuthSecret = "N6kTJwGfYKq9AVH7i3yJ6aTk95ZXw8F3nY1aZFUy",
     .BasePath = "https://db-cbucalemu-b8965-default-rtdb.firebaseio.com/"
-}
+    }
 
     Private client As FireSharp.Interfaces.IFirebaseClient
+
     Private Sub Inventario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Puede ir lógica adicional si es necesario
         Try
             client = New FireSharp.FirebaseClient(fcon)
 
@@ -21,54 +25,25 @@ Public Class Inventario
         Catch ex As Exception
             MsgBox("Error de conexión: " & ex.Message, MsgBoxStyle.Critical)
         End Try
+
+        ' Ocultar el botón por defecto
+        Button2.Visible = False
+
+        ' Obtener el rol del usuario autenticado
+        Dim rolUsuario As String = My.Settings.RolUsuario
+
+        ' Mostrar el botón solo si el usuario es Administrador
+        If rolUsuario = "Administrador" Then
+            Button2.Visible = True
+
+        End If
+
+        If rolUsuario = "Jefe" Then
+            Button2.Visible = True
+        End If
+
     End Sub
 
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Try
-
-            ' Capturar los datos del material
-            Dim nombre As String = txtMaterial.Text
-            Dim cantidad As String = txtCantidad.Text
-            ' Obtener la fecha y hora actuales en formato adecuado
-            Dim fechaIngreso As String = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-
-            ' Verificar si client está inicializado
-            If client Is Nothing Then
-                MsgBox("No hay conexión con la base de datos.", MsgBoxStyle.Critical, "error")
-                Exit Sub
-            End If
-
-            ' Validar que los campos no estén vacíos
-            If String.IsNullOrWhiteSpace(nombre) OrElse String.IsNullOrWhiteSpace(cantidad) Then
-                MsgBox("Por favor, ingrese nombre y cantidad del material.", MsgBoxStyle.Exclamation)
-                Exit Sub
-            End If
-
-            ' Crear el objeto con los datos
-            Dim material As New Dictionary(Of String, Object) From {
-                {"Material", txtMaterial.Text},
-                {"cantidad", txtCantidad.Text},
-                {"fecha", fechaIngreso}
-            }
-
-            ' Generar un ID único basado en la fecha/hora
-            Dim materialId As String = "mat_" & DateTime.Now.Ticks
-
-            ' Guardar en Firebase con un ID personalizado
-            Dim response = client.Set("Inventario/" & materialId, material)
-
-            ' Mostrar mensaje de éxito
-            MsgBox("Material agregado correctamente", MsgBoxStyle.Information)
-            txtCantidad.Text = ""
-            txtMaterial.Text = ""
-
-            ' Recargar el inventario después de agregar un dato
-            CargarInventario()
-
-        Catch ex As Exception
-            MsgBox("Error al agregar material: " & ex.Message, MsgBoxStyle.Critical)
-        End Try
-    End Sub
     Private Sub CargarInventario()
         Try
             ' Obtener los datos desde Firebase
@@ -89,24 +64,41 @@ Public Class Inventario
                     DataGridView1.Columns.Add("ID", "N°")
                     DataGridView1.Columns.Add("Nombre", "Nombre del Material")
                     DataGridView1.Columns.Add("Cantidad", "Cantidad")
+                    DataGridView1.Columns.Add("Unidad", "Unidad")
                     DataGridView1.Columns.Add("Fecha", "Fecha de Ingreso")
                 End If
 
-                Dim contador As Integer = 1 ' Para numerar las filas
+                ' Crear lista para almacenar temporalmente los materiales
+                Dim listaMateriales As New List(Of Dictionary(Of String, String))
 
-                ' Recorrer cada elemento del inventario en el JObject
                 For Each item As KeyValuePair(Of String, JToken) In jsonData
-                    ' Obtener los valores, con control de existencia
                     Dim nombre As String = If(item.Value("Material") IsNot Nothing, item.Value("Material").ToString(), "Desconocido")
                     Dim cantidad As String = If(item.Value("cantidad") IsNot Nothing, item.Value("cantidad").ToString(), "0")
+                    Dim unidades As String = If(item.Value("unidad") IsNot Nothing, item.Value("unidad").ToString(), "No registrada")
                     Dim fechaIngreso As String = If(item.Value("fecha") IsNot Nothing, item.Value("fecha").ToString(), "No registrada")
 
-                    ' Agregar la fila con los datos al DataGridView
-                    DataGridView1.Rows.Add(contador, nombre, cantidad, fechaIngreso)
+                    ' Solo agregar si la fecha es válida
+                    If DateTime.TryParse(fechaIngreso, Nothing) Then
+                        Dim material As New Dictionary(Of String, String) From {
+                            {"nombre", nombre},
+                            {"cantidad", cantidad},
+                            {"unidad", unidades},
+                            {"fecha", fechaIngreso}
+                        }
+                        listaMateriales.Add(material)
+                    End If
+                Next
 
-                    ' Incrementar contador para la numeración
+                ' Ordenar por fecha descendente (más reciente primero)
+                listaMateriales = listaMateriales.OrderByDescending(Function(m) DateTime.Parse(m("fecha"))).ToList()
+
+                ' Agregar filas al DataGridView
+                Dim contador As Integer = 1
+                For Each material In listaMateriales
+                    DataGridView1.Rows.Add(contador, material("nombre"), material("cantidad"), material("unidad"), material("fecha"))
                     contador += 1
                 Next
+
             End If
         Catch ex As Exception
             MsgBox("Error al cargar inventario: " & ex.Message, MsgBoxStyle.Critical)
@@ -131,7 +123,7 @@ Public Class Inventario
             .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 
             ' Ajustar tamaño de columnas automáticamente
-            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
 
             ' Deshabilitar la edición de celdas
             .ReadOnly = True
@@ -147,19 +139,107 @@ Public Class Inventario
         End With
     End Sub
 
-    Private Sub txtMaterial_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMaterial.KeyPress
-        ' Convertir el carácter presionado a mayúscula
-        e.KeyChar = Char.ToUpper(e.KeyChar)
-    End Sub
-
-    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
-        ' Convertir el carácter presionado a mayúscula
-        e.KeyChar = Char.ToUpper(e.KeyChar)
-    End Sub
-
-    Private Sub btn_regresar_Click(sender As Object, e As EventArgs) Handles btn_regresar.Click
-        Dim sh As New Menú()
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim menu As New Menú()
+        menu.Show()
         Me.Close()
-        sh.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim gestinven As New mod_material
+
+        gestinven.Show()
+        Close()
+    End Sub
+
+    Private Sub btn_total_Click(sender As Object, e As EventArgs) Handles btn_total.Click
+        ' Crear un diccionario para almacenar los totales de materiales por nombre y unidad
+        Dim totales As New Dictionary(Of String, Integer)
+
+        ' Recorrer las filas del DataGridView1
+        For Each fila As DataGridViewRow In DataGridView1.Rows
+            ' Verificar que la fila no esté vacía
+            If Not fila.IsNewRow Then
+                Dim nombre = fila.Cells("Nombre").Value.ToString
+                Dim unidad = fila.Cells("Unidad").Value.ToString
+                Dim cantidad = Convert.ToInt32(fila.Cells("Cantidad").Value)
+
+                ' Clave única basada en nombre + unidad
+                Dim clave = nombre & " - " & unidad
+
+                ' Sumar cantidades del mismo material y unidad
+                If totales.ContainsKey(clave) Then
+                    totales(clave) += cantidad
+                Else
+                    totales.Add(clave, cantidad)
+                End If
+            End If
+        Next
+
+        ' Limpiar DataGridView2 antes de cargar los datos
+        ConfigurarEstiloDataGridView()
+        DataGridView1.Rows.Clear()
+        DataGridView1.Columns.Clear()
+
+        ' Agregar columnas si no existen
+        If DataGridView1.Columns.Count = 0 Then
+            DataGridView1.Columns.Add("Material", "Material")
+            DataGridView1.Columns.Add("Unidad", "Unidad")
+            DataGridView1.Columns.Add("CantidadTotal", "Cantidad Total")
+        End If
+
+        ' Agregar los totales al DataGridView2
+        For Each kvp In totales
+            Dim partes = kvp.Key.Split(" - ")
+            DataGridView1.Rows.Add(partes(0), partes(1), kvp.Value)
+        Next
+    End Sub
+
+    Private Sub btn_reestablecer_Click(sender As Object, e As EventArgs) Handles btn_reestablecer.Click
+        CargarInventario()
+        txt_buscar.Clear()
+    End Sub
+    Private Sub FiltrarInventario(filtro As String)
+        Try
+            Dim respuesta = client.Get("Inventario")
+
+            If respuesta.Body IsNot "null" Then
+                Dim jsonData As JObject = JObject.Parse(respuesta.Body)
+
+                ' Limpiar y configurar nuevamente
+                ConfigurarEstiloDataGridView()
+                DataGridView1.Rows.Clear()
+                DataGridView1.Columns.Clear()
+
+                ' Redefinir columnas
+                If DataGridView1.Columns.Count = 0 Then
+                    DataGridView1.Columns.Add("ID", "N°")
+                    DataGridView1.Columns.Add("Nombre", "Nombre del Material")
+                    DataGridView1.Columns.Add("Cantidad", "Cantidad")
+                    DataGridView1.Columns.Add("Unidad", "Unidad")
+                    DataGridView1.Columns.Add("Fecha", "Fecha de Ingreso")
+                End If
+
+                Dim contador As Integer = 1
+
+                For Each item As KeyValuePair(Of String, JToken) In jsonData
+                    Dim nombre As String = If(item.Value("Material") IsNot Nothing, item.Value("Material").ToString(), "Desconocido")
+                    Dim cantidad As String = If(item.Value("cantidad") IsNot Nothing, item.Value("cantidad").ToString(), "0")
+                    Dim unidades As String = If(item.Value("unidad") IsNot Nothing, item.Value("unidad").ToString(), "No registrada")
+                    Dim fechaIngreso As String = If(item.Value("fecha") IsNot Nothing, item.Value("fecha").ToString(), "No registrada")
+
+                    ' Aplicar filtro
+                    If nombre.ToLower().Contains(filtro.ToLower()) Then
+                        DataGridView1.Rows.Add(contador, nombre, cantidad, unidades, fechaIngreso)
+                        contador += 1
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox("Error al filtrar inventario: " & ex.Message, MsgBoxStyle.Critical)
+        End Try
+    End Sub
+    Private Sub txt_buscar_TextChanged(sender As Object, e As EventArgs) Handles txt_buscar.TextChanged
+        FiltrarInventario(txt_buscar.Text)
     End Sub
 End Class

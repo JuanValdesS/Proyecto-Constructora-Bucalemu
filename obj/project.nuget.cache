@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7gRMPnvUvwY=",
+  "dgSpecHash": "h/yRS0Y5ROg=",
   "success": true,
   "projectFilePath": "C:\\Users\\Juan\\Desktop\\Proyecto Constructora Bucalemu\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\C_Bucalemu.vbproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Juan\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Juan\\.nuget\\packages\\firebasedatabase.net\\4.2.0\\firebasedatabase.net.4.2.0.nupkg.sha512",
     "C:\\Users\\Juan\\.nuget\\packages\\firesharp\\2.0.4\\firesharp.2.0.4.nupkg.sha512",
     "C:\\Users\\Juan\\.nuget\\packages\\litedb\\4.1.4\\litedb.4.1.4.nupkg.sha512",
