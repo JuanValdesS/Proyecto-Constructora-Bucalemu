@@ -7,6 +7,21 @@ yarn-error.log*
 firebase-debug.log*
 firebase-debug.*.log*
 
+# Archivos temporales y de configuración de Visual Studio para .NET
+*.g.props
+*.dgspec.json
+*.nuget.g.props
+*.nuget.dgspec.json
+*.nuget.cache
+*.assets.cache
+*.AssemblyInfo.*
+*.vbproj.AssemblyReference.cache
+*.vbproj.CoreCompileInputs.cache
+*.vbproj.FileListAbsolute.txt
+*.vbproj.GenerateResource.cache
+*.sourcelink.json
+*.editorconfig
+
 # Firebase cache
 .firebase/
 
