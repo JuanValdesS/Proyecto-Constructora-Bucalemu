@@ -35,7 +35,7 @@ Partial Class Reportes
         ' 
         btn_reporte.BackColor = Color.LightSteelBlue
         btn_reporte.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn_reporte.Location = New Point(121, 324)
+        btn_reporte.Location = New Point(127, 267)
         btn_reporte.Name = "btn_reporte"
         btn_reporte.Size = New Size(159, 47)
         btn_reporte.TabIndex = 0
@@ -60,7 +60,7 @@ Partial Class Reportes
         Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), Image)
         Button1.BackgroundImageLayout = ImageLayout.Stretch
         Button1.FlatStyle = FlatStyle.Popup
-        Button1.Location = New Point(166, 394)
+        Button1.Location = New Point(166, 383)
         Button1.Name = "Button1"
         Button1.Size = New Size(74, 51)
         Button1.TabIndex = 3
@@ -81,7 +81,7 @@ Partial Class Reportes
         ' 
         btn_greportes.BackColor = Color.LightSteelBlue
         btn_greportes.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btn_greportes.Location = New Point(121, 261)
+        btn_greportes.Location = New Point(127, 320)
         btn_greportes.Name = "btn_greportes"
         btn_greportes.Size = New Size(159, 57)
         btn_greportes.TabIndex = 5

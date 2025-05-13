@@ -39,10 +39,9 @@ Partial Class mod_material
         cbMedida = New ComboBox()
         lbl_medida = New Label()
         ToolTip1 = New ToolTip(components)
-        nMedidas = New NumericUpDown()
         nCantidad = New NumericUpDown()
+        nMedidas = New TextBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
-        CType(nMedidas, ComponentModel.ISupportInitialize).BeginInit()
         CType(nCantidad, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -63,7 +62,7 @@ Partial Class mod_material
         ' 
         txtMaterial.BackColor = Color.AliceBlue
         txtMaterial.Font = New Font("Arial", 7.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtMaterial.Location = New Point(130, 76)
+        txtMaterial.Location = New Point(125, 72)
         txtMaterial.Name = "txtMaterial"
         txtMaterial.PlaceholderText = "Nombre del material"
         txtMaterial.Size = New Size(146, 22)
@@ -76,7 +75,7 @@ Partial Class mod_material
         Label1.BackColor = Color.LightSteelBlue
         Label1.Font = New Font("Segoe UI Symbol", 9F, FontStyle.Bold)
         Label1.ForeColor = SystemColors.ActiveCaptionText
-        Label1.Location = New Point(130, 19)
+        Label1.Location = New Point(125, 19)
         Label1.Name = "Label1"
         Label1.Size = New Size(72, 20)
         Label1.TabIndex = 3
@@ -153,7 +152,7 @@ Partial Class mod_material
         txtbox1.BackColor = Color.AliceBlue
         txtbox1.Font = New Font("Arial", 7.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtbox1.FormattingEnabled = True
-        txtbox1.Location = New Point(130, 42)
+        txtbox1.Location = New Point(125, 42)
         txtbox1.Name = "txtbox1"
         txtbox1.Size = New Size(146, 24)
         txtbox1.TabIndex = 9
@@ -229,17 +228,6 @@ Partial Class mod_material
         ToolTip1.IsBalloon = True
         ToolTip1.ReshowDelay = 100
         ' 
-        ' nMedidas
-        ' 
-        nMedidas.BackColor = Color.AliceBlue
-        nMedidas.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        nMedidas.Location = New Point(429, 143)
-        nMedidas.Margin = New Padding(3, 4, 3, 4)
-        nMedidas.Name = "nMedidas"
-        nMedidas.Size = New Size(89, 25)
-        nMedidas.TabIndex = 18
-        ToolTip1.SetToolTip(nMedidas, "Ingrese medida del material. Ej: 3")
-        ' 
         ' nCantidad
         ' 
         nCantidad.BackColor = Color.AliceBlue
@@ -251,6 +239,16 @@ Partial Class mod_material
         nCantidad.TabIndex = 19
         ToolTip1.SetToolTip(nCantidad, "Ingrese Cantidad del material. Ej: 20")
         ' 
+        ' nMedidas
+        ' 
+        nMedidas.BackColor = Color.AliceBlue
+        nMedidas.Font = New Font("Arial", 7.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        nMedidas.Location = New Point(429, 144)
+        nMedidas.Name = "nMedidas"
+        nMedidas.Size = New Size(89, 22)
+        nMedidas.TabIndex = 20
+        ToolTip1.SetToolTip(nMedidas, "Ingrese nombre del material. Ej: Cemento")
+        ' 
         ' mod_material
         ' 
         AutoScaleDimensions = New SizeF(7F, 17F)
@@ -259,8 +257,8 @@ Partial Class mod_material
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(774, 578)
-        Controls.Add(nCantidad)
         Controls.Add(nMedidas)
+        Controls.Add(nCantidad)
         Controls.Add(lbl_medida)
         Controls.Add(cbMedida)
         Controls.Add(CheckBox1)
@@ -282,7 +280,6 @@ Partial Class mod_material
         Name = "mod_material"
         Text = "Gestionar Inventario"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
-        CType(nMedidas, ComponentModel.ISupportInitialize).EndInit()
         CType(nCantidad, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -303,6 +300,6 @@ Partial Class mod_material
     Friend WithEvents cbMedida As ComboBox
     Friend WithEvents lbl_medida As Label
     Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents nMedidas As NumericUpDown
     Friend WithEvents nCantidad As NumericUpDown
+    Friend WithEvents nMedidas As TextBox
 End Class

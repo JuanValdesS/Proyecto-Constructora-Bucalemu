@@ -126,24 +126,31 @@ Public Class GestionarReportes
         End If
 
         ' Obtener el ID del reporte seleccionado
-        Dim reporteId As String = data_repo.SelectedRows(0).Cells("FirebaseID").Value.ToString()
+        Dim selectedRow As DataGridViewRow = data_repo.SelectedRows(0)
+        Dim reporteId As String = selectedRow.Cells("FirebaseID").Value.ToString()
+        Dim estadoActual As String = selectedRow.Cells("Estado").Value.ToString()
 
+        ' Validar si ya está atendido
+        If estadoActual = "Atendido" Then
+            MsgBox("Este reporte ya fue marcado como atendido.", MsgBoxStyle.Information, "Información")
+            Return
+        End If
 
         Try
-            ' Crea una conexión a Firebase
+            ' Crear conexión a Firebase
             Dim fcon As New FireSharp.Config.FirebaseConfig With {
-                .AuthSecret = "N6kTJwGfYKq9AVH7i3yJ6aTk95ZXw8F3nY1aZFUy",
-                .BasePath = "https://db-cbucalemu-b8965-default-rtdb.firebaseio.com/"
-            }
+            .AuthSecret = "N6kTJwGfYKq9AVH7i3yJ6aTk95ZXw8F3nY1aZFUy",
+            .BasePath = "https://db-cbucalemu-b8965-default-rtdb.firebaseio.com/"
+        }
 
             Dim client As New FireSharp.FirebaseClient(fcon)
 
-            ' Crea el campo a actualizar
+            ' Crear el campo a actualizar
             Dim datos As New Dictionary(Of String, Object) From {
-                {"Estado", "Atendido"} ' o "Visualizado"
-            }
+            {"Estado", "Atendido"}
+        }
 
-            ' Actualiza el nodo en Firebase
+            ' Actualizar el nodo en Firebase
             client.Update("Reportes/" & reporteId, datos)
 
             MsgBox("Reporte marcado como atendido.", MsgBoxStyle.Information, "Éxito")
@@ -151,6 +158,36 @@ Public Class GestionarReportes
 
         Catch ex As Exception
             MsgBox("Error al actualizar el reporte: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
+        ' Verificar que haya una fila seleccionada
+        If data_repo.SelectedRows.Count = 0 Then
+            MsgBox("Por favor seleccione un reporte para eliminar.", MsgBoxStyle.Exclamation, "Atención")
+            Return
+        End If
+
+        ' Confirmación de eliminación
+        Dim confirmacion = MsgBox("¿Estás seguro de que deseas eliminar este reporte?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Confirmar Eliminación")
+        If confirmacion = MsgBoxResult.No Then
+            Return
+        End If
+
+        ' Obtener el ID del reporte seleccionado
+        Dim reporteId As String = data_repo.SelectedRows(0).Cells("FirebaseID").Value.ToString()
+
+        Try
+            ' Eliminar de Firebase
+            Dim respuesta = client.Delete("Reportes/" & reporteId)
+
+            ' Eliminar la fila del DataGridView
+            data_repo.Rows.RemoveAt(data_repo.SelectedRows(0).Index)
+
+            MsgBox("Reporte eliminado correctamente.", MsgBoxStyle.Information, "Éxito")
+            CargarReportes()
+        Catch ex As Exception
+            MsgBox("Error al eliminar el reporte: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 End Class

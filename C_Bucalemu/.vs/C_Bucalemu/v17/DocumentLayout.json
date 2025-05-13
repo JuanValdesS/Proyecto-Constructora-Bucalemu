@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:autorizar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\gestionarreportes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:gestionarreportes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|c:\\users\\diego\\onedrive\\documents\\proyecto-constructora-bucalemu\\c_bucalemu\\gestionarreportes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{29786F35-7892-4C88-A314-F28F6AEB3CD0}|C_Bucalemu.vbproj|solutionrelative:gestionarreportes.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,20 +38,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "GestionarReportes.vb",
+              "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\GestionarReportes.vb",
+              "RelativeDocumentMoniker": "GestionarReportes.vb",
+              "ToolTip": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\GestionarReportes.vb",
+              "RelativeToolTip": "GestionarReportes.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-12T23:46:54.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GestionarReportes.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\GestionarReportes.vb",
+              "RelativeDocumentMoniker": "GestionarReportes.vb",
+              "ToolTip": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\GestionarReportes.vb [Dise\u00F1o]",
+              "RelativeToolTip": "GestionarReportes.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-12T23:46:52.794Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Autorizar.vb",
               "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
               "RelativeDocumentMoniker": "Autorizar.vb",
               "ToolTip": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
               "RelativeToolTip": "Autorizar.vb",
-              "ViewState": "AgIAAKQAAAAAAAAAAAAwwM4AAABvAAAAAAAAAA==",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAwwM4AAABvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-05T06:39:29.772Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Autorizar.vb [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\diego\\OneDrive\\Documents\\Proyecto-Constructora-Bucalemu\\C_Bucalemu\\Autorizar.vb",
               "RelativeDocumentMoniker": "Autorizar.vb",
